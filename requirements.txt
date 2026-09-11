@@ -1,0 +1,17 @@
+# Pinned to what's installed in this project's myenv virtualenv, verified working with
+# modules/preprocessing.py, modules/split.py, modules/modeling.py, and main.ipynb.
+#
+# macOS only: lightgbm's compiled library needs the OpenMP runtime, which pip does not
+# install. Run this once before `pip install -r requirements.txt`:
+#   brew install libomp
+#
+# Install with: pip install -r requirements.txt
+
+pandas==3.0.5
+numpy==2.5.2
+scipy==1.18.0
+scikit-learn==1.9.0
+seaborn==0.13.2
+matplotlib==3.11.1
+lightgbm==4.7.0
+xgboost==3.4.1
