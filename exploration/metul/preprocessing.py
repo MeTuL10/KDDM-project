@@ -115,7 +115,7 @@ def _add_hdb_features(frame, hdb_df):
 
     lookup = hdb.drop_duplicates(["BLOCK_KEY", "STREET_KEY"])
     result = result.merge(
-        lookup[["BLOCK_KEY", "STREET_KEY", *HDB_VALUES]],
+        lookup[["BLOCK_KEY", "STREET_KEY", *HDB_VALUES, "REGION"]],
         on=["BLOCK_KEY", "STREET_KEY"],
         how="left",
     )
@@ -128,6 +128,13 @@ def _add_hdb_features(frame, hdb_df):
         street_fill = pd.Series(street_index.map(street_medians[column]), index=result.index)
         result[column] = result[column].fillna(street_fill)
         result[column] = result[column].fillna(result["TOWN_KEY"].map(town_medians[column]))
+
+    # Region is categorical; use the town's most common HDB region only if an
+    # exact normalized block/street match did not supply one.
+    town_regions = hdb.groupby("TOWN_KEY")["REGION"].agg(
+        lambda values: values.mode().iloc[0] if not values.mode().empty else np.nan
+    )
+    result["REGION"] = result["REGION"].fillna(result["TOWN_KEY"].map(town_regions))
 
     return result.drop(columns=["BLOCK_KEY", "STREET_KEY", "TOWN_KEY"])
 
@@ -207,4 +214,3 @@ def preprocess_train_test(data_dir=None):
     train = preprocess_frame(datasets["train"], datasets)
     test = preprocess_frame(datasets["test"], datasets)
     return data_dir, datasets, train, test
-
