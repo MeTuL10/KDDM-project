@@ -102,41 +102,92 @@ def _add_base_features(frame):
     return result
 
 
-def _add_hdb_features(frame, hdb_df):
-    result = frame.copy()
-    result["BLOCK_KEY"] = normalize_key(result["BLOCK"])
-    result["STREET_KEY"] = normalize_key(result["STREET"])
-    result["TOWN_KEY"] = normalize_key(result["TOWN"])
+class RentalPreprocessor:
+    """Feature preprocessor whose learned fallbacks are fit on training rows only."""
 
-    hdb = hdb_df.copy()
-    hdb["BLOCK_KEY"] = normalize_key(hdb["BLOCK"])
-    hdb["STREET_KEY"] = normalize_key(hdb["STREET"])
-    hdb["TOWN_KEY"] = normalize_key(hdb["TOWN"])
+    def __init__(self, datasets):
+        self.datasets = datasets
+        self._is_fitted = False
 
-    lookup = hdb.drop_duplicates(["BLOCK_KEY", "STREET_KEY"])
-    result = result.merge(
-        lookup[["BLOCK_KEY", "STREET_KEY", *HDB_VALUES, "REGION"]],
-        on=["BLOCK_KEY", "STREET_KEY"],
-        how="left",
-    )
+        hdb = datasets["hdb"].copy()
+        hdb["BLOCK_KEY"] = normalize_key(hdb["BLOCK"])
+        hdb["STREET_KEY"] = normalize_key(hdb["STREET"])
+        hdb["TOWN_KEY"] = normalize_key(hdb["TOWN"])
+        self.hdb_lookup_ = hdb.drop_duplicates(["BLOCK_KEY", "STREET_KEY"])[
+            ["BLOCK_KEY", "STREET_KEY", *HDB_VALUES, "REGION"]
+        ]
 
-    street_medians = hdb.groupby(["TOWN_KEY", "STREET_KEY"])[HDB_VALUES].median()
-    town_medians = hdb.groupby("TOWN_KEY")[HDB_VALUES].median()
-    street_index = pd.MultiIndex.from_arrays([result["TOWN_KEY"], result["STREET_KEY"]])
+    @staticmethod
+    def _mode_or_nan(values):
+        modes = values.dropna().mode()
+        return modes.iloc[0] if not modes.empty else np.nan
 
-    for column in HDB_VALUES:
-        street_fill = pd.Series(street_index.map(street_medians[column]), index=result.index)
-        result[column] = result[column].fillna(street_fill)
-        result[column] = result[column].fillna(result["TOWN_KEY"].map(town_medians[column]))
+    def _merge_hdb_lookup(self, frame):
+        result = frame.copy()
+        result["BLOCK_KEY"] = normalize_key(result["BLOCK"])
+        result["STREET_KEY"] = normalize_key(result["STREET"])
+        result["TOWN_KEY"] = normalize_key(result["TOWN"])
+        return result.merge(
+            self.hdb_lookup_, on=["BLOCK_KEY", "STREET_KEY"], how="left"
+        )
 
-    # Region is categorical; use the town's most common HDB region only if an
-    # exact normalized block/street match did not supply one.
-    town_regions = hdb.groupby("TOWN_KEY")["REGION"].agg(
-        lambda values: values.mode().iloc[0] if not values.mode().empty else np.nan
-    )
-    result["REGION"] = result["REGION"].fillna(result["TOWN_KEY"].map(town_regions))
+    def fit(self, train_frame):
+        """Learn HDB fallback statistics from the training partition only."""
+        train = self._merge_hdb_lookup(_add_base_features(train_frame))
+        # Freeze exact block/street attributes to locations encountered during
+        # fitting. Transform never consults validation or test rows to create a
+        # new lookup entry; unseen locations fall through to the train-derived
+        # street, town, and global fallback statistics below.
+        self.hdb_lookup_ = train[
+            ["BLOCK_KEY", "STREET_KEY", *HDB_VALUES, "REGION"]
+        ].drop_duplicates(["BLOCK_KEY", "STREET_KEY"])
+        self.street_medians_ = train.groupby(
+            ["TOWN_KEY", "STREET_KEY"]
+        )[HDB_VALUES].median()
+        self.town_medians_ = train.groupby("TOWN_KEY")[HDB_VALUES].median()
+        self.global_medians_ = train[HDB_VALUES].median()
+        self.town_regions_ = train.groupby("TOWN_KEY")["REGION"].agg(
+            self._mode_or_nan
+        )
+        self.global_region_ = self._mode_or_nan(train["REGION"])
+        self._is_fitted = True
+        return self
 
-    return result.drop(columns=["BLOCK_KEY", "STREET_KEY", "TOWN_KEY"])
+    def _add_hdb_features(self, frame):
+        if not self._is_fitted:
+            raise RuntimeError("Call fit() before transform().")
+
+        result = self._merge_hdb_lookup(_add_base_features(frame))
+        street_index = pd.MultiIndex.from_arrays(
+            [result["TOWN_KEY"], result["STREET_KEY"]]
+        )
+
+        for column in HDB_VALUES:
+            street_fill = pd.Series(
+                street_index.map(self.street_medians_[column]), index=result.index
+            )
+            result[column] = result[column].fillna(street_fill)
+            result[column] = result[column].fillna(
+                result["TOWN_KEY"].map(self.town_medians_[column])
+            )
+            result[column] = result[column].fillna(self.global_medians_[column])
+
+        result["REGION"] = result["REGION"].fillna(
+            result["TOWN_KEY"].map(self.town_regions_)
+        )
+        result["REGION"] = result["REGION"].fillna(self.global_region_)
+        return result.drop(columns=["BLOCK_KEY", "STREET_KEY", "TOWN_KEY"])
+
+    def transform(self, frame):
+        """Transform a validation or test partition without learning from it."""
+        result = self._add_hdb_features(frame)
+        result = _add_spatial_features(
+            result, self.datasets["mrt"], self.datasets["malls"], self.datasets["schools"]
+        )
+        return _add_temporal_features(result, self.datasets["coe"], self.datasets["stock"])
+
+    def fit_transform(self, train_frame):
+        return self.fit(train_frame).transform(train_frame)
 
 
 def _proximity_features(facility_df, location_coords_km, prefix):
@@ -200,17 +251,26 @@ def _add_temporal_features(frame, coe_df, stock_df):
     ).drop(columns=["YEAR", "month_num"])
 
 
-def preprocess_frame(frame, datasets):
-    """Apply the same feature engineering to a train or test frame."""
-    result = _add_base_features(frame)
-    result = _add_hdb_features(result, datasets["hdb"])
-    result = _add_spatial_features(result, datasets["mrt"], datasets["malls"], datasets["schools"])
-    return _add_temporal_features(result, datasets["coe"], datasets["stock"])
+def preprocess_frame(frame, datasets, preprocessor=None, fit=False):
+    """Transform one frame with a fitted preprocessor.
+
+    Set ``fit=True`` only for the training partition. Validation and test frames
+    must be passed with the same fitted ``preprocessor`` and ``fit=False``.
+    """
+    if preprocessor is None:
+        preprocessor = RentalPreprocessor(datasets)
+        if not fit:
+            raise ValueError(
+                "A fitted preprocessor is required for transform-only calls. "
+                "Use preprocessor.fit_transform(train) first."
+            )
+    return preprocessor.fit_transform(frame) if fit else preprocessor.transform(frame)
 
 
 def preprocess_train_test(data_dir=None):
     """Load all CSVs and return data path, datasets, joined train, and joined test."""
     data_dir, datasets = load_datasets(data_dir)
-    train = preprocess_frame(datasets["train"], datasets)
-    test = preprocess_frame(datasets["test"], datasets)
+    preprocessor = RentalPreprocessor(datasets)
+    train = preprocessor.fit_transform(datasets["train"])
+    test = preprocessor.transform(datasets["test"])
     return data_dir, datasets, train, test
