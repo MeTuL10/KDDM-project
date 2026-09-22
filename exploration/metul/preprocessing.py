@@ -22,6 +22,15 @@ REQUIRED_FILES = [
 HDB_VALUES = ["LATITUDE", "LONGITUDE", "MAX_FLOOR", "YEAR_COMPLETED"]
 LAT_SCALE = 111.0
 LON_SCALE = 110.96
+RENTAL_CATEGORICAL_COLUMNS = [
+    "TOWN", "BLOCK", "STREET", "FLAT_TYPE", "FLAT_MODEL", "FURNISHED",
+]
+HDB_CATEGORICAL_COLUMNS = [
+    "TOWN", "BLOCK", "STREET", "POSTAL_CODE", "SUBZONE", "PLANNING_AREA", "REGION",
+]
+CATEGORICAL_CLEANING_DESCRIPTION = (
+    "lowercase, trim, collapse whitespace, and replace hyphen/underscore/slash separators with spaces"
+)
 
 
 def _complete_data_dir(path):
@@ -81,12 +90,56 @@ def load_datasets(data_dir=None):
     return data_dir, datasets
 
 
+def categorical_clean(data, columns=None, *, context="categorical features", log=True):
+    """Standardise categorical strings without fitting or restricting a category vocabulary.
+
+    Values are lowercased, trimmed, whitespace-normalised, and have common
+    separators folded to a space. Missing values remain missing, and unseen
+    test categories remain present as their cleaned string values.
+    """
+    if isinstance(data, pd.Series):
+        name = data.name if data.name is not None else "value"
+        cleaned = categorical_clean(
+            data.to_frame(name=name), columns=[name], context=context, log=log
+        )
+        return cleaned[name]
+
+    result = data.copy()
+    selected_columns = columns if columns is not None else result.columns
+    for column in selected_columns:
+        if column not in result.columns:
+            continue
+
+        values = result[column]
+        before_unique = values.nunique(dropna=False)
+        missing_count = values.isna().sum()
+        cleaned = values.astype("string")
+        cleaned = cleaned.str.lower().str.strip()
+        cleaned = cleaned.str.replace(r"[-_/]+", " ", regex=True)
+        cleaned = cleaned.str.replace(r"\s+", " ", regex=True).str.strip()
+        result[column] = cleaned
+        after_unique = result[column].nunique(dropna=False)
+
+        if len(result[column]) != len(values) or result[column].isna().sum() != missing_count:
+            raise RuntimeError(f"Categorical cleaning changed row or missing-value count for {column}.")
+        if log:
+            print(
+                f"[categorical_clean] {context} | {column}: "
+                f"{before_unique} -> {after_unique} unique values | "
+                f"{CATEGORICAL_CLEANING_DESCRIPTION}"
+            )
+    return result
+
+
 def normalize_key(series):
-    return series.astype(str).str.strip().str.lower().str.replace(r"\s+", " ", regex=True)
+    """Return the shared categorical-cleaned representation for lookup keys."""
+    return categorical_clean(series, context="lookup key", log=False)
 
 
 def _add_base_features(frame):
-    result = frame.copy()
+    result = categorical_clean(
+        frame, columns=RENTAL_CATEGORICAL_COLUMNS, context="rental input"
+    )
     approval_parts = result["RENT_APPROVAL_DATE"].str.split("-", expand=True)
     result["approval_year"] = approval_parts[0].astype(int)
     result["approval_month"] = approval_parts[1].astype(int)
@@ -97,9 +150,14 @@ def _add_base_features(frame):
         "1-room": 1, "1 room": 1, "2-room": 2, "2 room": 2,
         "3-room": 3, "3 room": 3, "4-room": 4, "4 room": 4,
         "5-room": 5, "5 room": 5, "executive": 6, "multi-generation": 7,
+        "multi generation": 7,
     }
     result["flat_type_num"] = result["FLAT_TYPE"].str.lower().map(flat_type_order)
-    return result
+
+    # Verified constant in the supplied training data: FURNISHED is always
+    # "yes" and FEE is always 0. AutoGluon consequently drops both columns as
+    # useless; remove them here so every downstream model sees the same schema.
+    return result.drop(columns=["FURNISHED", "FEE"], errors="ignore")
 
 
 class RentalPreprocessor:
@@ -109,7 +167,9 @@ class RentalPreprocessor:
         self.datasets = datasets
         self._is_fitted = False
 
-        hdb = datasets["hdb"].copy()
+        hdb = categorical_clean(
+            datasets["hdb"], columns=HDB_CATEGORICAL_COLUMNS, context="HDB lookup"
+        )
         hdb["BLOCK_KEY"] = normalize_key(hdb["BLOCK"])
         hdb["STREET_KEY"] = normalize_key(hdb["STREET"])
         hdb["TOWN_KEY"] = normalize_key(hdb["TOWN"])
@@ -176,6 +236,9 @@ class RentalPreprocessor:
             result["TOWN_KEY"].map(self.town_regions_)
         )
         result["REGION"] = result["REGION"].fillna(self.global_region_)
+        result = categorical_clean(
+            result, columns=["REGION"], context="derived HDB feature"
+        )
         return result.drop(columns=["BLOCK_KEY", "STREET_KEY", "TOWN_KEY"])
 
     def transform(self, frame):
