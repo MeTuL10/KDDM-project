@@ -1,0 +1,1931 @@
+{
+	"type" : "FeatureCollection",
+	"name" : "MONUMENTS",
+	"features" : [
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8476973332624, 1.2812016664770773 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1674,
+				"ADDRESSBLOCKHOUSENUMBER" : "150",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "068608",
+				"ADDRESSSTREETNAME" : "Telok Ayer Street",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-keng-teck-whay-building",
+				"LANDXADDRESSPOINT" : 29600.2381,
+				"LANDYADDRESSPOINT" : 29294.2953,
+				"NAME" : "Former Keng Teck Whay Building",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/015-former-keng-teck-whay-building/former-keng-teck-whay-building.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "7476BDA236155129",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Once home to one of Singapore's oldest self-help organisations, the Former Keng Teck Whay Building is situated next to Thian Hock Keng."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84896999996084, 1.2762010002802695 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1675,
+				"ADDRESSBLOCKHOUSENUMBER" : "7",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "068810",
+				"ADDRESSSTREETNAME" : "Shenton Way",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-singapore-conference-hall-and-trade-union-house-now-singapore-conference-hall",
+				"LANDXADDRESSPOINT" : 29741.8789,
+				"LANDYADDRESSPOINT" : 28741.3483,
+				"NAME" : "Former Singapore Conference Hall and Trade Union House (now Singapore Conference Hall)",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/008-former-singapore-conference-hall-and-trade-union-house/former-singapore-conference-hall-and-trade-union-house-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "1747F9F5BFABA189",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The Former Singapore Conference Hall and Trade Union House was constructed to house the headquarters of the National Trades Union Congress (NTUC) as the fulfilment of an election promise."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.81513118540376, 1.3047897795133838 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1676,
+				"ADDRESSBLOCKHOUSENUMBER" : null,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "248818",
+				"ADDRESSSTREETNAME" : "Minden Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/saint-georges-church",
+				"LANDXADDRESSPOINT" : 25975.91,
+				"LANDYADDRESSPOINT" : 31902.55,
+				"NAME" : "St. George's Church",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/054-st-georges-church/st-georges-church-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "405AA70F11A9F99A",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Saint George's Church is situated in the quiet environs off Minden Road, a short distance from the bustling shopping district of Orchard Road."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85315206026344, 1.2983581965201652 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1677,
+				"ADDRESSBLOCKHOUSENUMBER" : "143",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "188020",
+				"ADDRESSSTREETNAME" : "Victoria Street",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/st-josephs-church",
+				"LANDXADDRESSPOINT" : 30207.29,
+				"LANDYADDRESSPOINT" : 31191.38,
+				"NAME" : "St Joseph's Church",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/019-st-josephs-church/st-josephs-church.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "7B4382B0911B860A",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Saint Joseph's Church on Victoria Street was the headquarters of the Portuguese Mission in Singapore."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84926064831433, 1.28458122083921 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1678,
+				"ADDRESSBLOCKHOUSENUMBER" : "30-B",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "048696",
+				"ADDRESSSTREETNAME" : "Philip Street",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/yueh-hai-ching-temple",
+				"LANDXADDRESSPOINT" : 29774.22,
+				"LANDYADDRESSPOINT" : 29667.99,
+				"NAME" : "Yueh Hai Ching Temple",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/037-yueh-hai-ching-temple/yueh-hai-ching-temple-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "F0B1DCD5FF1F4049",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Dwarfed by modern skyscrapers in the heart of the Central Business District is one of Singapore's oldest Chinese temples, Yueh Hai Ching Temple."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84715337144394, 1.28050164311391 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1679,
+				"ADDRESSBLOCKHOUSENUMBER" : "192",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "068635",
+				"ADDRESSSTREETNAME" : "Telok Ayer Street",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/al-abrar-mosque",
+				"LANDXADDRESSPOINT" : 29539.7,
+				"LANDYADDRESSPOINT" : 29216.89,
+				"NAME" : "Al-Abrar Mosque",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/058-al-abrar-mosque/al-abrar-mosque-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "2AC35AEA173A271D",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Located on Telok Ayer Street, a short walk from Thian Hock Keng, the Former Keng Teck Whay Building, and the Former Nagore Dargah, Al-Abrar Mosque is one of Singapore's oldest mosques."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.83417668340371, 1.2808457913223856 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1680,
+				"ADDRESSBLOCKHOUSENUMBER" : "16",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "169854",
+				"ADDRESSSTREETNAME" : "College Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/college-of-medicine-building",
+				"LANDXADDRESSPOINT" : 28095.5,
+				"LANDYADDRESSPOINT" : 29254.94,
+				"NAME" : "College of Medicine Building",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/025-college-of-medicine-building/college-of-medicine-building-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "0129D7518EEB7075",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The College of Medicine Building is located at the rear of the Singapore General Hospital's compound, next to Tan Teck Guan Building."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84533788768044, 1.2832003676514325 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1681,
+				"ADDRESSBLOCKHOUSENUMBER" : "18",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "058767",
+				"ADDRESSSTREETNAME" : "South Bridge Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/jamae-mosque",
+				"LANDXADDRESSPOINT" : 29337.65,
+				"LANDYADDRESSPOINT" : 29515.3,
+				"NAME" : "Jamae Mosque",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/062-jamae-mosque/jamae-mosque-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "B74CBCB053C85FC7",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Like the nearby Sri Mariamman Temple, Jamae Mosque has been a familiar landmark on South Bridge Road since the mid-nineteenth century."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8461263459043, 1.2992086163296368 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1682,
+				"ADDRESSBLOCKHOUSENUMBER" : "40A",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "238838",
+				"ADDRESSSTREETNAME" : "Orchard Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/macdonald-house",
+				"LANDXADDRESSPOINT" : 29425.39,
+				"LANDYADDRESSPOINT" : 31285.41,
+				"NAME" : "MacDonald House",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/023-macdonald-house/macdonald-house-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "E3B5AAA4BA70D481",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Located not far from the Istana and the Former Cathay Building, MacDonald House has a relatively plain and unadorned facade that does not appear to be exceptionally striking."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8573425476834, 1.3303449034858705 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1683,
+				"ADDRESSBLOCKHOUSENUMBER" : "184-E",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "319941",
+				"ADDRESSSTREETNAME" : "Jalan Toa Payoh",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-siong-lim-temple-now-lian-shan-shuang-lin-monastery",
+				"LANDXADDRESSPOINT" : 30673.62,
+				"LANDYADDRESSPOINT" : 34728.31,
+				"NAME" : "Former Siong Lim Temple (now Lian Shan Shuang Lin Monastery)",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/052-former-siong-lim-temple/lian-shan-shuang-lin-monastery-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "D518A3FA2413AE55",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The traditional architecture of Lian Shan Shuang Lin Monastery - or 'Twin Grove Monastery on Lotus Hill' - stands out amidst the modern high-rise apartment blocks in the Toa Payoh neighbourhood."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84780131265914, 1.281457101043226 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1671,
+				"ADDRESSBLOCKHOUSENUMBER" : "140",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "068604",
+				"ADDRESSSTREETNAME" : "Telok Ayer Street",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-nagore-dargah",
+				"LANDXADDRESSPOINT" : 29611.81,
+				"LANDYADDRESSPOINT" : 29322.54,
+				"NAME" : "Former Nagore Dargah",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/059-former-nagore-dargah/former-nagore-dargah-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "65E7F61DB63DA6A3",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The Former Nagore Dargah is situated on the historic Telok Ayer Street, a short distance from Telok Ayer Chinese Methodist Church, Al-Abrar Mosque and Thian Hock Keng."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85110969234792, 1.301714218984401 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1672,
+				"ADDRESSBLOCKHOUSENUMBER" : "77",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "188649",
+				"ADDRESSSTREETNAME" : "Prinsep Street",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/prinsep-street-presbyterian-church",
+				"LANDXADDRESSPOINT" : 29979.99,
+				"LANDYADDRESSPOINT" : 31562.47,
+				"NAME" : "Prinsep Street Presbyterian Church",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/027-prinsep-street-presbyterian-church/prinsep-street-presbyterian-church-02.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "861D8EF077F69705",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Prinsep Street Presbyterian Church is one of Singapore's oldest Presbyterian churches."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84699135429076, 1.278473605647305 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1673,
+				"ADDRESSBLOCKHOUSENUMBER" : "235",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "068656",
+				"ADDRESSSTREETNAME" : "Telok Ayer Street",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/telok-ayer-chinese-methodist-church",
+				"LANDXADDRESSPOINT" : 29521.67,
+				"LANDYADDRESSPOINT" : 28992.64,
+				"NAME" : "Telok Ayer Chinese Methodist Church",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/050-telok-ayer-chinese-methodist-church/telok-ayer-chinese-methodist-church-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "17FAE124BE1CCBA7",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Originally known as the Chinese Methodist Church, Telok Ayer Chinese Methodist Church was the first church established to cater exclusively to the spiritual needs of the Chinese Methodist community."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.80651436092533, 1.2907446465276506 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1684,
+				"ADDRESSBLOCKHOUSENUMBER" : null,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "099981",
+				"ADDRESSSTREETNAME" : "Siloso Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/fort-siloso",
+				"LANDXADDRESSPOINT" : 25016.92,
+				"LANDYADDRESSPOINT" : 30349.52,
+				"NAME" : "Fort Siloso",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/072-Fort-Siloso/Battery-Command-Post.jpg",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "BEA38C9E57B54F49",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Fort Siloso was one of the many coastal fortifications built around the 19th century by the British and remains the most intact fortification in Singapore."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85304507323812, 1.2905565136390276 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1685,
+				"ADDRESSBLOCKHOUSENUMBER" : null,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "179861",
+				"ADDRESSSTREETNAME" : "Connaught Drive",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/the-padang",
+				"LANDXADDRESSPOINT" : 30195.39,
+				"LANDYADDRESSPOINT" : 30328.71,
+				"NAME" : "The Padang",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/the-padang/Padang-Facing-CBD.jpg",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "11BD1CE3B13911A3",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The Padang is one of the oldest open spaces in Singapore for public recreation and a commemorative space for people to gather, witness and participate in key milestones of Singapore�s history."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84928263094476, 1.3082520647971676 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1686,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "219428",
+				"ADDRESSSTREETNAME" : "Hampshire Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/Former-Kandang-Kerbau-Hospital-KKH",
+				"LANDXADDRESSPOINT" : 29776.65,
+				"LANDYADDRESSPOINT" : 32285.39,
+				"NAME" : "Former Kandang Kerbau Hospital",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/Kandang-Kerbau-Hospital/1-Full-Facade-of-Block-1-Finbarr-Fallon.jpg",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "1F770924F77409AC",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Built between the 1930s-1950s, these blocks are representative buildings of the former KKH and showcase the hospital�s instrumental role in advancing midwifery, maternal, and gynaecological care in Singapore."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84105360826453, 1.2980788141024342 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1687,
+				"ADDRESSBLOCKHOUSENUMBER" : "38",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "238629",
+				"ADDRESSSTREETNAME" : "Oxley Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/38-Oxley-Road",
+				"LANDXADDRESSPOINT" : 28860.84,
+				"LANDYADDRESSPOINT" : 31160.48,
+				"NAME" : "38 Oxley Road",
+				"PHOTOURL" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "355731C660C6CE6C",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The site at 38 Oxley Road bore witness to pivotal events in the 1950s that marked Singapore�s transition from a colony to an independent nation."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.859364099689, 1.302540103108938 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1688,
+				"ADDRESSBLOCKHOUSENUMBER" : "3",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "198833",
+				"ADDRESSSTREETNAME" : "Muscat Street",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/sultan-mosque",
+				"LANDXADDRESSPOINT" : 30898.63,
+				"LANDYADDRESSPOINT" : 31653.8,
+				"NAME" : "Sultan Mosque",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/057-sultan-mosque/sultan-mosque-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "E69AA8F42C31C171",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Formerly the royal mosque of the Sultan of Johor, Sultan Mosque represents the solidarity and unity of Muslims in Singapore."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85142237581779, 1.2875698609030537 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1689,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "179555",
+				"ADDRESSSTREETNAME" : "Empress Place",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-empress-place-building-now-asian-civilisations-museum",
+				"LANDXADDRESSPOINT" : 30014.8,
+				"LANDYADDRESSPOINT" : 29998.46,
+				"NAME" : "Former Empress Place Building (now Asian Civilisations Museum)",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/042-former-empress-place-building/former-empress-place-building.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "E1016E87BCB06339",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Situated at the mouth of the Singapore River, the Former Empress Place Building was an important government building in Singapore up to the 1980s."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.83412682300731, 1.308122158468248 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1690,
+				"ADDRESSBLOCKHOUSENUMBER" : "22",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "228221",
+				"ADDRESSSTREETNAME" : "Scotts Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/goodwood-park-hotel-tower-block",
+				"LANDXADDRESSPOINT" : 28089.95,
+				"LANDYADDRESSPOINT" : 32271.02,
+				"NAME" : "Goodwood Park Hotel (Tower Block)",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/049-goodwood-park-hotel/goodwood-park-hotel-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "A680C8F4A0968F72",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The Tower Wing of the present-day Goodwood Park Hotel was home to the German Teutonia Club, one of the earliest European national clubs in Singapore."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.83333008062506, 1.280550064126473 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1691,
+				"ADDRESSBLOCKHOUSENUMBER" : "16A",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "169855",
+				"ADDRESSSTREETNAME" : "College Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/tan-teck-guan-building",
+				"LANDXADDRESSPOINT" : 28001.28,
+				"LANDYADDRESSPOINT" : 29222.24,
+				"NAME" : "Tan Teck Guan Building",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/024-tan-teck-guan-building/tan-teck-guan-building-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "BF2C6CCA9885A8CB",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Standing beside the College of Medicine Building is a smaller, two-storey building known as Tan Teck Guan Building."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.96962833306664, 1.356417665925142 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1692,
+				"ADDRESSBLOCKHOUSENUMBER" : null,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : null,
+				"ADDRESSSTREETNAME" : "Upper Changi Road North",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/changi-prision-gate-wall-and-turrets",
+				"LANDXADDRESSPOINT" : 43169.7233,
+				"LANDYADDRESSPOINT" : 37611.7168,
+				"NAME" : "Changi Prison Gate Wall and Turrets",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/071-changi-prison-gate-wall-turrets/cp-entrance-gate-and-wall.jpg",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "C7448254D59BA00C",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Changi Prison was designed to be a maximum security prison to house up to 600 criminals sentenced to long-term imprisonment in British Singapore."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8510509997571, 1.2972590002411704 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1693,
+				"ADDRESSBLOCKHOUSENUMBER" : "71",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "189555",
+				"ADDRESSSTREETNAME" : "Bras Basah Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-saint-josephs-institution-now-singapore-art-museum",
+				"LANDXADDRESSPOINT" : 29973.4615,
+				"LANDYADDRESSPOINT" : 31069.8348,
+				"NAME" : "Former Saint Joseph's Institution (now Singapore Art Museum)",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/041-former-saint-josephs-institution/former-saint-josephs-institution-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "7D726E8BE4996B67",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Saint Joseph's Institution is the oldest Catholic boys' school in Singapore and was founded by the Christian Brothers (formally known as the Institute of the Brothers of the Christian Schools)"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85083300035039, 1.2891169999643601 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1694,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "178880",
+				"ADDRESSSTREETNAME" : "Parliament Place",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-attorney-generals-chambers-now-parliament-house-block-c",
+				"LANDXADDRESSPOINT" : 29949.2063,
+				"LANDYADDRESSPOINT" : 30169.5342,
+				"NAME" : "Former Attorney-Generals Chambers (now Parliament House Block C)",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/040-former-attorney-generals-chambers/former-attorney-generals-chambers-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "79C5C192199A73A2",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Tucked away in a corner near the Padang is a beautiful structure that once housed the Attorney-General's Chambers."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.68312400006556, 1.3483149997853183 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1695,
+				"ADDRESSBLOCKHOUSENUMBER" : null,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : null,
+				"ADDRESSSTREETNAME" : "Nanyang Drive",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-nanyang-university-library-and-administration-building-memorial-and-arch",
+				"LANDXADDRESSPOINT" : 11284.995,
+				"LANDYADDRESSPOINT" : 36715.8539,
+				"NAME" : "Former Nanyang University Library and Administration Building, Memorial and Arch",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/029-former-nanyang-university-library-and-administration-building-memorial-and-arch/nanyang-university-library.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "221F00FEC0918484",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Nanyang University, affectionately known as Nantah, was the first Chinese-language university in Southeast Asia and the second university in Singapore."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.89821773182526, 1.3736259306018634 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1696,
+				"ADDRESSBLOCKHOUSENUMBER" : "1259",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "534795",
+				"ADDRESSSTREETNAME" : "Upper Serangoon Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/church-of-the-nativity-of-the-blessed-virgin-mary",
+				"LANDXADDRESSPOINT" : 35222.48,
+				"LANDYADDRESSPOINT" : 39514.19,
+				"NAME" : "Church of the Nativity of the Blessed Virgin Mary",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/018-church-of-the-nativity-of-the-blessed-virgin-mary/church-of-the-nativity-of-the-blessed-virgin-mary-1.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "E422BB1952D69E4A",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The Church of the Nativity of the Blessed Virgin Mary is one of the earliest Catholic churches built in the suburbs of Singapore."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8521599569877, 1.2955943749603216 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1697,
+				"ADDRESSBLOCKHOUSENUMBER" : "30",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "187996",
+				"ADDRESSSTREETNAME" : "Victoria Street",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-convent-of-the-holy-infant-jesus-chapel-and-caldwell-house-now-chijmes",
+				"LANDXADDRESSPOINT" : 30096.88,
+				"LANDYADDRESSPOINT" : 30885.77,
+				"NAME" : "Former Convent of the Holy Infant Jesus Chapel and Caldwell House (now CHIJMES)",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/048-former-convent-of-the-holy-infant-jesus-chapel-and-caldwell-house/former-chij-and-caldwell-house-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "54484D849600F17F",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Owing to its central location, the Convent of the Holy Infant Jesus was also affectionately referred to as the Town Convent in the past."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85369087659245, 1.3044845398007865 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1698,
+				"ADDRESSBLOCKHOUSENUMBER" : "41",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "209369",
+				"ADDRESSSTREETNAME" : "Dunlop Street",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/abdul-gafoor-mosque",
+				"LANDXADDRESSPOINT" : 30267.25,
+				"LANDYADDRESSPOINT" : 31868.8,
+				"NAME" : "Abdul Gafoor Mosque",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/053-abdul-gafoor-mosque/abdul-gafoor-mosque-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "5C367A880752AE13",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Abdul Gafoor Mosque's charming architecture stands out amidst the surrounding shophouses in the historic Little India district."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85126942669952, 1.2978799825745615 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1699,
+				"ADDRESSBLOCKHOUSENUMBER" : "225A",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "188551",
+				"ADDRESSSTREETNAME" : "Queen St",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/church-of-st-peter-and-st-paul",
+				"LANDXADDRESSPOINT" : 29997.77,
+				"LANDYADDRESSPOINT" : 31138.5,
+				"NAME" : "Church of Saints Peter and Paul",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/021-church-of-st-peter-and-st-paul/church-of-st-peter-and-st-paul-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "3BE49A6273D770B9",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The Church of Saints Peter and Paul is one of the oldest Catholic churches in Singapore that catered to a predominantly Chinese congregation."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.80142557547076, 1.325110804110583 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1700,
+				"ADDRESSBLOCKHOUSENUMBER" : "673",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "269735",
+				"ADDRESSSTREETNAME" : "Bukit Timah Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/chinese-high-school-clock-tower-building",
+				"LANDXADDRESSPOINT" : 24450.63,
+				"LANDYADDRESSPOINT" : 34149.56,
+				"NAME" : "Chinese High School Clock Tower",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/028-chinese-high-school-clock-tower-building/chinese-high-school-clock-tower-building-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "E240E6C4E5C38096",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The Chinese High School Clock Tower Building is the icon of the oldest Chinese-medium high school in Singapore and has been a visual landmark of Bukit Timah Road since its completion."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.86010699993928, 1.3024210003956707 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1701,
+				"ADDRESSBLOCKHOUSENUMBER" : "85",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "198501",
+				"ADDRESSSTREETNAME" : "Sultan Gate",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/istana-kampong-glam",
+				"LANDXADDRESSPOINT" : 30981.3082,
+				"LANDYADDRESSPOINT" : 31640.6311,
+				"NAME" : "Istana Kampong Gelam",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/001-istana-kampong-gelam/istana-kampong-gelam-06.jpg",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "3FBBE60E9074E3EB",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Within the historic district of Kampong Gelam lies Istana Kampong Gelam ('Gelam Village Palace')."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84266388653755, 1.2972569219022858 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1702,
+				"ADDRESSBLOCKHOUSENUMBER" : "2",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "238693",
+				"ADDRESSSTREETNAME" : "Oxley Rise",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/chesed-el-synagogue",
+				"LANDXADDRESSPOINT" : 29040.05,
+				"LANDYADDRESSPOINT" : 31069.6,
+				"NAME" : "Chesed-El Synagogue",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/031-chesed-el-synagogue/chesed-el-synagogue-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "FC80BF3E061A1C17",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Chesed-El Synagogue on Oxley Rise is one of two synagogues in Singapore, the other being Maghain Aboth Synagogue on Waterloo Street."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85183698638706, 1.290885802003507 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1703,
+				"ADDRESSBLOCKHOUSENUMBER" : "3",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "178958",
+				"ADDRESSSTREETNAME" : "St. Andrew's Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-city-hall",
+				"LANDXADDRESSPOINT" : 30060.94,
+				"LANDYADDRESSPOINT" : 30365.12,
+				"NAME" : "Former City Hall",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/047-former-city-hall/former-city-hall-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "C44F191FC7B24F84",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Located in the heart of the Civic District, the Former City Hall served as an important government office in Singapore."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.86286070489973, 1.3028889682096216 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1704,
+				"ADDRESSBLOCKHOUSENUMBER" : "4001",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "199584",
+				"ADDRESSSTREETNAME" : "Beach Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/hajjah-fatimah-mosque",
+				"LANDXADDRESSPOINT" : 31287.77,
+				"LANDYADDRESSPOINT" : 31692.38,
+				"NAME" : "Hajjah Fatimah Mosque",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/068-hajjah-fatimah-mosque/hajjah-fatimah-mosque-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "42BE4B2439CB1283",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Hajjah Fatimah Mosque is one of the oldest mosques in Singapore, a rare example of one named after a woman."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8512591262149, 1.2897474821603636 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1705,
+				"ADDRESSBLOCKHOUSENUMBER" : null,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "178957",
+				"ADDRESSSTREETNAME" : "St. Andrew's Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-supreme-court",
+				"LANDXADDRESSPOINT" : 29996.63,
+				"LANDYADDRESSPOINT" : 30239.25,
+				"NAME" : "Former Supreme Court",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/043-former-supreme-court/former-supreme-court-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "1A7CCABAF72A304A",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Amidst the colonial buildings and skyscrapers of the Civic District rises the copper-green dome of the Former Supreme Court."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85590317723995, 1.313328845518207 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1706,
+				"ADDRESSBLOCKHOUSENUMBER" : "397",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "218123",
+				"ADDRESSSTREETNAME" : "Serangoon Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/sri-srinivasa-perumal-temple",
+				"LANDXADDRESSPOINT" : 30513.45,
+				"LANDYADDRESSPOINT" : 32846.76,
+				"NAME" : "Sri Perumal Temple",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/055-sri-srinivasa-perumal-temple/sri-srinivasa-perumal-temple-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "7A5948C8614F7E7E",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Formerly known as Sri Narasimha Perumal Temple, Sri Srinivasa Perumal Temple is the first Hindu temple in Singapore dedicated to Sri Perumal, the Hindu deity more commonly known as Vishnu."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85123589801229, 1.2960316420757267 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1707,
+				"ADDRESSBLOCKHOUSENUMBER" : "A",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "188533",
+				"ADDRESSSTREETNAME" : "Queen Street",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/cathedral-of-the-good-shepherd",
+				"LANDXADDRESSPOINT" : 29994.04,
+				"LANDYADDRESSPOINT" : 30934.12,
+				"NAME" : "Cathedral of the Good Shepherd",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/065-cathedral-of-the-good-shepherd/cathedral-of-the-good-shepherd-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "708F913B18ADD60F",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The Cathedral of the Good Shepherd is Singapore's oldest Catholic place of worship and the seat of the local Roman Catholic archbishop."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.87035799997597, 1.3329380000360629 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1708,
+				"ADDRESSBLOCKHOUSENUMBER" : "66",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "348261",
+				"ADDRESSSTREETNAME" : "Pheng Geck Avenue",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/alkaff-upper-serangoon-mosque",
+				"LANDXADDRESSPOINT" : 32122.1015,
+				"LANDYADDRESSPOINT" : 35015.0593,
+				"NAME" : "Alkaff Upper Serangoon Mosque",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/003-alkaff-upper-serangoon-mosque/alkaff-upper-serangoon-mosque-02.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "3D266C65003A0D09",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Alkaff Upper Serangoon Mosque was constructed by the mercantile and landowning Alkaff family to serve the spiritual needs of the local Muslim community at large."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.74221099998927, 1.3289839999891182 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1709,
+				"ADDRESSBLOCKHOUSENUMBER" : "9",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "609431",
+				"ADDRESSSTREETNAME" : "Jurong Town Hall Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/jurong-town-hall",
+				"LANDXADDRESSPOINT" : 17860.6563,
+				"LANDYADDRESSPOINT" : 34578.0023,
+				"NAME" : "Jurong Town Hall",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/002-jurong-town-hall/01-jurong-town-hall.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "BE4D45BA971467ED",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "On a hill overlooking Jurong estate, Jurong Town Hall once served as the headquarters of Jurong Town Corporation (JTC, presently JTC Corporation)."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84329191771097, 1.3071305932147501 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1710,
+				"ADDRESSBLOCKHOUSENUMBER" : null,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "238823",
+				"ADDRESSSTREETNAME" : "Orchard Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/the-istana-and-sri-temasek",
+				"LANDXADDRESSPOINT" : 29109.94,
+				"LANDYADDRESSPOINT" : 32161.38,
+				"NAME" : "The Istana and Sri Temasek",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/039-the-istana-and-sri-temasek/the-istana-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "F6F08C55AB7CCDB6",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Shielded from the bustling Orchard Road by a sprawling green lung, the Istana ('Palace' in Malay) is the official residence of the President of the Republic of Singapore."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85042521861381, 1.2805382500408293 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1711,
+				"ADDRESSBLOCKHOUSENUMBER" : "18",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "048582",
+				"ADDRESSSTREETNAME" : "Raffles Quay",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-telok-ayer-market-now-known-as-lau-pa-sat",
+				"LANDXADDRESSPOINT" : 29903.83,
+				"LANDYADDRESSPOINT" : 29220.94,
+				"NAME" : "Former Telok Ayer Market (now known as Lau Pa Sat)",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/063-former-telok-ayer-market/former-telok-ayer-market-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "66467C430B7287BF",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Affectionately known as Lau Pa Sat ('Old Market') by generations of Singaporeans, the Former Telok Ayer Market was one of Singapore's oldest markets."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.843043840887, 1.2867423225694807 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1712,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "059724",
+				"ADDRESSSTREETNAME" : "Havelock Square",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-ministry-of-labour-building-now-family-justice-courts",
+				"LANDXADDRESSPOINT" : 29082.34,
+				"LANDYADDRESSPOINT" : 29906.95,
+				"NAME" : "Former Ministry of Labour Building (now Family Justice Courts)",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/035-former-ministry-of-labour-building/former-ministry-of-labour-building-now-family-justice-courts-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "2FD7F1916FCE0B80",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The Former Ministry of Labour Building is located not far away from the Former Thong Chai Medical Institution and Tan Si Chong Su."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84530562695502, 1.2825179340459818 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1713,
+				"ADDRESSBLOCKHOUSENUMBER" : "244",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "058793",
+				"ADDRESSSTREETNAME" : "South Bridge Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/sri-mariamman-temple",
+				"LANDXADDRESSPOINT" : 29334.06,
+				"LANDYADDRESSPOINT" : 29439.84,
+				"NAME" : "Sri Mariamman Temple",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/064-sri-mariamman-temple/sri-mariamman-temple-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "6AD79BB96EBEEAC1",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Together with Jamae Mosque, Sri Mariamman Temple - Singapore's oldest Hindu temple - is an enduring icon on South Bridge Road which is a part of Chinatown."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84748924833836, 1.281109555363418 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1714,
+				"ADDRESSBLOCKHOUSENUMBER" : "158",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "068613",
+				"ADDRESSSTREETNAME" : "Telok Ayer Street",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/thian-hock-keng",
+				"LANDXADDRESSPOINT" : 29577.08,
+				"LANDYADDRESSPOINT" : 29284.11,
+				"NAME" : "Thian Hock Keng",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/067-thian-hock-keng/thian-hock-keng-temple-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "F9E71B0671A88338",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Thian Hock Keng ('Palace of Heavenly Happiness') is one of Singapore's oldest Hokkien temples."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84319499983667, 1.294260999788581 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1715,
+				"ADDRESSBLOCKHOUSENUMBER" : "15",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "238065",
+				"ADDRESSSTREETNAME" : "Tank Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/sri-thendayuthapani-temple",
+				"LANDXADDRESSPOINT" : 29099.1595,
+				"LANDYADDRESSPOINT" : 30738.3266,
+				"NAME" : "Sri Thendayuthapani Temple",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/004-sri-thendayuthapani-temple/sri-thendayuthapani-temple-02.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "02F38E69305B5BE9",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Sri Thendayuthapani Temple, commonly referred to as the Chettiars' Temple, is one of Singapore's oldest Hindu temples dedicated to Murugan, the Hindu deity who is also known as Sri Thendayuthapani."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85219272866941, 1.292188356015344 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1716,
+				"ADDRESSBLOCKHOUSENUMBER" : "11",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "178959",
+				"ADDRESSSTREETNAME" : "St. Andrew's Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/saint-andrews-cathedral",
+				"LANDXADDRESSPOINT" : 30100.53,
+				"LANDYADDRESSPOINT" : 30509.15,
+				"NAME" : "St. Andrew's Cathedral",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/070-saint-andrews-cathedral/st-andrews-cathedral-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "F0D0C3BD9B6BB85F",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Saint Andrew's Cathedral is Singapore's oldest surviving Anglican place of worship and is the seat of the Anglican bishop of Singapore."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84292003082143, 1.2890955708859049 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1717,
+				"ADDRESSBLOCKHOUSENUMBER" : "15",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "059568",
+				"ADDRESSSTREETNAME" : "Magazine Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/tan-si-chong-su",
+				"LANDXADDRESSPOINT" : 29068.56,
+				"LANDYADDRESSPOINT" : 30167.16,
+				"NAME" : "Tan Si Chong Su",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/061-tan-si-chong-su/tan-si-chong-su-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "0F671B4C260B408D",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The history of Tan Si Chong Su ('Ancestral Hall of the Tan Clan') is inextricably linked to the influx of Chinese immigrants into Singapore during the late nineteenth century."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85306333244753, 1.286344665811098 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1718,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "049178",
+				"ADDRESSSTREETNAME" : "Fullerton Square",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-fullerton-building",
+				"LANDXADDRESSPOINT" : 30197.4257,
+				"LANDYADDRESSPOINT" : 29862.9856,
+				"NAME" : "Former Fullerton Building",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/000-former-fullerton-building/01-former-fullerton-building.jpg",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "7A1DEBBF3BFCF8C4",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The former Fullerton Building is a prominent landmark situated at the mouth of the Singapore River."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85152085998133, 1.2881502815547194 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1719,
+				"ADDRESSBLOCKHOUSENUMBER" : "9",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "179556",
+				"ADDRESSSTREETNAME" : "Empress Place",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/victoria-theatre-and-concert-hall",
+				"LANDXADDRESSPOINT" : 30025.76,
+				"LANDYADDRESSPOINT" : 30062.64,
+				"NAME" : "Victoria Theatre and Concert Hall",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/046-victoria-theatre-and-victoria-concert-hall/victoria-theatre-and-victoria-concert-hall-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "0D7A44E83154C337",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "In the heart of Singapore's historic Civic District stand the magnificent Victoria Theatre and Victoria Concert Hall with the iconic clock tower."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84846426047943, 1.2825019099575288 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1720,
+				"ADDRESSBLOCKHOUSENUMBER" : "98",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "048474",
+				"ADDRESSSTREETNAME" : "Telok Ayer Street",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/ying-fo-fui-kun",
+				"LANDXADDRESSPOINT" : 29685.59,
+				"LANDYADDRESSPOINT" : 29438.07,
+				"NAME" : "Ying Fo Fui Kun",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/030-ying-fo-fui-kun/ying-fo-fui-kun-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "08645946DC7B4F89",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Not far from Former Nagore Dargah on Telok Ayer Street is Ying Fo Fui Kun, Singapore's oldest Hakka clan association."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84907425305681, 1.2930024865995133 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1721,
+				"ADDRESSBLOCKHOUSENUMBER" : "60",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "179366",
+				"ADDRESSSTREETNAME" : "Hill Street",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/armenian-apostolic-church-of-saint-gregory-the-illuminator",
+				"LANDXADDRESSPOINT" : 29753.47,
+				"LANDYADDRESSPOINT" : 30599.17,
+				"NAME" : "Armenian Apostolic Church of Saint Gregory the Illuminator",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/069-armenian-apostolic-church-of-saint-gregory-the-illuminator/armenian-church-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "05B917229CAB1558",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The Armenian Apostolic Church of Saint Gregory the Illuminator - commonly called the Armenian Church - is Singapore's oldest Christian church"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8478534393916, 1.2993318718548315 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1722,
+				"ADDRESSBLOCKHOUSENUMBER" : "2",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "229233",
+				"ADDRESSSTREETNAME" : "Handy Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-cathay-building-now-the-cathay",
+				"LANDXADDRESSPOINT" : 29617.6,
+				"LANDYADDRESSPOINT" : 31299.04,
+				"NAME" : "Former Cathay Building (now The Cathay)",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/022-former-cathay-building/former-cathay-building-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "DB1120581A6499CA",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The Art Deco facade wall fronting the modern glass architecture of The Cathay is the remnant of what used to be Malaya's tallest building."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84543414105968, 1.287415973681819 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1723,
+				"ADDRESSBLOCKHOUSENUMBER" : "50",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "059803",
+				"ADDRESSSTREETNAME" : "Eu Tong Sen Street",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-thong-chai-medical-institution",
+				"LANDXADDRESSPOINT" : 29348.36,
+				"LANDYADDRESSPOINT" : 29981.44,
+				"NAME" : "Former Thong Chai Medical Institution",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/066-former-thong-chai-medical-institution/former-thong-chai-medical-institution-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "454847F6B2B0177E",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Home to the first free traditional Chinese medical clinic for the poor in Singapore, the Former Thong Chai Medical Institution testifies to the Chinese pioneers' spirit of mutual assistance and their generosity towards the poor and needy."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.87884472761395, 1.3552712274435732 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1724,
+				"ADDRESSBLOCKHOUSENUMBER" : "779A",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "534648",
+				"ADDRESSSTREETNAME" : "Upper Serangoon Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/tou-mu-kung-temple",
+				"LANDXADDRESSPOINT" : 33066.54,
+				"LANDYADDRESSPOINT" : 37484.57,
+				"NAME" : "Tou Mu Kung Temple",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/017-tou-mu-kung-temple/tou-mu-kung-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "16A7538D192C68A7",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Tou Mu Kung Temple is the oldest temple in Singapore dedicated to the Taoist deity Jiu Huang Ye ('Nine Emperors' or 'Ninth Emperor')."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.82788799979797, 1.2727809998380397 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1725,
+				"ADDRESSBLOCKHOUSENUMBER" : "510",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "099446",
+				"ADDRESSSTREETNAME" : "Kampong Bahru Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/church-of-st-teresa",
+				"LANDXADDRESSPOINT" : 27395.6188,
+				"LANDYADDRESSPOINT" : 28363.1777,
+				"NAME" : "Church of St Teresa",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/012-church-of-st-teresa/church-of-st-teresa-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "313016F4E574684A",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Standing atop a little hill, the Church of Saint Teresa was originally constructed for the spiritual needs of the Hokkien-speaking Catholics living in the town area."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.82484800028408, 1.2646850002036536 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1726,
+				"ADDRESSBLOCKHOUSENUMBER" : "3",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "098544",
+				"ADDRESSSTREETNAME" : "Sentosa Gateway",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-st-james-power-station",
+				"LANDXADDRESSPOINT" : 27057.2876,
+				"LANDYADDRESSPOINT" : 27467.9649,
+				"NAME" : "Former St James Power Station",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/011-former-st-james-power-station/st-james-power-station-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "C8A8563E8884A823",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The Former Saint James Power Station was the first coal-fired power station on the island."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.83689999990389, 1.2727969995491657 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1727,
+				"ADDRESSBLOCKHOUSENUMBER" : "30",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "089059",
+				"ADDRESSSTREETNAME" : "Keppel Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-tanjong-pagar-railway-station",
+				"LANDXADDRESSPOINT" : 28398.5842,
+				"LANDYADDRESSPOINT" : 28364.9465,
+				"NAME" : "Former Tanjong Pagar Railway Station",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/007-tanjong-pagar-railway-station/tanjong-pagar-railway-station-03.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "E2C5BDA13070FCD7",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The Former Tanjong Pagar Railway Station was previously the southernmost terminal station of the Federated Malay States Railways."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8547170001097, 1.292883000196738 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1728,
+				"ADDRESSBLOCKHOUSENUMBER" : null,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : null,
+				"ADDRESSSTREETNAME" : "Beach Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/civilian-war-memorial",
+				"LANDXADDRESSPOINT" : 30381.459,
+				"LANDYADDRESSPOINT" : 30585.9624,
+				"NAME" : "Civilian War Memorial",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/006-civilian-war-memorial/civilian-war-memorial-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "F606C91D82A4E4DF",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Not far from the Esplanade Park Memorials stands the Civilian War Memorial, the first memorial in Singapore dedicated to the civilian victims of the Japanese Occupation (1942-1945)."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8907150004104, 1.3053630000691039 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1729,
+				"ADDRESSBLOCKHOUSENUMBER" : "50",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "439012",
+				"ADDRESSSTREETNAME" : "Goodman Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/chung-cheng-high-school-main-administration-building-and-entrance-arch",
+				"LANDXADDRESSPOINT" : 34387.6944,
+				"LANDYADDRESSPOINT" : 31965.9993,
+				"NAME" : "Chung Cheng High School (Main) Administration Building and Entrance Arch",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/005-chung-cheng-high-school-main-administration-building-and-entrance-arch/01-chung-cheng-high-school.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "70BCC8B31E6CE016",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "As one of Singapore's oldest Chinese high schools, Chung Cheng High School was among the firsts to make higher education accessible to Chinese youth."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84827265090911, 1.290884559479309 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1730,
+				"ADDRESSBLOCKHOUSENUMBER" : "140",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "179369",
+				"ADDRESSSTREETNAME" : "Hill Street",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-hill-street-police-station",
+				"LANDXADDRESSPOINT" : 29664.26,
+				"LANDYADDRESSPOINT" : 30364.98,
+				"NAME" : "Former Hill Street Police Station",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/033-former-hill-street-police-station/former-hill-street-police-station-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "ED94D794065DAF6E",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Nicknamed the 'Police Skyscraper' in the past, the Former Hill Street Police Station is prominently located at the junction of Hill Street and River Valley Road."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84848599900096, 1.296661821524236 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1731,
+				"ADDRESSBLOCKHOUSENUMBER" : "93",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "178897",
+				"ADDRESSSTREETNAME" : "Stamford Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/national-museum-of-singapore",
+				"LANDXADDRESSPOINT" : 29688,
+				"LANDYADDRESSPOINT" : 31003.8,
+				"NAME" : "National Museum of Singapore",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/044-national-museum-of-singapore/national-museum-of-singapore-03.jpg",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "1D51BCD1D70175F9",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "With its wide facade and large dome, the National Museum of Singapore has been a prominent landmark on Stamford Road for over a century."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8560706656673, 1.3032105407364176 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1732,
+				"ADDRESSBLOCKHOUSENUMBER" : "50",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "188690",
+				"ADDRESSSTREETNAME" : "Ophir Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/church-of-our-lady-of-lourdes",
+				"LANDXADDRESSPOINT" : 30532.1,
+				"LANDYADDRESSPOINT" : 31727.93,
+				"NAME" : "Church of Our Lady of Lourdes",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/020-church-of-our-lady-of-lourdes/church-of-our-lady-of-lourdes.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "D1367765AB345FD7",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Known simply as the Indian Church or Tamil Church in the past, the Church of Our Lady of Lourdes is one of Singapore's oldest Catholic churches."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84324246387544, 1.2984993360571324 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1733,
+				"ADDRESSBLOCKHOUSENUMBER" : "101",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "238466",
+				"ADDRESSSTREETNAME" : "Penang Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-house-of-tan-yeok-nee",
+				"LANDXADDRESSPOINT" : 29104.44,
+				"LANDYADDRESSPOINT" : 31206.98,
+				"NAME" : "Former House of Tan Yeok Nee",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/060-former-house-of-tan-yoke-nee/house-of-tan-yoke-nee-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "59945F69AA303988",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Standing out prominently from its modern surroundings, the Chinese-style Former House of Tan Yeok Nee is the sole survivor of the 'Four Grand Mansions' built in the late nineteenth-century."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84085654340657, 1.2933034971100676 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1734,
+				"ADDRESSBLOCKHOUSENUMBER" : "31",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "238975",
+				"ADDRESSSTREETNAME" : "Mohamed Sultan Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/hong-san-see",
+				"LANDXADDRESSPOINT" : 28838.91,
+				"LANDYADDRESSPOINT" : 30632.45,
+				"NAME" : "Hong San See",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/056-hong-san-see/hong-san-see-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "4F8ADB694379E732",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Hong San See ('Temple on Phoenix Hill'), perched on the side of Institution Hill off Mohamed Sultan Road, was established by Hokkien immigrants from Nan'an (or Lam Ann) County in Fujian Province."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84916393524617, 1.294236310953859 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1735,
+				"ADDRESSBLOCKHOUSENUMBER" : "39",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "179941",
+				"ADDRESSSTREETNAME" : "Armenian Street",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-tao-nan-school-now-the-peranakan-museum",
+				"LANDXADDRESSPOINT" : 29763.45,
+				"LANDYADDRESSPOINT" : 30735.6,
+				"NAME" : "Former Tao Nan School (now The Peranakan Museum)",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/036-former-tao-nan-school/former-tao-nan-school.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "C01A93777223F7F9",
+				"FMEL_UPD_D" : "20260414163250",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "A stone's throw from the Armenian Church is a century-old building that used to house Tao Nan School, the first modern Chinese school in Singapore."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.76916199998519, 1.3529429996150348 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1736,
+				"ADDRESSBLOCKHOUSENUMBER" : "351",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "588192",
+				"ADDRESSSTREETNAME" : "Upper Bukit Timah Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-ford-factory-now-memories-at-old-ford-factory",
+				"LANDXADDRESSPOINT" : 20860.0985,
+				"LANDYADDRESSPOINT" : 37227.1733,
+				"NAME" : "Former Ford Factory (now Memories at Old Ford Factory)",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/016-former-ford-factory/former-ford-factory-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "FB4CE8178C32822C",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Built atop a little hill, the Former Ford Factory has been a visual landmark in Bukit Timah since its completion in 1941."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8168460001139, 1.318323000233814 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1737,
+				"ADDRESSBLOCKHOUSENUMBER" : "469G",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "259776",
+				"ADDRESSSTREETNAME" : "Bukit Timah Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-raffles-college-now-nus-campus-at-bukit-timah",
+				"LANDXADDRESSPOINT" : 26166.763,
+				"LANDYADDRESSPOINT" : 33398.9827,
+				"NAME" : "Former Raffles College (now NUS Campus at Bukit Timah)",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/014-former-raffles-college/former-raffles-college-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "8743BE09E43E0A06",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Located next to the Singapore Botanic Gardens, the Former Raffles College is well hidden from the public eye."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.83628900034026, 1.280735999843326 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1738,
+				"ADDRESSBLOCKHOUSENUMBER" : "11",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "168751",
+				"ADDRESSSTREETNAME" : "Third Hospital Avenue",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/bowyer-block",
+				"LANDXADDRESSPOINT" : 28330.5837,
+				"LANDYADDRESSPOINT" : 29242.8,
+				"NAME" : "Bowyer Block",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/013-bowyer-block/bowyer-block-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "D58BBC82BC7B8595",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Amidst the modern blocks in the sprawling compound of Singapore General Hospital stands a Neoclassical building with its distinctive clock tower."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.81914800016352, 1.3255969999787396 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1739,
+				"ADDRESSBLOCKHOUSENUMBER" : "17",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "298791",
+				"ADDRESSSTREETNAME" : "Kheam Hock Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-command-house",
+				"LANDXADDRESSPOINT" : 26422.9577,
+				"LANDYADDRESSPOINT" : 34203.3027,
+				"NAME" : "Former Command House",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/010-former-command-house/former-command-house-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "DD078290867DE0AB",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The stately Former Command House is located near Bukit Timah Road, a major road constructed during the mid-nineteenth century and one of the last defences against the invading Japanese troops in 1942."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85338900028836, 1.2896839996532 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1740,
+				"ADDRESSBLOCKHOUSENUMBER" : null,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : null,
+				"ADDRESSSTREETNAME" : "Esplanade Park, Connaught Drive",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/esplanade-park-memorials",
+				"LANDXADDRESSPOINT" : 30233.6669,
+				"LANDYADDRESSPOINT" : 30232.2322,
+				"NAME" : "Esplanade Park Memorials",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/009-esplanade-park-memorials/esplanade-park-memorial-tan-kim-seng-fountain.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "1932ADD69AB153DD",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Prior to the first land reclamation in 1843, the original shoreline of Singapore ran across the present Padang."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85080364879748, 1.28874960918596 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1741,
+				"ADDRESSBLOCKHOUSENUMBER" : null,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "179429",
+				"ADDRESSSTREETNAME" : null,
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-parliament-house-and-annex-building-now-the-arts-house",
+				"LANDXADDRESSPOINT" : 29945.94,
+				"LANDYADDRESSPOINT" : 30128.91,
+				"NAME" : "Former Parliament House and Annex Building (now The Arts House)",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/045-former-parliament-house-and-annex-building/former-parliament-house-and-annex-building.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "2F3FFDE1A3CB82BA",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The Former Parliament House is likely to be the oldest surviving building in Singapore."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85427440391409, 1.2949349859031927 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1742,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "189673",
+				"ADDRESSSTREETNAME" : "Beach Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/raffles-hotel",
+				"LANDXADDRESSPOINT" : 30332.2,
+				"LANDYADDRESSPOINT" : 30812.86,
+				"NAME" : "Raffles Hotel",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/051-raffles-hotel/raffles-hotel-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "C3FD791EDBD037B9",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Raffles Hotel is one of the most well-known luxury hotels in Singapore and the oldest surviving establishment of its kind on the island."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84725328104508, 1.3281345336536619 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1743,
+				"ADDRESSBLOCKHOUSENUMBER" : "12",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "327874",
+				"ADDRESSSTREETNAME" : "Tai Gin Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-sun-yat-sen-villa-now-sun-yat-sen-nanyang-memorial-hall",
+				"LANDXADDRESSPOINT" : 29550.79,
+				"LANDYADDRESSPOINT" : 34483.89,
+				"NAME" : "Former Sun Yat Sen Villa (now Sun Yat Sen Nanyang Memorial Hall)",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/038-former-sun-yat-sen-villa/former-sun-yat-sen-villa.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "2E2DE3FF885ACE47",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Sun Yat-sen Nanyang Memorial Hall is one of the few surviving examples of villas that were once common sights in British Singapore."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8506950003836, 1.28775699987995 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1744,
+				"ADDRESSBLOCKHOUSENUMBER" : null,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : null,
+				"ADDRESSSTREETNAME" : "Singapore River Bridges",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/singapore-river-bridges",
+				"LANDXADDRESSPOINT" : 29933.84906,
+				"LANDYADDRESSPOINT" : 30019.15231,
+				"NAME" : "Singapore River Bridges: Cavenagh Bridge, Anderson Bridge and Elgin Bridge",
+				"PHOTOURL" : "https://roots.gov.sg/~/media/Roots/Images/landmarks/singapore-river-walk/02-cavenagh-bridge/02-cavenagh-bridge-present-day",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "0E66DF5D495E55EA",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Cavenagh, Anderson and Elgin Bridges are the three most historic and architecturally impressive bridges that span the Singapore River. Collectively, they illustrate Singapore's growth as a trading port and flourishing city. Located at the historic mouth of the Singapore River, the bridges symbolically connected Singapore with the world as they facilitated the trade and transport links necessary for the growth of the city."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.82454446756593, 1.447377772310627 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1745,
+				"ADDRESSBLOCKHOUSENUMBER" : "345",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "758692",
+				"ADDRESSSTREETNAME" : "Old Nelson Road",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/former-admiralty-house",
+				"LANDXADDRESSPOINT" : 27023.58,
+				"LANDYADDRESSPOINT" : 47669.2,
+				"NAME" : "Former Admiralty House",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/026-former-admiralty-house/former-admiralty-house-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "4B551DDFC55F757B",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Surrounded by several ancillary buildings and facilities on a sprawling estate, the Former Admiralty House used to accommodate key military commanders based in Singapore."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85059947479468, 1.298273205070678 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1746,
+				"ADDRESSBLOCKHOUSENUMBER" : null,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "187968",
+				"ADDRESSSTREETNAME" : "Waterloo Street",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/maghain-aboth-synagogue",
+				"LANDXADDRESSPOINT" : 29923.21,
+				"LANDYADDRESSPOINT" : 31181.98,
+				"NAME" : "Maghain Aboth Synagogue",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/034-maghain-aboth-synagogue/maghain_aboth_synagogue_01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "80AC16B99106C7F2",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "Located in the former Jewish neighbourhood, Maghain Aboth Synagogue is the oldest surviving synagogue not only in Singapore, but also in Southeast Asia."
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84918890181945, 1.2921541012428057 ]
+			},
+			"properties" : {
+				"OBJECTID" : 1747,
+				"ADDRESSBLOCKHOUSENUMBER" : "62",
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSPOSTALCODE" : "179367",
+				"ADDRESSSTREETNAME" : "Hill Street",
+				"ADDRESSTYPE" : null,
+				"HYPERLINK" : "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/central-fire-station",
+				"LANDXADDRESSPOINT" : 29766.23,
+				"LANDYADDRESSPOINT" : 30505.36,
+				"NAME" : "Central Fire Station",
+				"PHOTOURL" : "https://roots.sg/~/media/Roots/Images/monuments/032-central-fire-station/central-fire-station-01.png",
+				"ADDRESSFLOORNUMBER" : null,
+				"INC_CRC" : "E684C4EA94F9CD90",
+				"FMEL_UPD_D" : "20210305160719",
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "The Central Fire Station is the oldest surviving fire station in Singapore and is a living monument to the local firefighting force."
+			}
+		}
+	]
+}
