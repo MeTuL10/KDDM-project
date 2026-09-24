@@ -7,6 +7,8 @@
 | Feature set | Features | RMSE | MAE | R² |
 | --- | ---: | ---: | ---: | ---: |
 | **`compact` + lag + town/flat-type mean + nearest MRT/attraction/monument names** | **18** | **466.992** | **340.197** | **0.4948** |
+| `compact` + **24-month global lag** + town/flat-type mean + nearest MRT/attraction/monument names | 18 | 467.122 | 340.293 | 0.4945 |
+| `compact` + 24-month town/flat-type lag + town/flat-type mean + nearest MRT/attraction/monument names | 18 | 468.986 | 342.419 | 0.4904 |
 | `compact` (`compact_no_coordinates`) | 13 | 467.230 | 345.659 | 0.4942 |
 | `compact_nonredundant` | 15 | 467.480 | 345.786 | 0.4937 |
 | `full_preprocessed` | 31 | 467.507 | 346.647 | 0.4936 |
@@ -39,13 +41,14 @@ In particular, `compact` excludes the direct location coordinates (`LATITUDE`, `
 
 [Experiment 9](exp_9_target_features.ipynb) extends `compact` with the following features:
 
-- `monthly_target_lag`: the overall mean `MONTHLY_RENT` from 17 months earlier. The 17-month offset matches the number of distinct test months. It is not grouped by town or flat type.
+- `monthly_target_lag`: the overall mean `MONTHLY_RENT` from 24 months earlier; unavailable values fall back to the fitted global mean.
+- `town_flat_type_target_lag`: the mean `MONTHLY_RENT` for the same `TOWN` + `FLAT_TYPE` from 24 months earlier. If that group-month is unavailable, it falls back to the leakage-safe historical town/flat-type mean.
 - `town_flat_type_target_mean`: a leakage-safe historical mean rent for the same `TOWN` + `FLAT_TYPE`; training rows use strictly earlier months, while validation/test rows use only the labelled fit/train history.
 - `nearest_mrt_name`: closest MRT station name, derived from the supplied MRT coordinates.
 - `nearest_tourist_attraction_name`: closest attraction name from `TouristAttractions.geojson`.
 - `nearest_monument_name`: closest national-monument name from `MonumentsGEOJSON.geojson`.
 
-The active Experiment 9 comparison uses all five additions together. The 18-feature model achieved **RMSE 466.992**, an improvement of **0.238 RMSE** over the original 13-feature `compact` baseline.
+The active Experiment 9 comparison ran two otherwise-identical variants: one with the 24-month global lag and one with the 24-month town/flat-type lag. The **24-month global lag won** with **RMSE 467.122**, compared with **468.986** for the town/flat-type lag. It is therefore the preferred two-year-lag variant. The previously recorded 18-feature model achieved **RMSE 466.992**, an improvement of **0.238 RMSE** over the original 13-feature `compact` baseline; that result used an earlier 17-month global lag.
 
 ### Temporal Fusion Transformer (TFT)
 
@@ -67,7 +70,9 @@ The validation-selected blend assigns zero weight to TFT, so TFT has not improve
 
 ## Current decision
 
-Use **`compact` plus `monthly_target_lag`, `town_flat_type_target_mean`, `nearest_mrt_name`, `nearest_tourist_attraction_name`, and `nearest_monument_name`** as the current best feature set. Its 18-column listing-level model has the best available RMSE (**466.992**) on the common 2024-05 chronological validation split.
+For a **two-year lag**, use **`compact` plus `monthly_target_lag`, `town_flat_type_target_mean`, `nearest_mrt_name`, `nearest_tourist_attraction_name`, and `nearest_monument_name`**: the global-lag variant is the better of the two, at listing-level RMSE **467.122** on the common 2024-05 chronological validation split.
+
+Across every recorded configuration, the older 17-month global-lag version of this same 18-feature set remains the numerical best at **RMSE 466.992**. Keep it as the overall leader unless the project intentionally standardises on a two-year lag.
 
 ## Preprocessing and feature-selection flow
 
