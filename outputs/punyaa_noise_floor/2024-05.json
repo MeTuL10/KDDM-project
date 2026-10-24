@@ -1,0 +1,32 @@
+{
+  "validation_start": "2024-05",
+  "all_labelled_months": {
+    "rows": 150000,
+    "rows_with_twin": 40204,
+    "share_with_twin": 0.2680266666666667,
+    "groups": 18230,
+    "mean_group_size": 2.2053757542512344,
+    "unbiased_noise_sd": 464.01646157550647,
+    "realized_lower_bound": 343.0467552946075
+  },
+  "validation_window": {
+    "rows": 32012,
+    "rows_with_twin": 8660,
+    "share_with_twin": 0.27052355366737474,
+    "groups": 3854,
+    "mean_group_size": 2.2470160871821485,
+    "unbiased_noise_sd": 454.76457889905123,
+    "realized_lower_bound": 338.78140737884854,
+    "interval": {
+      "draws": 2000,
+      "seed": 5228,
+      "lower_95": 442.16014843193955,
+      "upper_95": 466.7639894566328
+    }
+  },
+  "v2_blend_rmse": {
+    "all_rows": 463.154913349413,
+    "rows_with_twin": 452.847950904413,
+    "rows_without_twin": 466.9193820748176
+  }
+}

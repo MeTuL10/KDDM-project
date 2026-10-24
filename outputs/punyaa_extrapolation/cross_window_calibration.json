@@ -1,0 +1,36 @@
+{
+  "transfer": {
+    "fit_2024-05_apply_2024-10": {
+      "source_slope": 1.0091947209220868,
+      "source_bias": 17.480834176834644,
+      "target_rmse": 443.3036107125421,
+      "affine_rmse": 443.71892515569965,
+      "level_shift_rmse": 443.62148407200925,
+      "affine_change": 0.4153144431575697,
+      "level_shift_change": 0.3178733594671712
+    },
+    "fit_2024-10_apply_2024-05": {
+      "source_slope": 0.9839979668611266,
+      "source_bias": 0.6764466673578667,
+      "target_rmse": 463.154913349413,
+      "affine_rmse": 463.2511674952429,
+      "level_shift_rmse": 463.12987555949456,
+      "affine_change": 0.09625414582990288,
+      "level_shift_change": -0.025037789918428643
+    }
+  },
+  "spread_scale": {
+    "2024-05": {
+      "base_rmse": 463.154913349413,
+      "best_scale": 1.01,
+      "best_rmse": 463.135576079894,
+      "change": -0.019337269518985067
+    },
+    "2024-10": {
+      "base_rmse": 443.3036107125421,
+      "best_scale": 0.985,
+      "best_rmse": 443.24020066943393,
+      "change": -0.06341004310814924
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "fingerprint": "10bc551a8e2d23f8d7d267267623c7a282f5171255e3be11c6d28ca28fc744e9",
+  "spec": {
+    "family": "lightgbm",
+    "parameters": {
+      "objective": "regression",
+      "n_estimators": 2600,
+      "learning_rate": 0.02,
+      "subsample": 0.85,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.8,
+      "max_bin": 511,
+      "cat_smooth": 20.0,
+      "cat_l2": 10.0,
+      "verbosity": -1,
+      "n_jobs": 6,
+      "num_leaves": 255,
+      "max_depth": -1,
+      "min_child_samples": 80,
+      "reg_alpha": 0.5,
+      "reg_lambda": 8.0,
+      "random_state": 42
+    }
+  },
+  "versions": {
+    "python": "3.14.2",
+    "lightgbm": "4.7.0",
+    "catboost": "1.2.10",
+    "xgboost": "3.4.1",
+    "sklearn": "1.8.0"
+  },
+  "best_iteration": 193,
+  "seconds": 8.992,
+  "metrics": {
+    "rmse": 468.9943784889453,
+    "mae": 340.7444082926859,
+    "bias_prediction_minus_actual": 3.3429474244308652
+  }
+}

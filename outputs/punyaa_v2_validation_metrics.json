@@ -1,0 +1,33 @@
+{
+  "validation_start": "2024-05",
+  "validation_rows": 32012,
+  "quick": false,
+  "lag_months": 24,
+  "feature_profile": "core",
+  "rmse": 463.154913349413,
+  "mae": 334.49162883493165,
+  "component_rmse": {
+    "lightgbm_regularized": 470.2820488863491,
+    "lightgbm_balanced": 469.11200029878484,
+    "lightgbm_detailed": 468.261519424342,
+    "catboost_seed_42": 464.1539116657464,
+    "catboost_seed_2026": 463.88276369391906,
+    "catboost_seed_5228": 463.5492469611132
+  },
+  "weights": {
+    "lightgbm_regularized": 0.14688449577545076,
+    "lightgbm_balanced": 1.6224697733087061e-19,
+    "lightgbm_detailed": 0.037772690225987005,
+    "catboost_seed_42": 0.17907981042607315,
+    "catboost_seed_2026": 0.250879677558452,
+    "catboost_seed_5228": 0.3853833260140371
+  },
+  "best_iterations": {
+    "lightgbm_regularized": 1085,
+    "lightgbm_balanced": 357,
+    "lightgbm_detailed": 251,
+    "catboost_seed_42": 1215,
+    "catboost_seed_2026": 1352,
+    "catboost_seed_5228": 1229
+  }
+}
