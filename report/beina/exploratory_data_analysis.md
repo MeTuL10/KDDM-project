@@ -1,6 +1,6 @@
 # Exploratory Data Analysis
 
-All figures and numbers come from `eda.R` (figures in `eda/`, numbers in `eda/eda_stats.txt`), run on the cleaned train table `train_feature` (150,000 rentals, 2021-01 to 2025-03) described in `data_process.md`. The test set (50,000 rentals) covers 2025-03 to 2026-07, so every test month is in the future relative to train.
+All figures (in `figures/`) and numbers come from `eda.R`, which writes them to `eda/` together with `eda/eda_stats.txt` when run from the project root. They are computed on the cleaned train table `train_feature` (150,000 rentals, 2021-01 to 2025-03) described in `data_process.md`. The test set (50,000 rentals) covers 2025-03 to 2026-07, so every test month is in the future relative to train.
 
 ## 1. Data overview
 
@@ -17,7 +17,7 @@ All figures and numbers come from `eda.R` (figures in `eda/`, numbers in `eda/ed
 
 ### Target: monthly rent
 
-![Distribution of monthly rent](eda/hist_monthly_rent.png)
+![Distribution of monthly rent](figures/hist_monthly_rent.png)
 
 - Range S$300 to S$7,600; median S$2,700, mean S$2,719, standard deviation S$750.
 - Roughly symmetric (skewness < 1) with a long right tail from large flats. No transformation is needed for an RMSE target.
@@ -25,7 +25,7 @@ All figures and numbers come from `eda.R` (figures in `eda/`, numbers in `eda/ed
 
 ### Numeric features
 
-![Distributions of numeric features](eda/hist_numeric_features.png)
+![Distributions of numeric features](figures/hist_numeric_features.png)
 
 | Pattern | Features | Implication |
 |---|---|---|
@@ -41,7 +41,7 @@ Ranges are plausible after cleaning: building age 0–76 years, `max_floor` 2–
 
 ### 3.1 Correlation with the target
 
-![Correlation with the target](eda/corr_with_target.png)
+![Correlation with the target](figures/corr_with_target.png)
 
 Blue points show the Pearson correlation with monthly rent; orange points show it with the modelling target, rent − median benchmark.
 
@@ -67,7 +67,7 @@ Blue points show the Pearson correlation with monthly rent; orange points show i
 
 ### 3.2 Correlation between features
 
-![Correlation between numeric features](eda/corr_heatmap.png)
+![Correlation between numeric features](figures/corr_heatmap.png)
 
 Pairs with |r| ≥ 0.9:
 
@@ -95,7 +95,7 @@ Other clear clusters: each distance and its proximity score (strongly negative, 
 | 2024 | 35,239 | 3,100 | 3,110 | 34.3 |
 | 2025 (Q1) | 8,924 | 3,150 | 3,142 | 34.4 |
 
-![Median rent by flat type](eda/trend_rent_by_flat_type.png)
+![Median rent by flat type](figures/trend_rent_by_flat_type.png)
 
 - Mean rent rose **53%**, from S$2,055 (first 3 months) to S$3,142 (last 3 months).
 - Nearly all of the rise happened from mid-2021 to mid-2023; since mid-2023 rents have been **almost flat**. Median 4-room rent went 2,200 → 2,500 → 3,200 → 3,300 → 3,300 from 2021 to 2025.
@@ -104,19 +104,19 @@ Other clear clusters: each distance and its proximity score (strongly negative, 
 
 ### 4.2 Rental volume
 
-![Rentals per month](eda/trend_rental_volume.png)
+![Rentals per month](figures/trend_rental_volume.png)
 
 Volume is stable at 2,362–3,705 rentals a month (80% of months between 2,633 and 3,218) with no gaps, so no period is under-represented.
 
 ### 4.3 Rent vs the median rent benchmark
 
-![Rent vs benchmark](eda/trend_rent_vs_benchmark.png)
+![Rent vs benchmark](figures/trend_rent_vs_benchmark.png)
 
 The town × flat-type median follows the market level closely, so subtracting it removes the trend. The mean gap (rent − benchmark) is small but not constant: +S$25 (2021), +S$47 (2022), then about −S$75 from 2023 onwards. This shift is one reason the gap model learns from the most recent data patterns via the target encodings, and why the honest forecast adds a small drift (`data_process.md`, section 8.2).
 
 ### 4.4 COE and stock prices
 
-![Rent, COE and stocks indexed](eda/trend_macro_indexed.png)
+![Rent, COE and stocks indexed](figures/trend_macro_indexed.png)
 
 | Series vs monthly mean rent | r (levels) | r (month-on-month changes) |
 |---|---|---|
@@ -126,13 +126,13 @@ The town × flat-type median follows the market level closely, so subtracting it
 | `stock_grab_holdings_adjclose` | −0.783 | −0.048 |
 | `stock_singtel_adjclose` | 0.642 | 0.079 |
 
-High correlation in levels but essentially none in changes is the signature of two series that merely both trend: a **spurious correlation**. COE peaked in late 2023 and fell 30%, while rent did not move. Combined with zero permutation importance, this is why COE and stocks are **excluded from the final model**. See also `rent_coe_over_time.png`.
+High correlation in levels but essentially none in changes is the signature of two series that merely both trend: a **spurious correlation**. COE peaked in late 2023 and fell 30%, while rent did not move. Combined with zero permutation importance, this is why COE and stocks are **excluded from the final model**. See also [`rent_coe_over_time.png`](figures/rent_coe_over_time.png) (from `plot_rent_coe.R`).
 
 ## 5. Outlier check
 
 ### 5.1 Rent
 
-![Rent by flat type](eda/outlier_box_flat_type.png)
+![Rent by flat type](figures/outlier_box_flat_type.png)
 
 | Rule | Rows flagged | Share |
 |---|---|---|
@@ -141,7 +141,7 @@ High correlation in levels but essentially none in changes is the signature of t
 | 1.5 × IQR within flat type × quarter (accounts for the trend) | 3,007 | 2.00% |
 | Robust \|z\| > 3.5 on rent − benchmark | 162 | **0.11%** |
 
-![Rent minus benchmark](eda/outlier_residual_hist.png)
+![Rent minus benchmark](figures/outlier_residual_hist.png)
 
 **High rents** (top 10: S$6,300–7,600) are almost all 5-room and executive **adjoined flats** or **premium maisonettes** of 129–215 sqm in central or mature estates (Tanjong Pagar Plaza, Holland Drive, Whampoa). These are real, unusually large units.
 
