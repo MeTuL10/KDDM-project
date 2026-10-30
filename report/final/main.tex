@@ -173,8 +173,8 @@ Tabular data with mixed numeric and high-cardinality categorical inputs and 150,
 
 \textbf{Categorical handling.} Categoricals are passed natively to the tree learners; this beat one-hot encoding in six of seven configurations (town, region and block: 481.89 against 482.09),\src{Me-onehot} and replacing every categorical by its target mean was 6.1 to 10.7 RMSE worse.\src{Me-te-all} In M's selected AutoGluon configuration, automatic text feature generation is disabled with the \texttt{ignore\_text} preset. Thus fields such as street and nearest-MRT name remain categorical, without automatically generated text-special or n-gram columns.\src{Me-text} Encodings of block-like keys are the exception, because they carry information no other feature has (Table~\ref{tab:imp}). Missing numeric block attributes fall back to the town--street median, then the town median, then the global median.\src{Me-fallback}
 
-\subsection{Feature selection}
-M combined controlled manual subsets with automated selection. The manual sets retained structurally meaningful property, time, location and accessibility variables, informed by chronological rank correlation, mutual information, permutation importance and matched ablations rather than full-period correlation alone. A broader 36-variable pool was then evaluated with two wrapper methods: permutation-importance recursive feature elimination (RFE), which repeatedly refitted the LightGBM--CatBoost ensemble before removing weak variables, and SHAP ranking followed by top-$k$ refits. PCA and truncated SVD were used only as diagnostics because their leading components were not temporally stable. Test labels were never used for selection.\src{Me-fs-manual,Me-fs-auto,Me-dim}
+\subsection{Automated Feature-Selection Experiments}
+After establishing a compact manual subset of structurally meaningful property, time, location and accessibility variables, M evaluated automated selection on a broader 36-variable pool. Two wrapper methods were tested: permutation-importance recursive feature elimination (RFE), which repeatedly refitted the LightGBM--CatBoost ensemble before removing weak variables, and SHAP ranking followed by top-$k$ refits. Chronological rank correlation, mutual information and matched ablations provided supporting diagnostics rather than full-period correlation alone. PCA and truncated SVD were used only as diagnostics because their leading components were not temporally stable. Test labels were never used for selection.\src{Me-fs-manual,Me-fs-auto,Me-dim}
 
 \subsection{Choice of baseline for the residual}
 A residual target only helps if the baseline carries the right level. Table~\ref{tab:base} compares baselines across tracks. A national-level baseline, even an oracle one that knows the actual national average, is worse than the official town $\times$ flat-type median,\src{Be-two-stage} and P's residual over a global 24-month lag collapses (CatBoost 662.5 against 464.2 for direct prediction) because the lag lacks town and flat-type detail.\src{Pu-lagres} M's explicit trend-plus-residual network is likewise weaker than direct deep prediction (518.6 against 495.9).\src{Me-trendres} Predicting a ratio instead of a difference gave no gain (change $-0.02$).\src{Be-impr}
@@ -251,13 +251,13 @@ P3 & A & V2-recipe LightGBM$^\dagger$ & 443.64\\
 \end{tabular}
 \end{table}
 
-\subsection{Feature-selection results}
+\subsection{Automated Feature-Selection Results}
 The controlled manual screen selected a compact 13-variable subset at RMSE 467.230, ahead of the 31-variable full table at 467.507 and the 25-variable candidate expansion at 468.304. The selected production representation subsequently extended the compact set with a prior-only town $\times$ flat-type mean, a global 24-month rent lag and three nearest-place names; its default LightGBM--CatBoost ensemble scored 467.122. Because training budgets and automatic text handling differed between these stages, the latter comparison is a development progression rather than a pure one-variable ablation.\src{Me-fs-manual}
 
 Automated reduction did not establish a stronger independent result. RFE retained all 36 candidates at 468.921; reducing to 10 produced 469.080, while intermediate subsets were less stable. Under the same shortened protocol, the SHAP top-18 subset scored 467.841 against 468.272 for the manual 18-variable set. This 0.431 improvement was selected on the same outer validation period, so it was not treated as an untouched estimate and did not replace the production representation. PCA showed the same temporal-instability warning: the first numeric component's target correlation fell from 0.654 in fitting to 0.306 in validation, and no PCA/SVD replacement-model RMSE was recorded.\src{Me-fs-auto,Me-dim}
 
 \begin{table}[t]
-\caption{Feature-selection results on P1. Values should be compared within a row because fitting budgets differed across methods.\src{Me-fs-manual,Me-fs-auto}}\label{tab:feature-selection}
+\caption{Automated Feature-selection results on P1.\src{Me-fs-manual,Me-fs-auto}}\label{tab:feature-selection}
 \centering\footnotesize
 \begin{tabular}{@{}p{2.0cm}p{3.9cm}r@{}}
 \toprule
