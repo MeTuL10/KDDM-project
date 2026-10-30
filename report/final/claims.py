@@ -14,6 +14,7 @@ PU = 'report/punyaa/'
 CLAIMS = {
     # ---------------- Aayush ----------------
     'Aa-M': [(E2, ['M=30', 'M=10', 'M=5', 'M=15', 'M=20'])],
+    'Aa-ball': [('expt-2/src/feature_engineering_v2.py', ['BallTree(mrt_coords_rad, metric="haversine")', 'interchange_tree', 'malls_tree', 'primary_tree', 'sec_tree', 'top_tree', 'r=0.5 / EARTH_RADIUS_KM', 'r=2.0 / EARTH_RADIUS_KM', 'spatial["interchange_proximity_score"]'])],
     'Aa-addr': [(RT, ['456.70 → 452.56'])],
     'Aa-anchor': [(RT, ['600.72', '492.77', '451.87', 'CI -1.98 to +0.52'])],
     'Aa-boot': [('modules/evaluation.py', ['paired_bootstrap_rmse_diff', 'resampling whole groups with replacement']),

@@ -14,6 +14,15 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Aa-anchor | 4 | `progress-report.md` | 492.77 | verified |
 | Aa-anchor | 4 | `progress-report.md` | 451.87 | verified |
 | Aa-anchor | 4 | `progress-report.md` | CI -1.98 to +0.52 | verified |
+| Aa-ball | 1 | `expt-2/src/feature_engineering_v2.py` | BallTree(mrt_coords_rad, metric="haversine") | verified |
+| Aa-ball | 1 | `expt-2/src/feature_engineering_v2.py` | interchange_tree | verified |
+| Aa-ball | 1 | `expt-2/src/feature_engineering_v2.py` | malls_tree | verified |
+| Aa-ball | 1 | `expt-2/src/feature_engineering_v2.py` | primary_tree | verified |
+| Aa-ball | 1 | `expt-2/src/feature_engineering_v2.py` | sec_tree | verified |
+| Aa-ball | 1 | `expt-2/src/feature_engineering_v2.py` | top_tree | verified |
+| Aa-ball | 1 | `expt-2/src/feature_engineering_v2.py` | r=0.5 / EARTH_RADIUS_KM | verified |
+| Aa-ball | 1 | `expt-2/src/feature_engineering_v2.py` | r=2.0 / EARTH_RADIUS_KM | verified |
+| Aa-ball | 1 | `expt-2/src/feature_engineering_v2.py` | spatial["interchange_proximity_score"] | verified |
 | Aa-boot | 1 | `modules/evaluation.py` | paired_bootstrap_rmse_diff | verified |
 | Aa-boot | 1 | `modules/evaluation.py` | resampling whole groups with replacement | verified |
 | Aa-boot | 1 | `expt-5/src/exp4_tail_trimming.py` | n_boot=300 | verified |
