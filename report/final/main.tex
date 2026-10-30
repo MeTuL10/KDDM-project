@@ -20,6 +20,8 @@
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
 \begin{document}
+\pagestyle{plain}
+\pagenumbering{arabic}
 
 \title{Forecasting HDB Rents Sixteen Months Ahead:\\Market Anchors, Block-Level Shrinkage and the Noise Floor\\[2pt]\large Team 2 --- [TEAM NAME]}
 
@@ -27,8 +29,8 @@
 \IEEEauthorblockA{\textit{Student ID A0352046L}\\
 \textit{National University of Singapore}}
 \and
-\IEEEauthorblockN{Metul [Surname]}
-\IEEEauthorblockA{\textit{Student ID [ID]}\\
+\IEEEauthorblockN{Metul Prabhu}
+\IEEEauthorblockA{\textit{Student ID A0352394Y}\\
 \textit{National University of Singapore}}
 \and
 \IEEEauthorblockN{Punyaa [Surname]}
@@ -40,6 +42,7 @@
 \textit{National University of Singapore}}}
 
 \maketitle
+\thispagestyle{plain}
 
 \begin{abstract}
 We forecast the monthly rent of 50,000 Singapore HDB flat rentals approved up to sixteen months after our 150,000 labelled examples (2021--2025). Four team members built pipelines on the same data: gradient-boosted trees on the residual over an official median rent with block-level shrinkage encodings, causal rent-history features, AutoGluon stacks with deep tabular models, and an R pipeline with the first design. Three findings emerge. First, predicting the residual over the official median rent, with block-level encodings, is the only change that moved the public leaderboard materially (443.0 to 433.6 RMSE). Second, deep models, gating, segmentation, hyperparameter search, robust losses, tail trimming and external resale data each moved RMSE by about one point or made it worse. Third, identical flats rent with a standard deviation of about 455--464 SGD, the same order as our error. The released median-rent file covers the test quarters and so leaks future aggregates; an honest forecast-time anchor costs about 5 RMSE locally but 0.05 on the leaderboard. Our final model scores 433.65480.\src{Aa-lb,Aa-honest-lb,Aa-honest-cost,Be-noise,Pu-noise,Aa-noise}
@@ -87,7 +90,7 @@ Approval date, COE premium and stock prices correlate strongly with rent over th
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{../metul/figures/association_stability.png}
-\caption{Spearman correlation with rent in the fitting and chronological validation periods. Figure by M.\src{Me-assoc}}\label{fig:assoc}
+\caption{Spearman correlation with rent in the fitting and chronological validation periods (P1 protocol). Figure by M.\src{Me-assoc}}\label{fig:assoc}
 \end{figure}
 
 \subsection{Location, categories and outliers}
@@ -241,6 +244,53 @@ P2 & A & V2 recipe: CatBoost / LightGBM$^\dagger$ & 450.43 / 452.48\\
 P2 & A & blend 0.2/0.8$^\dagger$ / blend$^\ddagger$ & 450.30 / 454.85\\
 P3 & P & blend v2 / detailed LightGBM & 443.3 / 448.688\\
 P3 & A & V2-recipe LightGBM$^\dagger$ & 443.64\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Alternative Modelling Approaches}
+Table~\ref{tab:alternatives} compares the principal alternatives evaluated by M on the common P1 listing holdout.
+Hard segmentation did not help: routing AutoGluon by town and flat type scored 475.846 and 476.068, against global controls of 468.272 and 471.448.
+The same pattern held for random forests: the global model scored 484.923, flat-type routing scored 486.073, and chronological tuning improved the global forest to 479.319 but left it well behind boosted trees.
+Splitting the data therefore lost more shared signal than it gained from local specialisation.\src{Me-seg,Me-alt}
+
+Deep tabular models learned useful structure but remained weaker than tree ensembles. The best individual deep expert, 
+an FT-Transformer, scored 476.979; TabTransformer scored 495.853, while averaging three deep experts improved to 471.168. 
+A block-to-town neural gate scored 475.130, so input-dependent routing was again inferior to a fixed blend. The standalone FT-Transformer run scored 497.497, 
+and an explicit neural trend-plus-residual decomposition scored 518.590.\src{Me-res,Me-trendres,Me-alt}
+
+Asymmetric and residual-specialist models also showed the value of shrinkage. Quantile LightGBM at $q{=}0.60$ reduced MAE from 356.438 to 343.087 
+and shifted predictions toward over-forecasting, but worsened RMSE from 478.370 to 492.281. Weighted flat-type residual experts 
+made a small improvement over their matched Layer-1 control (468.272 to 468.068); the significant-residual gate scored 468.360 and the unweighted segmented correction 
+deteriorated to 472.509. Thus residual models helped only when their corrections were strongly attenuated.\src{Me-alt}
+
+Time-series experiments used different targets or holdouts and are not included in Table~\ref{tab:alternatives}. A property-group time-series ensemble scored 477.592 
+on observed item-months. A town $\times$ flat-type market forecast reached 273.240 at segment level, but its listing hybrid scored 486.052. Likewise, TFT reached 258.453 on segment-month means, 
+yet TFT plus a listing residual scored 499.791 against 471.209 for direct listing prediction. Under rolling-origin evaluation, an explicit trend-plus-residual model scored 571.673 against 567.562 for the direct baseline. 
+Aggregate temporal patterns were learnable, but their errors compounded when forecasts were translated back to individual listings.\src{Me-tft,Me-alt}
+
+\begin{table}[t]
+\caption{Alternative listing-level models evaluated using validation RMSE under the P1 protocol.\src{Me-res,Me-seg,Me-alt}}\label{tab:alternatives}
+\centering\scriptsize
+\begin{tabular}{@{}p{1.45cm}p{5.05cm}r@{}}
+\toprule
+Approach & Model description & P1 RMSE\\
+\midrule
+Reference & AutoGluon, default settings & \textbf{467.122}\\
+Residual specialists & Weighted flat-type residual experts & 468.068\\
+ & Significant-residual gated specialist & 468.360\\
+Fixed / learned blends & Equal LightGBM--CatBoost blend & 468.740\\
+ & Equal deep-expert blend & 471.168\\
+ & Neural LightGBM--CatBoost gate & 472.274\\
+ & Block-to-town deep gate & 475.130\\
+Hard segmentation & Town-routed AutoGluon & 475.846\\
+ & Flat-type-routed AutoGluon & 476.068\\
+Random forests & Chronologically tuned random forest & 479.319\\
+ & Global random forest & 484.923\\
+ & Flat-type-routed random forest & 486.073\\
+Asymmetric loss & Quantile LightGBM ($q{=}0.60$) & 492.281\\
+Deep tabular & TabTransformer & 495.853\\
+ & FT-Transformer & 497.497\\
 \bottomrule
 \end{tabular}
 \end{table}

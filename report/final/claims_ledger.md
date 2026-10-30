@@ -168,6 +168,27 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Be-two-stage | 2 | `report/beina/model_experiment.md` | 556.33 | verified |
 | Be-two-stage | 2 | `report/beina/model_experiment.md` | Even with a perfect stage 1 | verified |
 | Be-weakcorr | 2 | `report/beina/exploratory_data_analysis.md` | (/r/ ≤ 0.12) | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 468.272 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 468.068 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 468.360 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 472.509 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 475.130 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 475.846 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 476.068 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 479.319 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 484.923 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 486.073 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 478.370 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 492.281 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 356.438 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 343.087 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 497.497 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 518.590 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 477.592 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 273.240 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 486.052 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 571.673 | verified |
+| Me-alt | 5 | `report/metul/model_experiments.md` | 567.562 | verified |
 | Me-assoc | 2 | `report/metul/eda.md` | 0.528 / 0.006 | verified |
 | Me-assoc | 2 | `report/metul/eda.md` | 0.562 / 0.018 | verified |
 | Me-assoc | 2 | `report/metul/eda.md` | 0.664 / 0.668 | verified |
@@ -195,18 +216,18 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Me-onehot | 1 | `report/metul/data_processing.md` | six of seven configurations | verified |
 | Me-out | 1 | `report/metul/eda.md` | 130 floor-area records | verified |
 | Me-out | 1 | `report/metul/eda.md` | 752 rent records | verified |
-| Me-res | 3 | `report/metul/model_experiments.md` | 476.979 | verified |
-| Me-res | 3 | `report/metul/model_experiments.md` | 495.853 | verified |
-| Me-res | 3 | `report/metul/model_experiments.md` | 471.168 | verified |
-| Me-res | 3 | `report/metul/model_experiments.md` | 472.274 | verified |
-| Me-res | 3 | `report/metul/model_experiments.md` | 468.740 | verified |
-| Me-res | 3 | `report/metul/model_experiments.md` | 467.122 | verified |
-| Me-res | 3 | `report/metul/model_experiments.md` | 468.057 | verified |
-| Me-seg | 2 | `report/metul/model_experiments.md` | 476.068 | verified |
-| Me-seg | 2 | `report/metul/model_experiments.md` | 471.448 | verified |
-| Me-seg | 2 | `report/metul/model_experiments.md` | 475.846 | verified |
-| Me-seg | 2 | `report/metul/model_experiments.md` | 7.574 RMSE | verified |
-| Me-seg | 2 | `report/metul/model_experiments.md` | 4.620 RMSE | verified |
+| Me-res | 5 | `report/metul/model_experiments.md` | 476.979 | verified |
+| Me-res | 5 | `report/metul/model_experiments.md` | 495.853 | verified |
+| Me-res | 5 | `report/metul/model_experiments.md` | 471.168 | verified |
+| Me-res | 5 | `report/metul/model_experiments.md` | 472.274 | verified |
+| Me-res | 5 | `report/metul/model_experiments.md` | 468.740 | verified |
+| Me-res | 5 | `report/metul/model_experiments.md` | 467.122 | verified |
+| Me-res | 5 | `report/metul/model_experiments.md` | 468.057 | verified |
+| Me-seg | 4 | `report/metul/model_experiments.md` | 476.068 | verified |
+| Me-seg | 4 | `report/metul/model_experiments.md` | 471.448 | verified |
+| Me-seg | 4 | `report/metul/model_experiments.md` | 475.846 | verified |
+| Me-seg | 4 | `report/metul/model_experiments.md` | 7.574 RMSE | verified |
+| Me-seg | 4 | `report/metul/model_experiments.md` | 4.620 RMSE | verified |
 | Me-seg-err | 2 | `report/metul/eda.md` | Executive flats had an OOF RMSE of SGD 720 | verified |
 | Me-seg-err | 2 | `report/metul/eda.md` | RMSE SGD 653 | verified |
 | Me-seg-err | 2 | `report/metul/eda.md` | RMSE SGD 542 | verified |
@@ -217,14 +238,14 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Me-stack | 1 | `report/metul/model_experiments.md` | +29.148 | verified |
 | Me-te-all | 1 | `report/metul/data_processing.md` | +6.125 | verified |
 | Me-te-all | 1 | `report/metul/data_processing.md` | +10.678 | verified |
-| Me-tft | 1 | `report/metul/model_experiments.md` | 258.453 | verified |
-| Me-tft | 1 | `report/metul/model_experiments.md` | 0.8400 | verified |
-| Me-tft | 1 | `report/metul/model_experiments.md` | 1,340 observed segment-months | verified |
-| Me-tft | 1 | `report/metul/model_experiments.md` | 499.791 | verified |
-| Me-tft | 1 | `report/metul/model_experiments.md` | 471.209 | verified |
+| Me-tft | 2 | `report/metul/model_experiments.md` | 258.453 | verified |
+| Me-tft | 2 | `report/metul/model_experiments.md` | 0.8400 | verified |
+| Me-tft | 2 | `report/metul/model_experiments.md` | 1,340 observed segment-months | verified |
+| Me-tft | 2 | `report/metul/model_experiments.md` | 499.791 | verified |
+| Me-tft | 2 | `report/metul/model_experiments.md` | 471.209 | verified |
 | Me-trace | 1 | `report/metul/model_experiments.md` | Evidence traceability | verified |
-| Me-trendres | 1 | `report/metul/model_experiments.md` | 518.590 | verified |
-| Me-trendres | 1 | `report/metul/model_experiments.md` | 495.853 | verified |
+| Me-trendres | 2 | `report/metul/model_experiments.md` | 518.590 | verified |
+| Me-trendres | 2 | `report/metul/model_experiments.md` | 495.853 | verified |
 | Pu-W | 2 | `report/punyaa/problem_and_protocol.md` | 117,988 | verified |
 | Pu-W | 2 | `report/punyaa/problem_and_protocol.md` | 32,012 | verified |
 | Pu-W | 2 | `report/punyaa/problem_and_protocol.md` | 132,802 | verified |

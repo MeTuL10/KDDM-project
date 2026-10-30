@@ -78,6 +78,11 @@ CLAIMS = {
     'Be-weakcorr': [(BE + 'exploratory_data_analysis.md', ['(|r| ≤ 0.12)'])],
     # ---------------- Metul ----------------
     'Me-assoc': [(ME + 'eda.md', ['0.528 | 0.006', '0.562 | 0.018', '0.664 | 0.668'])],
+    'Me-alt': [(ME + 'model_experiments.md', ['468.272', '468.068', '468.360', '472.509',
+                                               '475.130', '475.846', '476.068', '479.319',
+                                               '484.923', '486.073', '478.370', '492.281',
+                                               '356.438', '343.087', '497.497', '518.590',
+                                               '477.592', '273.240', '486.052', '571.673', '567.562'])],
     'Me-cat': [(ME + 'eda.md', ['1,146 to 576', '11 to 6'])],
     'Me-cov': [(ME + 'eda.md', ['36 of 50,000 test rows (0.072%)', 'Eleven block labels'])],
     'Me-fallback': [(ME + 'data_processing.md', ['median for the fitted town–street group', 'median for the fitted town',
