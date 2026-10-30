@@ -45,7 +45,7 @@
 \thispagestyle{plain}
 
 \begin{abstract}
-We forecast the monthly rent of 50,000 Singapore HDB flat rentals approved up to sixteen months after our 150,000 labelled examples (2021--2025). Four team members built pipelines on the same data: gradient-boosted trees on the residual over an official median rent with block-level shrinkage encodings, causal rent-history features, AutoGluon stacks with deep tabular models, and an R pipeline with the first design. Three findings emerge. First, predicting the residual over the official median rent, with block-level encodings, is the only change that moved the public leaderboard materially (443.0 to 433.6 RMSE). Second, deep models, gating, segmentation, hyperparameter search, robust losses, tail trimming and external resale data each moved RMSE by about one point or made it worse. Third, identical flats rent with a standard deviation of about 455--464 SGD, the same order as our error. The released median-rent file covers the test quarters and so leaks future aggregates; an honest forecast-time anchor costs about 5 RMSE locally but 0.05 on the leaderboard. Our final model scores 433.65480.\src{Aa-lb,Aa-honest-lb,Aa-honest-cost,Be-noise,Pu-noise,Aa-noise}
+We forecast the monthly rent of 50,000 Singapore HDB flat rentals approved up to sixteen months after our 150,000 labelled examples (2021--2025). Four team members built pipelines on the same data: gradient-boosted trees on the residual over an official median rent with block-level shrinkage encodings, causal rent-history features, AutoGluon LightGBM--CatBoost stacks plus deep tabular models, and an R pipeline with the first design. Three findings emerge. First, predicting the residual over the official median rent, with block-level encodings, is the only change that moved the public leaderboard materially (443.0 to 433.6 RMSE). Second, deep models, gating, segmentation, hyperparameter search, robust losses, tail trimming and external resale data each moved RMSE by about one point or made it worse. Third, identical flats rent with a standard deviation of about 455--464 SGD, the same order as our error. The released median-rent file covers the test quarters and so leaks future aggregates; an honest forecast-time anchor costs about 5 RMSE locally but 0.05 on the leaderboard. Our final model scores 433.65480.\src{Aa-lb,Aa-honest-lb,Aa-honest-cost,Be-noise,Pu-noise,Aa-noise,Me-families}
 \end{abstract}
 
 \section{Introduction}
@@ -169,9 +169,12 @@ Structural features (floor area, area per room, maximum floor, year completed, f
 
 \section{Data Mining Methods}
 \subsection{Models}
-Tabular data with mixed numeric and high-cardinality categorical inputs and 150,000 rows suits boosted trees; trees remain strongest on medium-sized tabular data~\cite{grinsztajn}, and under time-based splits gradient-boosted trees and embedding MLPs rank best~\cite{tabred}. We use LightGBM~\cite{lightgbm}, XGBoost~\cite{xgboost} and CatBoost~\cite{catboost} (ordered target statistics), ridge regression, AutoGluon-Tabular~\cite{autogluon} weighted ensembles with stacked residual layers, FT-Transformer~\cite{ftt}, TabTransformer~\cite{tabt}, MLPs, a Temporal Fusion Transformer~\cite{tft} for segment-level forecasts, neural gates and segmented models. B also reproduced a delayed neural network for Singapore housing prices~\cite{wang2016}.\src{Me-families,Be-paper} Empirical-Bayes target encoding~\cite{micci} and its regularised, cross-fitted forms~\cite{pargent} are standard for high-cardinality keys; random-effects boosting~\cite{gpboost} is the likelihood-based counterpart, which we test in Section~\ref{sec:matter}.
+Tabular data with mixed numeric and high-cardinality categorical inputs and 150,000 rows suits boosted trees; trees remain strongest on medium-sized tabular data~\cite{grinsztajn}, and under time-based splits gradient-boosted trees and embedding MLPs rank best~\cite{tabred}. We use LightGBM~\cite{lightgbm}, XGBoost~\cite{xgboost} and CatBoost~\cite{catboost} (ordered target statistics), ridge regression, FT-Transformer~\cite{ftt}, TabTransformer~\cite{tabt}, MLPs, a Temporal Fusion Transformer~\cite{tft} for segment-level forecasts, neural gates and segmented models. M's AutoGluon-Tabular~\cite{autogluon} setup restricts its base models to LightGBM and CatBoost; AutoGluon's second-level weighted ensemble learns global blend weights, unlike the input-dependent neural gates tested separately, and is extended in later experiments with stacked residual layers. B also reproduced a delayed neural network for Singapore housing prices~\cite{wang2016}.\src{Me-families,Be-paper} Empirical-Bayes target encoding~\cite{micci} and its regularised, cross-fitted forms~\cite{pargent} are standard for high-cardinality keys; random-effects boosting~\cite{gpboost} is the likelihood-based counterpart, which we test in Section~\ref{sec:matter}.
 
-\textbf{Categorical handling.} Categoricals are passed natively to the tree learners; this beat one-hot encoding in six of seven configurations (town, region and block: 481.89 against 482.09),\src{Me-onehot} and replacing every categorical by its target mean was 6.1 to 10.7 RMSE worse.\src{Me-te-all} Encodings of block-like keys are the exception, because they carry information no other feature has (Table~\ref{tab:imp}). Missing numeric block attributes fall back to the town--street median, then the town median, then the global median.\src{Me-fallback}
+\textbf{Categorical handling.} Categoricals are passed natively to the tree learners; this beat one-hot encoding in six of seven configurations (town, region and block: 481.89 against 482.09),\src{Me-onehot} and replacing every categorical by its target mean was 6.1 to 10.7 RMSE worse.\src{Me-te-all} In M's selected AutoGluon configuration, automatic text feature generation is disabled with the \texttt{ignore\_text} preset. Thus fields such as street and nearest-MRT name remain categorical, without automatically generated text-special or n-gram columns.\src{Me-text} Encodings of block-like keys are the exception, because they carry information no other feature has (Table~\ref{tab:imp}). Missing numeric block attributes fall back to the town--street median, then the town median, then the global median.\src{Me-fallback}
+
+\subsection{Feature selection}
+M combined controlled manual subsets with automated selection. The manual sets retained structurally meaningful property, time, location and accessibility variables, informed by chronological rank correlation, mutual information, permutation importance and matched ablations rather than full-period correlation alone. A broader 36-variable pool was then evaluated with two wrapper methods: permutation-importance recursive feature elimination (RFE), which repeatedly refitted the LightGBM--CatBoost ensemble before removing weak variables, and SHAP ranking followed by top-$k$ refits. PCA and truncated SVD were used only as diagnostics because their leading components were not temporally stable. Test labels were never used for selection.\src{Me-fs-manual,Me-fs-auto,Me-dim}
 
 \subsection{Choice of baseline for the residual}
 A residual target only helps if the baseline carries the right level. Table~\ref{tab:base} compares baselines across tracks. A national-level baseline, even an oracle one that knows the actual national average, is worse than the official town $\times$ flat-type median,\src{Be-two-stage} and P's residual over a global 24-month lag collapses (CatBoost 662.5 against 464.2 for direct prediction) because the lag lacks town and flat-type detail.\src{Pu-lagres} M's explicit trend-plus-residual network is likewise weaker than direct deep prediction (518.6 against 495.9).\src{Me-trendres} Predicting a ratio instead of a difference gave no gain (change $-0.02$).\src{Be-impr}
@@ -248,6 +251,25 @@ P3 & A & V2-recipe LightGBM$^\dagger$ & 443.64\\
 \end{tabular}
 \end{table}
 
+\subsection{Feature-selection results}
+The controlled manual screen selected a compact 13-variable subset at RMSE 467.230, ahead of the 31-variable full table at 467.507 and the 25-variable candidate expansion at 468.304. The selected production representation subsequently extended the compact set with a prior-only town $\times$ flat-type mean, a global 24-month rent lag and three nearest-place names; its default LightGBM--CatBoost ensemble scored 467.122. Because training budgets and automatic text handling differed between these stages, the latter comparison is a development progression rather than a pure one-variable ablation.\src{Me-fs-manual}
+
+Automated reduction did not establish a stronger independent result. RFE retained all 36 candidates at 468.921; reducing to 10 produced 469.080, while intermediate subsets were less stable. Under the same shortened protocol, the SHAP top-18 subset scored 467.841 against 468.272 for the manual 18-variable set. This 0.431 improvement was selected on the same outer validation period, so it was not treated as an untouched estimate and did not replace the production representation. PCA showed the same temporal-instability warning: the first numeric component's target correlation fell from 0.654 in fitting to 0.306 in validation, and no PCA/SVD replacement-model RMSE was recorded.\src{Me-fs-auto,Me-dim}
+
+\begin{table}[t]
+\caption{Feature-selection results on P1. Values should be compared within a row because fitting budgets differed across methods.\src{Me-fs-manual,Me-fs-auto}}\label{tab:feature-selection}
+\centering\footnotesize
+\begin{tabular}{@{}p{2.0cm}p{3.9cm}r@{}}
+\toprule
+Method & Selected / matched comparator & RMSE\\
+\midrule
+Manual subsets & Compact 13 / full 31 & 467.230 / 467.507\\
+RFE & All 36 / reduced 10 & 468.921 / 469.080\\
+SHAP top-$k$ & Top 18 / manual 18 & 467.841 / 468.272\\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \subsection{Alternative Modelling Approaches}
 Table~\ref{tab:alternatives} compares the principal alternatives evaluated by M on the common P1 listing holdout.
 Hard segmentation did not help: routing AutoGluon by town and flat type scored 475.846 and 476.068, against global controls of 468.272 and 471.448.
@@ -276,7 +298,7 @@ Aggregate temporal patterns were learnable, but their errors compounded when for
 \toprule
 Approach & Model description & P1 RMSE\\
 \midrule
-Reference & AutoGluon, default settings & \textbf{467.122}\\
+Reference & AutoGluon LightGBM--CatBoost, default settings & \textbf{467.122}\\
 Residual specialists & Weighted flat-type residual experts & 468.068\\
  & Significant-residual gated specialist & 468.360\\
 Fixed / learned blends & Equal LightGBM--CatBoost blend & 468.740\\
@@ -342,7 +364,7 @@ Honest instead of published anchor & +4.55 (P2), public score +0.048\src{Aa-hone
 \end{table*}
 
 \subsection{Local gains against the leaderboard}
-Fig.~\ref{fig:lb} shows every submission. The anchor-and-encoding tracks, the causal-history track and the AutoGluon stack fall within 433.4 to 436.3, a plateau only 0.7\% wide. Three local gains of 0.5 to 3 RMSE (deeper trees, premium and bagging, CatBoost-heavy weights) did not appear on the leaderboard (434.05, 434.03, 433.63 against V2's 433.61),\src{Aa-lb,Aa-cbw,Aa-trim} consistent with the public score covering half the test rows and unit-level noise dominating.\src{Pu-lb-limit} Published studies find public leaderboards rank reliably despite adaptive reuse~\cite{roelofs} but that tiny differences carry little information~\cite{ladder}.
+Fig.~\ref{fig:lb} shows every submission. The anchor-and-encoding tracks, the causal-history track and the AutoGluon LightGBM--CatBoost stack fall within 433.4 to 436.3, a plateau only 0.7\% wide. Three local gains of 0.5 to 3 RMSE (deeper trees, premium and bagging, CatBoost-heavy weights) did not appear on the leaderboard (434.05, 434.03, 433.63 against V2's 433.61),\src{Aa-lb,Aa-cbw,Aa-trim} consistent with the public score covering half the test rows and unit-level noise dominating.\src{Pu-lb-limit} Published studies find public leaderboards rank reliably despite adaptive reuse~\cite{roelofs} but that tiny differences carry little information~\cite{ladder}.
 
 \begin{figure}[t]
 \centering

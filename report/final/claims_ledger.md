@@ -199,18 +199,37 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Me-fallback | 1 | `report/metul/data_processing.md` | median for the fitted town–street group | verified |
 | Me-fallback | 1 | `report/metul/data_processing.md` | median for the fitted town | verified |
 | Me-fallback | 1 | `report/metul/data_processing.md` | fitted global median | verified |
-| Me-families | 1 | `report/metul/model_experiments.md` | Temporal Fusion Transformer (TFT) | verified |
-| Me-families | 1 | `report/metul/model_experiments.md` | TabTransformer and FT-Transformer | verified |
-| Me-families | 1 | `report/metul/model_experiments.md` | AutoGluon weighted ensemble | verified |
+| Me-families | 2 | `report/metul/model_experiments.md` | Temporal Fusion Transformer (TFT) | verified |
+| Me-families | 2 | `report/metul/model_experiments.md` | TabTransformer and FT-Transformer | verified |
+| Me-families | 2 | `report/metul/model_experiments.md` | AutoGluon weighted ensemble | verified |
+| Me-families | 2 | `report/metul/model_experiments.md` | controlled wrapper around LightGBM and CatBoost | verified |
+| Me-families | 2 | `report/metul/model_experiments.md` | second-level model learns global blend weights | verified |
 | Me-feat | 1 | `report/metul/data_processing.md` | nearest_mrt_name | verified |
 | Me-feat | 1 | `report/metul/data_processing.md` | nearest_tourist_attraction_name | verified |
 | Me-feat | 1 | `report/metul/data_processing.md` | nearest_monument_name | verified |
+| Me-fs-auto | 3 | `report/metul/data_processing.md` | Permutation-importance RFE | verified |
+| Me-fs-auto | 3 | `report/metul/data_processing.md` | 468.921 | verified |
+| Me-fs-auto | 3 | `report/metul/data_processing.md` | 469.080 | verified |
+| Me-fs-auto | 3 | `report/metul/data_processing.md` | SHAP top 18 | verified |
+| Me-fs-auto | 3 | `report/metul/data_processing.md` | 467.841 | verified |
+| Me-fs-auto | 3 | `report/metul/data_processing.md` | 468.272 | verified |
+| Me-fs-auto | 3 | `report/metul/data_processing.md` | same outer period used to choose the subset | verified |
+| Me-fs-manual | 3 | `report/metul/data_processing.md` | compact_no_coordinates | verified |
+| Me-fs-manual | 3 | `report/metul/data_processing.md` | 467.230 | verified |
+| Me-fs-manual | 3 | `report/metul/data_processing.md` | 467.507 | verified |
+| Me-fs-manual | 3 | `report/metul/data_processing.md` | 468.304 | verified |
+| Me-fs-manual | 3 | `report/metul/data_processing.md` | monthly_target_lag | verified |
+| Me-fs-manual | 3 | `report/metul/data_processing.md` | town_flat_type_target_mean | verified |
+| Me-fs-manual | 3 | `report/metul/data_processing.md` | 467.122 | verified |
 | Me-hpo | 1 | `report/metul/model_experiments.md` | 25 HPO trials for each of LightGBM and CatBoost | verified |
 | Me-hpo | 1 | `report/metul/model_experiments.md` | tuning_data | verified |
 | Me-lb | 1 | `expt-5/PROGRESS_REPORT.md` | 436.28615 | verified |
 | Me-mi | 1 | `report/metul/eda.md` | (0.361) | verified |
 | Me-mi | 1 | `report/metul/eda.md` | (0.229) | verified |
 | Me-mi | 1 | `report/metul/eda.md` | (0.218) | verified |
+| Me-dim | 2 | `report/metul/data_processing.md` | first numeric principal component's target correlation changed from 0.654 in fitting to 0.306 in validation | verified |
+| Me-dim | 2 | `report/metul/data_processing.md` | second changed from 0.262 to 0.560 | verified |
+| Me-dim | 2 | `report/metul/data_processing.md` | No downstream model RMSE | verified |
 | Me-onehot | 1 | `report/metul/data_processing.md` | 481.89 | verified |
 | Me-onehot | 1 | `report/metul/data_processing.md` | 482.09 | verified |
 | Me-onehot | 1 | `report/metul/data_processing.md` | six of seven configurations | verified |
@@ -238,6 +257,10 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Me-stack | 1 | `report/metul/model_experiments.md` | +29.148 | verified |
 | Me-te-all | 1 | `report/metul/data_processing.md` | +6.125 | verified |
 | Me-te-all | 1 | `report/metul/data_processing.md` | +10.678 | verified |
+| Me-text | 1 | `report/metul/data_processing.md` | ignore_text | verified |
+| Me-text | 1 | `report/metul/data_processing.md` | text-special and n-gram | verified |
+| Me-text | 1 | `report/metul/data_processing.md` | STREET | verified |
+| Me-text | 1 | `report/metul/data_processing.md` | nearest_mrt_name | verified |
 | Me-tft | 2 | `report/metul/model_experiments.md` | 258.453 | verified |
 | Me-tft | 2 | `report/metul/model_experiments.md` | 0.8400 | verified |
 | Me-tft | 2 | `report/metul/model_experiments.md` | 1,340 observed segment-months | verified |

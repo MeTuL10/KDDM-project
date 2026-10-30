@@ -41,36 +41,43 @@ def save(figure: plt.Figure, filename: str) -> None:
 
 
 # Figure 1: representative listing-level models on the May-2024-forward split.
+# Labels intentionally describe the model only; experiment numbers belong in
+# the surrounding evidence table, not in the visual comparison.
 labels = [
-    "Exp. 7 HPO broad\nAutoGluon",
-    "Exp. 9 default-setting\nAutoGluon",
-    "Exp. 14 weighted\nresidual stack",
-    "Exp. 10 equal\nGBM/CAT blend",
-    "Exp. 12 equal\nDL blend",
-    "Exp. 10 neural\nGBM/CAT gate",
-    "Exp. 11 town-\nrouted AutoGluon",
-    "Exp. 13 tuned\nrandom forest",
-    "Exp. 10\nTabTransformer",
-    "Exp. 14 AG +\nAdaBoost residual",
+    "AutoGluon\n(default settings)",
+    "Weighted flat-type\nresidual experts",
+    "Significant-residual\ngated specialist",
+    "Equal GBM/CatBoost\nblend",
+    "Equal deep-expert\nblend",
+    "Neural GBM/CatBoost\ngate",
+    "Block-to-town\ndeep gate",
+    "Town-routed\nAutoGluon",
+    "Flat-type-routed\nAutoGluon",
+    "Tuned random\nforest",
+    "Global random\nforest",
+    "Flat-type-routed\nrandom forest",
+    "Quantile LightGBM\n(q = 0.60)",
+    "TabTransformer",
+    "FT-Transformer",
 ]
-values = [466.432, 467.122, 468.057, 468.740, 471.168, 472.274, 475.846, 479.319, 495.853, 497.420]
-colors = [GREEN, ORANGE, ORANGE, BLUE, BLUE, BLUE, BLUE, GREY, RED, RED]
+values = [467.122, 468.068, 468.360, 468.740, 471.168, 472.274, 475.130, 475.846, 476.068, 479.319, 484.923, 486.073, 492.281, 495.853, 497.497]
+colors = [ORANGE, GREEN, GREEN, BLUE, RED, BLUE, RED, BLUE, BLUE, GREY, GREY, GREY, BLUE, RED, RED]
 
-figure, axis = plt.subplots(figsize=(10.8, 7.2))
+figure, axis = plt.subplots(figsize=(10.8, 8.8))
 positions = np.arange(len(labels))
 bars = axis.barh(positions, values, color=colors, alpha=0.92)
 axis.set_yticks(positions, labels)
 axis.invert_yaxis()
 axis.set_xlim(460, 502)
 axis.set_xlabel("Validation RMSE")
-axis.set_title("Representative listing-level model results on the common chronological split")
+axis.set_title("Alternative listing-level models on the common chronological split")
 axis.tick_params(axis="y", labelsize=9)
 for bar, value in zip(bars, values):
     axis.text(value + 0.45, bar.get_y() + bar.get_height() / 2, f"{value:.3f}", ha="left", va="center", fontsize=8.5)
 axis.text(
     0.01,
     -0.13,
-    "The split is common, but training budgets and feature-generator settings changed across experiments; controlled conclusions use within-experiment comparisons.",
+    "All bars use the May-2024-forward listing holdout; paired controls remain more reliable than small cross-run differences.",
     transform=axis.transAxes,
     fontsize=9,
     color="#475467",
