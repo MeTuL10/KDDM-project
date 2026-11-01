@@ -6,7 +6,7 @@ the anchor is added back, and the three are blended.
    weights >= 0 summing to 1.
 2. train_five_fold: shuffled 5-fold over all of train; each fold's three models predict the full test set and
    the test predictions are averaged over folds. Early stopping uses each fold's validation split.
-Seeds, hyperparameters and thread counts are those of the submitted run (ported from expt-2/src/models_v2.py).
+Seeds, hyperparameters and thread counts are those of the submitted run (ported from exploration/Aayush/expt-2/src/models_v2.py).
 """
 
 import numpy as np

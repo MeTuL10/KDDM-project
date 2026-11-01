@@ -2,7 +2,7 @@
 Builds the new figures for the final report from logged numbers (no retyped experiment values where a log exists).
 Run from anywhere:  python report/final/make_figures.py
   fig_leaderboard.pdf : public leaderboard score of every submission we made, by pipeline
-  fig_learning.pdf    : (a) learning curve, (b) cost of older training data  [expt-5/outputs/learning_curve.log]
+  fig_learning.pdf    : (a) learning curve, (b) cost of older training data  [exploration/Aayush/expt-5/outputs/learning_curve.log]
   fig_errors.pdf      : (a) out-of-fold RMSE by flat type , (b) where the squared error sits (root pipeline)
 """
 import os, re
@@ -16,8 +16,8 @@ OUT = os.path.join(HERE, 'figures')
 plt.rcParams.update({'font.size': 7, 'font.family': 'serif', 'axes.linewidth': 0.6, 'pdf.fonttype': 42})
 C = {'anchor': '#1f5fa8', 'history': '#d1691b', 'auto': '#2a8a5e', 'root': '#777777'}
 
-# ---- leaderboard (public score; sources: expt-5/PROGRESS_REPORT.md leaderboard log, report/beina/model_experiment.md 6.4,
-#      report/punyaa/README.md headline results, expt-2/PROGRESS_REPORT.md, progress-report.md, Metul's score as supplied) ----
+# ---- leaderboard (public score; sources: exploration/Aayush/expt-5/PROGRESS_REPORT.md leaderboard log, report/beina/model_experiment.md 6.4,
+#      report/punyaa/README.md headline results, exploration/Aayush/expt-2/PROGRESS_REPORT.md, exploration/Aayush/progress-report.md, Metul's score as supplied) ----
 rows = [  # (label, score, family)
     ('Root pipeline, tuned ', 451.42, 'root'),
     ('V1: tri-model, no block encodings ', 443.000, 'anchor'),
@@ -50,7 +50,7 @@ for s in ('top', 'right'): ax.spines[s].set_visible(False)
 fig.tight_layout(pad=0.3); fig.savefig(os.path.join(OUT, 'fig_leaderboard.pdf')); plt.close(fig)
 
 # ---- learning curve / recency (parsed from the log) ----
-lg = open(os.path.join(ROOT, 'expt-5', 'outputs', 'learning_curve.log')).read()
+lg = open(os.path.join(ROOT, 'exploration', 'Aayush', 'expt-5', 'outputs', 'learning_curve.log')).read()
 curve = [(int(n.replace(',', '')), float(r)) for n, r in re.findall(r'%\s+([\d,]+) rows\s+RMSE\s+([\d.]+)', lg)]
 rec = [(int(g), float(c)) for g, c in re.findall(r'gap\s+(\d+) mo.*?cost of being older:\s+([+-][\d.]+)', lg)]
 assert len(curve) == 5 and len(rec) == 6, (curve, rec)
@@ -70,7 +70,7 @@ print('figures written:', os.listdir(OUT))
 # ---- error concentration ----
 # (a) report/metul/eda.md section H: out-of-fold RMSE of executive 720, five-room 653, three-room 542
 seg = [('3-room', 542), ('5-room', 653), ('executive', 720)]
-# (b) expt-5/PROGRESS_REPORT.md "Error decomposition": 1,096 of 16,961 rows (rent <= 2,100) with RMSE 1,090.19; rest RMSE 369.94
+# (b) exploration/Aayush/expt-5/PROGRESS_REPORT.md "Error decomposition": 1,096 of 16,961 rows (rent <= 2,100) with RMSE 1,090.19; rest RMSE 369.94
 n_low, n_all, rm_low, rm_rest = 1096, 16961, 1090.19, 369.94
 share_rows = n_low / n_all
 mse_low, mse_rest = share_rows * rm_low ** 2, (1 - share_rows) * rm_rest ** 2

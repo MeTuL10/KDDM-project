@@ -15,7 +15,7 @@ best model on the validation split (to verify), and again on the full data (to s
 
 The model/hyperparameters below are a snapshot, not re-derived here — they were
 selected in baseline_main.ipynb's model-comparison and hyperparameter-tuning sections (see
-progress-report.md "Current result"). If the feature set in archived_modules/modeling.py
+exploration/Aayush/progress-report.md "Current result"). If the feature set in archived_modules/modeling.py
 changes enough that a different model or hyperparameters might now win, re-run that
 comparison in baseline_main.ipynb and update BEST_MODEL/BEST_PARAMS below to match — this
 script intentionally does not re-search for "best", only reproduces a known one.
@@ -35,7 +35,7 @@ import modeling as mdl
 # held-out val_fold by RMSE — the metric that actually matters here, not MAE).
 # Superseded by a wider randomized hyperparameter search (30 trials over
 # n_estimators/learning_rate/num_leaves/min_child_samples/subsample/colsample_bytree/
-# reg_alpha/reg_lambda, see progress-report.md "Hyperparameter search, round 2") —
+# reg_alpha/reg_lambda, see exploration/Aayush/progress-report.md "Hyperparameter search, round 2") —
 # confirmed on the true held-out val_fold: RMSE 457.37 -> 456.70. A SUBZONE x
 # FLAT_TYPE interaction feature gave a near-identical standalone gain (456.68) but the
 # two do NOT stack (456.88 combined, worse than either alone — the hyperparameters
@@ -51,10 +51,10 @@ BEST_FIT_FULL = mdl.fit_lgbm_full
 # Address-level (TOWN+BLOCK+STREET — finer than SUBZONE) trailing rent-per-sqm
 # feature, shrunk toward the SUBZONE mean (archived_modules/preprocessing.py::
 # build_address_momentum/add_address_feature). Tested and ADOPTED — see
-# progress-report.md "Address-level rent-level feature": RMSE 456.70 -> 452.56 on
+# exploration/Aayush/progress-report.md "Address-level rent-level feature": RMSE 456.70 -> 452.56 on
 # val_fold, held up across 3/4 expanding-window CV folds. Note this hyperparameter
 # set was tuned WITHOUT this feature present — the SUBZONE x FLAT_TYPE interaction
-# episode (progress-report.md "Joint re-tune") showed a new feature and existing
+# episode (exploration/Aayush/progress-report.md "Joint re-tune") showed a new feature and existing
 # tuned hyperparameters don't always stack additively, so a joint re-tune is a
 # worthwhile follow-up, not yet done (the gain here already clears the bar on its
 # own with the untouched hyperparameters).
@@ -67,7 +67,7 @@ BEST_FIT_FULL = mdl.fit_lgbm_full
 # market level. Tested on a 16-month horizon-matched holdout (train through 2023-11):
 # RMSE 600.72 -> 492.77 (paired-bootstrap CI -111 to -104), and 452.56 -> 451.87 on the
 # usual 6-month fold (not significant there: CI -1.98 to +0.52). See
-# exploration/median_anchor_experiment.py and progress-report.md "Median-rent anchor".
+# exploration/median_anchor_experiment.py and exploration/Aayush/progress-report.md "Median-rent anchor".
 # Hyperparameters were tuned for the direct target and are unchanged here.
 NUMERIC_FEATURES = mdl.GBM_NUMERIC_FEATURES + ['addr_level_feat', 'anchor', 'anchor_level']
 

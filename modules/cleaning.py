@@ -1,5 +1,5 @@
 """
-Data cleaning and harmonisation for the final pipeline (ported from expt-2/src/data_cleaning.py).
+Data cleaning and harmonisation for the final pipeline (ported from exploration/Aayush/expt-2/src/data_cleaning.py).
 Handles:
 1. Normalization of FLAT_TYPE, FLAT_MODEL, TOWN, BLOCK, STREET
 2. Elimination of duplicate category representations (e.g., '1 room' vs '1-room')

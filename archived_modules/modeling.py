@@ -49,7 +49,7 @@ from xgboost import XGBRegressor
 
 TARGET = 'MONTHLY_RENT'
 
-# Established in the "CatBoost" investigation (progress-report.md) — best of depth
+# Established in the "CatBoost" investigation (exploration/Aayush/progress-report.md) — best of depth
 # (4/6/8) x learning_rate (0.03/0.05) x l2_leaf_reg (3/10), on the feature set BEFORE
 # addr_level_feat existed. Reused as-is by fit_catboost_baseline/_full below (not
 # re-tuned) when the question is "does blending with LightGBM help", not "what's
@@ -195,7 +195,7 @@ def optuna_search_lgbm(train_df: pd.DataFrame, categories: dict, splits: list, p
     (mean RMSE across folds; splits must come from train_fold only, never train_feat,
     for the same reason grid_search_lgbm's docstring gives), swapping grid/random
     search for Optuna's Tree-structured Parzen Estimator sampler. Tried per
-    progress-report.md's "Known limitations" note that a formal Bayesian optimizer
+    exploration/Aayush/progress-report.md's "Known limitations" note that a formal Bayesian optimizer
     hadn't been tested as a distinct method (only randomized/grid search had).
 
     param_space: {name: (low, high, log)} for float/int params (log=True samples on
@@ -204,7 +204,7 @@ def optuna_search_lgbm(train_df: pd.DataFrame, categories: dict, splits: list, p
     Returns (study, trials_df) — trials_df matches grid_search_lgbm's output shape
     (one row per trial, sorted best-first by mean_RMSE) so results are directly
     comparable to the existing 30-trial/15-trial randomized-search results in
-    progress-report.md.
+    exploration/Aayush/progress-report.md.
     """
     import optuna
     optuna.logging.set_verbosity(optuna.logging.WARNING)

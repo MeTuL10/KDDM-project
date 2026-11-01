@@ -1,6 +1,6 @@
 """
 Feature Engineering Module v2 (Sprint 1 & Sprint 2 Enhancements)
-Path: modules/features.py (ported from expt-2/src/feature_engineering_v2.py)
+Path: modules/features.py (ported from exploration/Aayush/expt-2/src/feature_engineering_v2.py)
 
 Key Advancements:
 1. Dynamic Macro Extrapolation: Extrapolates 2026-Q3 median rent benchmark using local quarterly growth.

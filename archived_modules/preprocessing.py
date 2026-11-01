@@ -179,7 +179,7 @@ def add_macro_features(df: pd.DataFrame, stock_index: pd.Series, coe_index: pd.S
 
 def build_subzone_momentum(source_df: pd.DataFrame, window: int = 6) -> pd.DataFrame:
     """Trailing rolling-average rent per SUBZONE, computed from source_df only, for
-    use as a 'recent local market level' feature. See progress-report.md "Applying
+    use as a 'recent local market level' feature. See exploration/Aayush/progress-report.md "Applying
     the top two suggested next steps" for the full result — TESTED, NOT ADOPTED
     (redundant with SUBZONE's own native categorical signal; doesn't fix the
     low-rent over-prediction problem it was built to address).
@@ -221,7 +221,7 @@ def build_address_momentum(source_df: pd.DataFrame) -> pd.DataFrame:
     """Trailing, address-level (TOWN+BLOCK+STREET — finer than SUBZONE) rent_per_sqm
     history, for use as a per-building 'usual price level' signal.
 
-    Tested and ADOPTED — see progress-report.md "Address-level rent-level feature".
+    Tested and ADOPTED — see exploration/Aayush/progress-report.md "Address-level rent-level feature".
     Unlike build_subzone_momentum (tested, NOT adopted — redundant with SUBZONE's own
     categorical splits), a per-building signal captures something a SUBZONE-wide
     category boundary can't (e.g. one block running consistently cheaper/pricier than

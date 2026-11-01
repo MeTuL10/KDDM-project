@@ -7,7 +7,7 @@ benchmark at the cutoff quarter and carry it forward, multiplied by exp(g * quar
 the mean quarterly log growth of a national rent index over the 4 quarters up to the cutoff (index = geometric
 mean of the 3-room..executive national medians, the only types published every quarter). Quarters up to the
 cutoff keep their published values, so train rows are never touched.
-(Ported from expt-5/src/honest_lib.py.)
+(Ported from exploration/Aayush/expt-5/src/honest_lib.py.)
 """
 
 from functools import lru_cache

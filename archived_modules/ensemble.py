@@ -1,5 +1,5 @@
 """
-Blend LightGBM / sklearn GBM / XGBoost predictions. See progress-report.md
+Blend LightGBM / sklearn GBM / XGBoost predictions. See exploration/Aayush/progress-report.md
 "Ensembling" section for rationale and results.
 
 Leakage discipline, same principle as archived_modules/modeling.py's tuning-vs-defaults check:
@@ -71,7 +71,7 @@ def fit_nnls_weights(oof_df: pd.DataFrame, y: pd.Series) -> dict:
     matters), but in practice lands close to 1 when every base model is a reasonably
     unbiased predictor of the target.
 
-    CAUTION (see progress-report.md "Ensembling" section): tested with 5 base models
+    CAUTION (see exploration/Aayush/progress-report.md "Ensembling" section): tested with 5 base models
     of very different individual strength (3 similar-strength boosting models +
     Random Forest + kNN, the latter two considerably weaker on their own). NNLS put
     most of its weight on the two WEAKEST individual models and the resulting blend

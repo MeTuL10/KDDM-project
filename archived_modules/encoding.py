@@ -1,6 +1,6 @@
 """
 Explicit categorical encodings, tried as an alternative to the tree models' native
-categorical handling (archived_modules/modeling.py's default). See chat / progress-report.md
+categorical handling (archived_modules/modeling.py's default). See chat / exploration/Aayush/progress-report.md
 "Encoding experiment" for the reasoning behind each choice and the results.
 
 - FLAT_TYPE: ordinal (room count has a real order) — reuses
