@@ -14,8 +14,17 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Aa-anchor | 4 | `progress-report.md` | 492.77 | verified |
 | Aa-anchor | 4 | `progress-report.md` | 451.87 | verified |
 | Aa-anchor | 4 | `progress-report.md` | CI -1.98 to +0.52 | verified |
-| Aa-boot | 1 | `modules/evaluation.py` | paired_bootstrap_rmse_diff | verified |
-| Aa-boot | 1 | `modules/evaluation.py` | resampling whole groups with replacement | verified |
+| Aa-ball | 1 | `expt-2/src/feature_engineering_v2.py` | BallTree(mrt_coords_rad, metric="haversine") | verified |
+| Aa-ball | 1 | `expt-2/src/feature_engineering_v2.py` | interchange_tree | verified |
+| Aa-ball | 1 | `expt-2/src/feature_engineering_v2.py` | malls_tree | verified |
+| Aa-ball | 1 | `expt-2/src/feature_engineering_v2.py` | primary_tree | verified |
+| Aa-ball | 1 | `expt-2/src/feature_engineering_v2.py` | sec_tree | verified |
+| Aa-ball | 1 | `expt-2/src/feature_engineering_v2.py` | top_tree | verified |
+| Aa-ball | 1 | `expt-2/src/feature_engineering_v2.py` | r=0.5 / EARTH_RADIUS_KM | verified |
+| Aa-ball | 1 | `expt-2/src/feature_engineering_v2.py` | r=2.0 / EARTH_RADIUS_KM | verified |
+| Aa-ball | 1 | `expt-2/src/feature_engineering_v2.py` | spatial["interchange_proximity_score"] | verified |
+| Aa-boot | 1 | `archived_modules/evaluation.py` | paired_bootstrap_rmse_diff | verified |
+| Aa-boot | 1 | `archived_modules/evaluation.py` | resampling whole groups with replacement | verified |
 | Aa-boot | 1 | `expt-5/src/exp4_tail_trimming.py` | n_boot=300 | verified |
 | Aa-cbw | 2 | `expt-5/PROGRESS_REPORT.md` | -0.51 (CI -0.86..-0.18) | verified |
 | Aa-cbw | 2 | `expt-5/PROGRESS_REPORT.md` | -1.09 (CI -1.38..-0.78) | verified |
@@ -58,6 +67,9 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Aa-learn | 2 | `expt-5/PROGRESS_REPORT.md` | 100% 443.64 | verified |
 | Aa-learn | 2 | `expt-5/PROGRESS_REPORT.md` | +0.92 at 9, +1.84 at 12, +4.17 at 15 | verified |
 | Aa-learn | 2 | `expt-5/PROGRESS_REPORT.md` | 14.8k block-by-type levels, about 8 rows each | verified |
+| Aa-main | 1 | `main.py` | frozen at the last labelled quarter (2025-Q1) | verified |
+| Aa-main | 1 | `main.py` | 433.65480 | verified |
+| Aa-main | 1 | `main.py` | python main.py | verified |
 | Aa-noise | 4 | `expt-5/PROGRESS_REPORT.md` | pooled SD of 464 | verified |
 | Aa-noise | 4 | `expt-5/PROGRESS_REPORT.md` | 26.8% of rows | verified |
 | Aa-optuna | 2 | `progress-report.md` | 453.71 | verified |
@@ -102,6 +114,10 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Be-coe | 1 | `report/beina/exploratory_data_analysis.md` | **0.015** | verified |
 | Be-drift | 1 | `report/beina/data_process.md` | +0.55% per quarter | verified |
 | Be-drift | 1 | `report/beina/data_process.md` | exp(g × quarters_after_cutoff) | verified |
+| Be-final | 1 | `report/beina/model_experiment.md` | is the one adopted | verified |
+| Be-final | 1 | `report/beina/model_experiment.md` | has not yet been scored on Kaggle | verified |
+| Be-final | 1 | `report/beina/model_experiment.md` | 433.89670 | verified |
+| Be-final | 1 | `report/beina/model_experiment.md` | predict_test.R | verified |
 | Be-honest-lb | 1 | `report/beina/model_experiment.md` | costs about 5 RMSE on OOT and 0.5 on Kaggle | verified |
 | Be-hp | 1 | `report/beina/model_experiment.md` | 12-trial random search | verified |
 | Be-hp | 1 | `report/beina/model_experiment.md` | 10-trial random search | verified |
@@ -196,6 +212,9 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Me-cat | 2 | `report/metul/eda.md` | 11 to 6 | verified |
 | Me-cov | 1 | `report/metul/eda.md` | 36 of 50,000 test rows (0.072%) | verified |
 | Me-cov | 1 | `report/metul/eda.md` | Eleven block labels | verified |
+| Me-dim | 2 | `report/metul/data_processing.md` | first numeric principal component's target correlation changed from 0.654 in fitting to 0.306 in validation | verified |
+| Me-dim | 2 | `report/metul/data_processing.md` | second changed from 0.262 to 0.560 | verified |
+| Me-dim | 2 | `report/metul/data_processing.md` | No downstream model RMSE | verified |
 | Me-fallback | 1 | `report/metul/data_processing.md` | median for the fitted town–street group | verified |
 | Me-fallback | 1 | `report/metul/data_processing.md` | median for the fitted town | verified |
 | Me-fallback | 1 | `report/metul/data_processing.md` | fitted global median | verified |
@@ -227,9 +246,6 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Me-mi | 1 | `report/metul/eda.md` | (0.361) | verified |
 | Me-mi | 1 | `report/metul/eda.md` | (0.229) | verified |
 | Me-mi | 1 | `report/metul/eda.md` | (0.218) | verified |
-| Me-dim | 2 | `report/metul/data_processing.md` | first numeric principal component's target correlation changed from 0.654 in fitting to 0.306 in validation | verified |
-| Me-dim | 2 | `report/metul/data_processing.md` | second changed from 0.262 to 0.560 | verified |
-| Me-dim | 2 | `report/metul/data_processing.md` | No downstream model RMSE | verified |
 | Me-onehot | 1 | `report/metul/data_processing.md` | 481.89 | verified |
 | Me-onehot | 1 | `report/metul/data_processing.md` | 482.09 | verified |
 | Me-onehot | 1 | `report/metul/data_processing.md` | six of seven configurations | verified |

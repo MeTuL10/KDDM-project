@@ -14,9 +14,11 @@ PU = 'report/punyaa/'
 CLAIMS = {
     # ---------------- Aayush ----------------
     'Aa-M': [(E2, ['M=30', 'M=10', 'M=5', 'M=15', 'M=20'])],
+    'Aa-ball': [('expt-2/src/feature_engineering_v2.py', ['BallTree(mrt_coords_rad, metric="haversine")', 'interchange_tree', 'malls_tree', 'primary_tree', 'sec_tree', 'top_tree', 'r=0.5 / EARTH_RADIUS_KM', 'r=2.0 / EARTH_RADIUS_KM', 'spatial["interchange_proximity_score"]'])],
+    'Aa-main': [('main.py', ['frozen at the last labelled quarter (2025-Q1)', '433.65480', 'python main.py'])],
     'Aa-addr': [(RT, ['456.70 → 452.56'])],
     'Aa-anchor': [(RT, ['600.72', '492.77', '451.87', 'CI -1.98 to +0.52'])],
-    'Aa-boot': [('modules/evaluation.py', ['paired_bootstrap_rmse_diff', 'resampling whole groups with replacement']),
+    'Aa-boot': [('archived_modules/evaluation.py', ['paired_bootstrap_rmse_diff', 'resampling whole groups with replacement']),
                 ('expt-5/src/exp4_tail_trimming.py', ['n_boot=300'])],
     'Aa-cbw': [(E5, ['-0.51 (CI -0.86..-0.18)', '-1.09 (CI -1.38..-0.78)', '433.63052'])],
     'Aa-drift': [(E5, ['+0.78% at 2024-Q2, +0.55% at 2025-Q1'])],
@@ -58,6 +60,7 @@ CLAIMS = {
     'Be-impr': [(BE + 'model_experiment.md', ['+1.14', '−0.02', 'under 1.2 RMSE'])],
     'Be-inputs': [(BE + 'data_process.md', ['150,000 / 50,000', '9,464 blocks', '243 stations', '113 malls', '337 schools'])],
     'Be-join': [(BE + 'data_process.md', ['30,781 train rows (20.5%)', '0 unmatched'])],
+    'Be-final': [(BE + 'model_experiment.md', ['is the one adopted', 'has not yet been scored on Kaggle', '433.89670', 'predict_test.R'])],
     'Be-lb': [(BE + 'model_experiment.md', ['433.36655', '433.89670'])],
     'Be-leak': [(BE + 'data_process.md', ['information unavailable at forecast time']),
                 (BE + 'model_experiment.md', ['uses information unavailable at forecast time'])],

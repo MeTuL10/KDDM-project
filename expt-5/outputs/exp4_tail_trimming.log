@@ -1,0 +1,32 @@
+
+===== H1: validate from 2024-07 =====
+  base         removed  0.0% (    0 rows)   RMSE blend  450.30  (lgb 452.48, cb 450.43)   central-90%  328.06   outer-10% 1032.95
+  anchor@0.5%  removed  1.0% ( 1260 rows)   RMSE blend  452.84  (lgb 454.94, cb 452.91)   central-90%  323.75   outer-10% 1056.23
+  anchor@1.0%  removed  2.0% ( 2521 rows)   RMSE blend  454.75  (lgb 456.69, cb 454.87)   central-90%  320.66   outer-10% 1072.94
+  anchor@2.5%  removed  4.8% ( 5921 rows)   RMSE blend  459.13  (lgb 461.00, cb 459.13)   central-90%  318.93   outer-10% 1096.20
+  oof@0.5%     removed  1.0% ( 1240 rows)   RMSE blend  452.05  (lgb 454.13, cb 452.24)   central-90%  325.44   outer-10% 1048.05
+  oof@1.0%     removed  2.0% ( 2480 rows)   RMSE blend  452.43  (lgb 454.99, cb 452.52)   central-90%  325.33   outer-10% 1050.03
+  oof@2.5%     removed  5.0% ( 6200 rows)   RMSE blend  455.07  (lgb 457.90, cb 455.00)   central-90%  325.85   outer-10% 1060.04
+  anchor@0.5%  minus base: +2.54  95% CI [+1.36, +3.84]
+  anchor@1.0%  minus base: +4.45  95% CI [+2.98, +6.05]
+  anchor@2.5%  minus base: +8.84  95% CI [+7.08, +10.73]
+  oof@0.5%     minus base: +1.75  95% CI [+0.89, +2.64]
+  oof@1.0%     minus base: +2.13  95% CI [+1.20, +3.07]
+  oof@2.5%     minus base: +4.78  95% CI [+3.79, +5.92]
+
+===== H2: validate from 2023-12 =====
+  base         removed  0.0% (    0 rows)   RMSE blend  482.53  (lgb 485.89, cb 482.57)   central-90%  359.08   outer-10% 1089.07
+  anchor@0.5%  removed  1.0% (  980 rows)   RMSE blend  485.13  (lgb 488.50, cb 485.27)   central-90%  355.68   outer-10% 1110.85
+  anchor@1.0%  removed  2.0% ( 2057 rows)   RMSE blend  487.50  (lgb 489.72, cb 487.76)   central-90%  354.07   outer-10% 1126.01
+  anchor@2.5%  removed  5.2% ( 5312 rows)   RMSE blend  493.09  (lgb 495.27, cb 493.15)   central-90%  353.95   outer-10% 1150.86
+  oof@0.5%     removed  1.0% ( 1030 rows)   RMSE blend  484.27  (lgb 487.39, cb 484.35)   central-90%  359.65   outer-10% 1095.19
+  oof@1.0%     removed  2.0% ( 2058 rows)   RMSE blend  485.06  (lgb 488.09, cb 485.05)   central-90%  359.20   outer-10% 1100.10
+  oof@2.5%     removed  5.0% ( 5140 rows)   RMSE blend  487.80  (lgb 490.09, cb 487.86)   central-90%  360.00   outer-10% 1109.95
+  anchor@0.5%  minus base: +2.60  95% CI [+1.92, +3.52]
+  anchor@1.0%  minus base: +4.97  95% CI [+4.13, +6.11]
+  anchor@2.5%  minus base: +10.56  95% CI [+9.36, +12.04]
+  oof@0.5%     minus base: +1.74  95% CI [+1.19, +2.40]
+  oof@1.0%     minus base: +2.53  95% CI [+1.92, +3.22]
+  oof@2.5%     minus base: +5.27  95% CI [+4.58, +6.06]
+
+done

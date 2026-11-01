@@ -1,0 +1,36 @@
+
+===== H1: validate from 2024-07 =====
+  resale rows used: 182,971; validation rows with block resale history: 99.0%
+  base                 lgb  452.48 (trees 106)   cb  450.43 (trees 401)   blend(0.2/0.8)  450.30
+  +resale              lgb  451.77 (trees 99)   cb  449.91 (trees 498)   blend(0.2/0.8)  449.74
+  +neighbours          lgb  452.10 (trees 163)   cb  450.24 (trees 590)   blend(0.2/0.8)  450.05
+  +resale+neighbours   lgb  451.92 (trees 102)   cb  450.00 (trees 506)   blend(0.2/0.8)  449.88
+  LightGBM gain share of the new features: {'resale_prem_block': '1.1%', 'resale_n_block': '0.3%', 'resale_mean_storey': '0.5%', 'resale_prem_bt': '6.3%', 'nb_mu5': '2.0%', 'nb_mu15': '2.0%', 'nb_dist5': '0.5%'}
+  +resale              lgb   minus base: -0.71  95% CI [-1.26, -0.19]
+  +resale              cb    minus base: -0.52  95% CI [-1.03, -0.04]
+  +resale              blend minus base: -0.56  95% CI [-1.01, -0.16]
+  +neighbours          lgb   minus base: -0.39  95% CI [-0.95, +0.17]
+  +neighbours          cb    minus base: -0.19  95% CI [-0.66, +0.26]
+  +neighbours          blend minus base: -0.25  95% CI [-0.65, +0.17]
+  +resale+neighbours   lgb   minus base: -0.56  95% CI [-1.13, -0.09]
+  +resale+neighbours   cb    minus base: -0.43  95% CI [-0.93, +0.02]
+  +resale+neighbours   blend minus base: -0.42  95% CI [-0.87, -0.01]
+
+===== H2: validate from 2023-12 =====
+  resale rows used: 167,146; validation rows with block resale history: 98.8%
+  base                 lgb  485.89 (trees 88)   cb  482.57 (trees 323)   blend(0.2/0.8)  482.53
+  +resale              lgb  484.62 (trees 94)   cb  482.62 (trees 249)   blend(0.2/0.8)  482.38
+  +neighbours          lgb  485.53 (trees 86)   cb  483.61 (trees 181)   blend(0.2/0.8)  483.34
+  +resale+neighbours   lgb  484.91 (trees 70)   cb  482.94 (trees 266)   blend(0.2/0.8)  482.75
+  LightGBM gain share of the new features: {'resale_prem_block': '1.9%', 'resale_n_block': '0.4%', 'resale_mean_storey': '0.5%', 'resale_prem_bt': '10.2%', 'nb_mu5': '2.1%', 'nb_mu15': '2.4%', 'nb_dist5': '0.5%'}
+  +resale              lgb   minus base: -1.27  95% CI [-1.74, -0.77]
+  +resale              cb    minus base: +0.05  95% CI [-0.31, +0.41]
+  +resale              blend minus base: -0.15  95% CI [-0.45, +0.18]
+  +neighbours          lgb   minus base: -0.36  95% CI [-0.81, +0.10]
+  +neighbours          cb    minus base: +1.03  95% CI [+0.62, +1.47]
+  +neighbours          blend minus base: +0.82  95% CI [+0.46, +1.21]
+  +resale+neighbours   lgb   minus base: -0.98  95% CI [-1.45, -0.50]
+  +resale+neighbours   cb    minus base: +0.37  95% CI [-0.03, +0.79]
+  +resale+neighbours   blend minus base: +0.22  95% CI [-0.14, +0.60]
+
+done

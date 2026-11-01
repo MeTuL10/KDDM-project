@@ -1,9 +1,9 @@
 """
 Builds the new figures for the final report from logged numbers (no retyped experiment values where a log exists).
 Run from anywhere:  python report/final/make_figures.py
-  fig_leaderboard.pdf : public leaderboard score of every submission we made, by track
+  fig_leaderboard.pdf : public leaderboard score of every submission we made, by pipeline
   fig_learning.pdf    : (a) learning curve, (b) cost of older training data  [expt-5/outputs/learning_curve.log]
-  fig_errors.pdf      : (a) out-of-fold RMSE by flat type (Metul), (b) where the squared error sits (Aayush, root pipeline)
+  fig_errors.pdf      : (a) out-of-fold RMSE by flat type , (b) where the squared error sits (root pipeline)
 """
 import os, re
 import matplotlib
@@ -19,18 +19,18 @@ C = {'anchor': '#1f5fa8', 'history': '#d1691b', 'auto': '#2a8a5e', 'root': '#777
 # ---- leaderboard (public score; sources: expt-5/PROGRESS_REPORT.md leaderboard log, report/beina/model_experiment.md 6.4,
 #      report/punyaa/README.md headline results, expt-2/PROGRESS_REPORT.md, progress-report.md, Metul's score as supplied) ----
 rows = [  # (label, score, family)
-    ('Root pipeline, tuned (A)', 451.42, 'root'),
-    ('V1: tri-model, no block encodings (A)', 443.000, 'anchor'),
-    ('V3: deeper trees (A)', 434.053, 'anchor'),
-    ('V2 improved: premium + bag (A)', 434.02878, 'anchor'),
-    ('V2 honest anchor = FINAL (A)', 433.65480, 'anchor'),
-    ('V2 CatBoost-heavy weights (A)', 433.63052, 'anchor'),
-    ('V2 (A)', 433.60708, 'anchor'),
-    ('Honest anchor blend (B)', 433.89670, 'anchor'),
-    ('Published-median blend (B)', 433.36655, 'anchor'),
-    ('Rent-history blend v2 (P)', 434.81, 'history'),
-    ('Rent-history blend v3 (P)', 434.70, 'history'),
-    ('AutoGluon, 2 residual layers (M)', 436.28615, 'auto'),
+    ('Root pipeline, tuned ', 451.42, 'root'),
+    ('V1: tri-model, no block encodings ', 443.000, 'anchor'),
+    ('V3: deeper trees ', 434.053, 'anchor'),
+    ('V2 improved: premium + bag ', 434.02878, 'anchor'),
+    ('V2 honest anchor = FINAL ', 433.65480, 'anchor'),
+    ('V2 CatBoost-heavy weights ', 433.63052, 'anchor'),
+    ('V2 ', 433.60708, 'anchor'),
+    ('R: honest anchor blend', 433.89670, 'anchor'),
+    ('R: published-median blend', 433.36655, 'anchor'),
+    ('History blend v2', 434.81, 'history'),
+    ('History blend v3', 434.70, 'history'),
+    ('AutoGluon, 2 residual layers', 436.28615, 'auto'),
 ]
 rows.sort(key=lambda r: -r[1])
 fig, ax = plt.subplots(figsize=(3.45, 2.85))
@@ -79,10 +79,10 @@ assert abs((mse_low + mse_rest) ** 0.5 - 452.56) < 0.05, 'decomposition must rep
 fig, (a, b) = plt.subplots(1, 2, figsize=(3.45, 1.75), gridspec_kw={'width_ratios': [1, 1]})
 a.bar([n for n, _ in seg], [v for _, v in seg], color=[C['anchor'], C['history'], C['history']], width=0.6)
 for i, (_, v) in enumerate(seg): a.text(i, v + 8, str(v), ha='center', fontsize=6)
-a.set_ylim(0, 820); a.set_ylabel('out-of-fold RMSE', fontsize=6.5); a.set_title('(a) by flat type (M)', fontsize=7)
+a.set_ylim(0, 820); a.set_ylabel('out-of-fold RMSE', fontsize=6.5); a.set_title('(a) by flat type', fontsize=7)
 b.bar(['rows', 'squared\nerror'], [100 * share_rows, 100 * share_err], color=['#999999', C['history']], width=0.55)
 for i, v in enumerate([100 * share_rows, 100 * share_err]): b.text(i, v + 1.5, f'{v:.1f}%', ha='center', fontsize=6)
-b.set_ylim(0, 48); b.set_ylabel('share of validation set (%)', fontsize=6.5); b.set_title('(b) rent $\\leq$ 2,100 (A)', fontsize=7)
+b.set_ylim(0, 48); b.set_ylabel('share of validation set (%)', fontsize=6.5); b.set_title('(b) rent $\\leq$ 2,100', fontsize=7)
 for ax_ in (a, b):
     ax_.grid(axis='y', lw=0.3, alpha=0.6); ax_.set_axisbelow(True)
     for sp_ in ('top', 'right'): ax_.spines[sp_].set_visible(False)

@@ -1,13 +1,13 @@
 # Data Quality Report
 
-Run before further feature engineering, on top of the full `modules/preprocessing.py`
+Run before further feature engineering, on top of the full `archived_modules/preprocessing.py`
 pipeline (`train_feat`/`test_feat` — i.e., after the FLAT_TYPE normalization, casing
 fixes, and `sg-hdb-block.csv`/macro joins already established in EDA). Organized by
 check category: what it verifies, why it matters, what was found, and the
 recommended action. Findings that change what ships are called out explicitly — none
 have been applied yet, this is the analysis pass only.
 
-**Code**: every check here is implemented in `modules/data_quality.py` (functions
+**Code**: every check here is implemented in `archived_modules/data_quality.py` (functions
 `check_numeric_ranges`, `find_sentinel_rows`, `check_sg_bounds`,
 `check_cross_field_consistency`, `check_lease_completion_divergence`,
 `flag_rent_per_sqm_outliers`, `check_same_key_rent_variance`,
@@ -43,7 +43,7 @@ number is far more dangerous than a `NaN`, because it passes every `isna()` chec
 not just a flag, since both columns are actively used features. Low effort, affects
 only 159 train rows and 0 test rows, so bounded but real risk currently unaddressed.
 
-**Applied.** `modules/preprocessing.py::impute_sentinel_values` replaces `-1` with the
+**Applied.** `archived_modules/preprocessing.py::impute_sentinel_values` replaces `-1` with the
 `SUBZONE` median computed from the other, non-sentinel blocks (confirmed every
 affected `SUBZONE` — `tanglin halt`, `macpherson`, `clementi west` — has 25+ other
 valid blocks, so no fallback-to-global-median case actually triggers). Applied on the
@@ -206,12 +206,12 @@ dramatic gaps or spikes.
 
 ## Outcome
 
-One fix shipped: the `-1` sentinel imputation (`modules/preprocessing.py`), moving
+One fix shipped: the `-1` sentinel imputation (`archived_modules/preprocessing.py`), moving
 the validated benchmark from **RMSE 457.47 → 457.37**. `submission.csv` regenerated
 via `main.py` and confirmed to actually change, not just re-run. The price-per-sqm
 exclusion was tested properly (both at the full 1,444-row scale and the original
 99-row rule re-checked against the new baseline) and confirmed **not worth
 adopting at any scale** — the wider rule flags genuine market-variance rows as
 "anomalous," and removing them costs the model real signal about the distribution's
-tails. See `modules/data_quality.py` for the reusable check implementations and
+tails. See `archived_modules/data_quality.py` for the reusable check implementations and
 `main.py`'s docstring for the current reference metrics.

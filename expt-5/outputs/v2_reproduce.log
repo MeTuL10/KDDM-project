@@ -1,0 +1,9 @@
+fold 1: lgb 471.33  xgb 471.84  cb 471.09  (67s)
+fold 2: lgb 472.70  xgb 472.41  cb 471.80  (55s)
+fold 3: lgb 472.27  xgb 472.36  cb 472.06  (46s)
+fold 4: lgb 471.27  xgb 471.69  cb 470.71  (51s)
+fold 5: lgb 471.98  xgb 472.26  cb 471.89  (51s)
+
+reproduction check vs V2 submission file: corr 1.000000, mean abs diff 0.000, max abs diff 0.00, mean diff -0.000
+overall OOF RMSE with V2 weights: 470.99 (V2 reported 470.99)
+done
