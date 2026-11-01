@@ -4,95 +4,107 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 
 | tag | uses | source file | string | status |
 |---|---|---|---|---|
-| Aa-M | 1 | `expt-2/PROGRESS_REPORT.md` | M=30 | verified |
-| Aa-M | 1 | `expt-2/PROGRESS_REPORT.md` | M=10 | verified |
-| Aa-M | 1 | `expt-2/PROGRESS_REPORT.md` | M=5 | verified |
-| Aa-M | 1 | `expt-2/PROGRESS_REPORT.md` | M=15 | verified |
-| Aa-M | 1 | `expt-2/PROGRESS_REPORT.md` | M=20 | verified |
-| Aa-addr | 2 | `progress-report.md` | 456.70 → 452.56 | verified |
-| Aa-anchor | 4 | `progress-report.md` | 600.72 | verified |
-| Aa-anchor | 4 | `progress-report.md` | 492.77 | verified |
-| Aa-anchor | 4 | `progress-report.md` | 451.87 | verified |
-| Aa-anchor | 4 | `progress-report.md` | CI -1.98 to +0.52 | verified |
-| Aa-boot | 1 | `modules/evaluation.py` | paired_bootstrap_rmse_diff | verified |
-| Aa-boot | 1 | `modules/evaluation.py` | resampling whole groups with replacement | verified |
-| Aa-boot | 1 | `expt-5/src/exp4_tail_trimming.py` | n_boot=300 | verified |
-| Aa-cbw | 2 | `expt-5/PROGRESS_REPORT.md` | -0.51 (CI -0.86..-0.18) | verified |
-| Aa-cbw | 2 | `expt-5/PROGRESS_REPORT.md` | -1.09 (CI -1.38..-0.78) | verified |
-| Aa-cbw | 2 | `expt-5/PROGRESS_REPORT.md` | 433.63052 | verified |
-| Aa-drift | 1 | `expt-5/PROGRESS_REPORT.md` | +0.78% at 2024-Q2, +0.55% at 2025-Q1 | verified |
-| Aa-dup | 1 | `progress-report.md` | 641 | verified |
-| Aa-e2split | 1 | `expt-2/PROGRESS_REPORT.md` | 124,016 | verified |
-| Aa-e2split | 1 | `expt-2/PROGRESS_REPORT.md` | 25,984 | verified |
-| Aa-final | 1 | `expt-5/PROGRESS_REPORT.md` | submission_v2_honest.csv | verified |
-| Aa-final | 1 | `expt-5/PROGRESS_REPORT.md` | 433.65480 | verified |
-| Aa-final | 1 | `expt-5/PROGRESS_REPORT.md` | final submission | verified |
-| Aa-fp | 1 | `expt-5/PROGRESS_REPORT.md` | 14,828 | verified |
-| Aa-gpb | 2 | `expt-5/PROGRESS_REPORT.md` | street 16 vs 15, subzone 21 vs 20 | verified |
-| Aa-gpb | 2 | `expt-5/PROGRESS_REPORT.md` | +5.26 / +7.98 | verified |
-| Aa-honest-cost | 7 | `expt-5/PROGRESS_REPORT.md` | 456.57 (+6.27, CI +5.28..+7.35) | verified |
-| Aa-honest-cost | 7 | `expt-5/PROGRESS_REPORT.md` | 454.85 (+4.55, CI +3.65..+5.43) | verified |
-| Aa-honest-cost | 7 | `expt-5/PROGRESS_REPORT.md` | 764.71 (+282.2) | verified |
-| Aa-honest-cost | 7 | `expt-5/PROGRESS_REPORT.md` | +5.05%/quarter | verified |
-| Aa-honest-cost | 7 | `expt-5/PROGRESS_REPORT.md` | +0.78%/quarter | verified |
-| Aa-honest-cost | 7 | `expt-5/PROGRESS_REPORT.md` | over-predicts by 885 by 2025-Q1 | verified |
-| Aa-honest-cost | 7 | `expt-5/PROGRESS_REPORT.md` | from +47.6 to +1.8 | verified |
-| Aa-honest-cost | 7 | `expt-5/PROGRESS_REPORT.md` | 450.30 | verified |
-| Aa-honest-cost | 7 | `expt-5/PROGRESS_REPORT.md` | 482.53 | verified |
-| Aa-honest-cost | 7 | `expt-5/PROGRESS_REPORT.md` | 487.48 | verified |
-| Aa-honest-lb | 4 | `expt-5/PROGRESS_REPORT.md` | 433.65480 | verified |
-| Aa-honest-lb | 4 | `expt-5/PROGRESS_REPORT.md` | +0.048 | verified |
-| Aa-hp | 1 | `expt-2/src/models_v2.py` | n_estimators=1200 | verified |
-| Aa-hp | 1 | `expt-2/src/models_v2.py` | learning_rate=0.04 | verified |
-| Aa-hp | 1 | `expt-2/src/models_v2.py` | num_leaves=75 | verified |
-| Aa-hp | 1 | `expt-2/src/models_v2.py` | early_stopping(40 | verified |
-| Aa-lb | 7 | `expt-5/PROGRESS_REPORT.md` | 433.60708 | verified |
-| Aa-lb | 7 | `expt-5/PROGRESS_REPORT.md` | 434.02878 | verified |
-| Aa-lb | 7 | `expt-5/PROGRESS_REPORT.md` | 433.63052 | verified |
-| Aa-lb | 7 | `expt-5/PROGRESS_REPORT.md` | 443.000 | verified |
-| Aa-lb | 7 | `expt-5/PROGRESS_REPORT.md` | 434.053 | verified |
-| Aa-lb | 7 | `expt-2/PROGRESS_REPORT.md` | Clean (No TE) | verified |
-| Aa-lb | 7 | `expt-2/PROGRESS_REPORT.md` | 449.26 | verified |
-| Aa-lb | 7 | `expt-2/PROGRESS_REPORT.md` | 447.80 | verified |
-| Aa-learn | 2 | `expt-5/PROGRESS_REPORT.md` | 10% 465.77, 25% 457.34, 50% 451.67 | verified |
-| Aa-learn | 2 | `expt-5/PROGRESS_REPORT.md` | 100% 443.64 | verified |
-| Aa-learn | 2 | `expt-5/PROGRESS_REPORT.md` | +0.92 at 9, +1.84 at 12, +4.17 at 15 | verified |
-| Aa-learn | 2 | `expt-5/PROGRESS_REPORT.md` | 14.8k block-by-type levels, about 8 rows each | verified |
-| Aa-noise | 4 | `expt-5/PROGRESS_REPORT.md` | pooled SD of 464 | verified |
-| Aa-noise | 4 | `expt-5/PROGRESS_REPORT.md` | 26.8% of rows | verified |
-| Aa-optuna | 2 | `progress-report.md` | 453.71 | verified |
-| Aa-optuna | 2 | `progress-report.md` | 452.56 | verified |
-| Aa-optuna | 2 | `progress-report.md` | 100-trial Optuna | verified |
-| Aa-resale | 2 | `expt-5/PROGRESS_REPORT.md` | (-0.56, CI -1.01..-0.16) | verified |
-| Aa-resale | 2 | `expt-5/PROGRESS_REPORT.md` | (-0.15, n.s.) | verified |
-| Aa-resale | 2 | `expt-5/PROGRESS_REPORT.md` | (-0.25, n.s.) | verified |
-| Aa-resale | 2 | `expt-5/PROGRESS_REPORT.md` | (+0.82, worse) | verified |
-| Aa-robust | 1 | `expt-5/PROGRESS_REPORT.md` | +2.40 / +4.71 | verified |
-| Aa-robust | 1 | `expt-5/PROGRESS_REPORT.md` | +0.74 / +2.13 | verified |
-| Aa-robust | 1 | `expt-5/PROGRESS_REPORT.md` | -0.40 / +0.28 | verified |
-| Aa-robust | 1 | `expt-5/PROGRESS_REPORT.md` | +3.15 / +4.89 | verified |
-| Aa-tab | 2 | `expt-5/PROGRESS_REPORT.md` | 450.43 | verified |
-| Aa-tab | 2 | `expt-5/PROGRESS_REPORT.md` | 452.48 | verified |
-| Aa-tab | 2 | `expt-5/PROGRESS_REPORT.md` | 450.30 | verified |
-| Aa-tab | 2 | `expt-5/PROGRESS_REPORT.md` | 454.85 | verified |
-| Aa-tab | 2 | `expt-5/PROGRESS_REPORT.md` | 443.64 | verified |
-| Aa-tail | 2 | `expt-5/PROGRESS_REPORT.md` | 1,096 of 16,961 (6.46%) | verified |
-| Aa-tail | 2 | `expt-5/PROGRESS_REPORT.md` | 1,090.19 | verified |
-| Aa-tail | 2 | `expt-5/PROGRESS_REPORT.md` | 369.94 | verified |
-| Aa-tail | 2 | `expt-5/PROGRESS_REPORT.md` | (37.5%) | verified |
-| Aa-trim | 2 | `expt-5/PROGRESS_REPORT.md` | 452.84 / 485.13 (+2.5 / +2.6) | verified |
-| Aa-trim | 2 | `expt-5/PROGRESS_REPORT.md` | 455.07 / 487.80 (+4.8 / +5.3) | verified |
-| Aa-trim | 2 | `expt-5/PROGRESS_REPORT.md` | 459.13 / 493.09 (+8.8 / +10.6) | verified |
-| Aa-trim | 2 | `expt-5/PROGRESS_REPORT.md` | 452.05 / 484.27 (+1.8 / +1.7) | verified |
-| Aa-v2anchor | 1 | `expt-2/src/feature_engineering_v2.py` | Dynamic Extrapolation for 2026-Q3 | verified |
-| Aa-v2anchor | 1 | `expt-2/src/feature_engineering_v2.py` | q2_2026 = full_mr[full_mr["quarter"] == "2026-Q2"] | verified |
-| Aa-v2hp | 1 | `expt-2/src/models_v2.py` | subsample=0.8 | verified |
-| Aa-v2hp | 1 | `expt-2/src/models_v2.py` | colsample_bytree=0.75 | verified |
-| Aa-v2hp | 1 | `expt-2/src/models_v2.py` | max_depth=7 | verified |
-| Aa-v2hp | 1 | `expt-2/src/models_v2.py` | iterations=1200 | verified |
-| Aa-v2hp | 1 | `expt-2/src/models_v2.py` | learning_rate=0.05 | verified |
-| Aa-v2hp | 1 | `expt-2/src/models_v2.py` | depth=7 | verified |
-| Aa-w | 1 | `expt-5/PROGRESS_REPORT.md` | 0.545 / 0.075 / 0.380 | verified |
+| Aa-M | 1 | `exploration/Aayush/expt-2/PROGRESS_REPORT.md` | M=30 | verified |
+| Aa-M | 1 | `exploration/Aayush/expt-2/PROGRESS_REPORT.md` | M=10 | verified |
+| Aa-M | 1 | `exploration/Aayush/expt-2/PROGRESS_REPORT.md` | M=5 | verified |
+| Aa-M | 1 | `exploration/Aayush/expt-2/PROGRESS_REPORT.md` | M=15 | verified |
+| Aa-M | 1 | `exploration/Aayush/expt-2/PROGRESS_REPORT.md` | M=20 | verified |
+| Aa-addr | 2 | `exploration/Aayush/progress-report.md` | 456.70 → 452.56 | verified |
+| Aa-anchor | 4 | `exploration/Aayush/progress-report.md` | 600.72 | verified |
+| Aa-anchor | 4 | `exploration/Aayush/progress-report.md` | 492.77 | verified |
+| Aa-anchor | 4 | `exploration/Aayush/progress-report.md` | 451.87 | verified |
+| Aa-anchor | 4 | `exploration/Aayush/progress-report.md` | CI -1.98 to +0.52 | verified |
+| Aa-ball | 1 | `exploration/Aayush/expt-2/src/feature_engineering_v2.py` | BallTree(mrt_coords_rad, metric="haversine") | verified |
+| Aa-ball | 1 | `exploration/Aayush/expt-2/src/feature_engineering_v2.py` | interchange_tree | verified |
+| Aa-ball | 1 | `exploration/Aayush/expt-2/src/feature_engineering_v2.py` | malls_tree | verified |
+| Aa-ball | 1 | `exploration/Aayush/expt-2/src/feature_engineering_v2.py` | primary_tree | verified |
+| Aa-ball | 1 | `exploration/Aayush/expt-2/src/feature_engineering_v2.py` | sec_tree | verified |
+| Aa-ball | 1 | `exploration/Aayush/expt-2/src/feature_engineering_v2.py` | top_tree | verified |
+| Aa-ball | 1 | `exploration/Aayush/expt-2/src/feature_engineering_v2.py` | r=0.5 / EARTH_RADIUS_KM | verified |
+| Aa-ball | 1 | `exploration/Aayush/expt-2/src/feature_engineering_v2.py` | r=2.0 / EARTH_RADIUS_KM | verified |
+| Aa-ball | 1 | `exploration/Aayush/expt-2/src/feature_engineering_v2.py` | spatial["interchange_proximity_score"] | verified |
+| Aa-boot | 1 | `archived_modules/evaluation.py` | paired_bootstrap_rmse_diff | verified |
+| Aa-boot | 1 | `archived_modules/evaluation.py` | resampling whole groups with replacement | verified |
+| Aa-boot | 1 | `exploration/Aayush/expt-5/src/exp4_tail_trimming.py` | n_boot=300 | verified |
+| Aa-cbw | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | -0.51 (CI -0.86..-0.18) | verified |
+| Aa-cbw | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | -1.09 (CI -1.38..-0.78) | verified |
+| Aa-cbw | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 433.63052 | verified |
+| Aa-drift | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | +0.78% at 2024-Q2, +0.55% at 2025-Q1 | verified |
+| Aa-dup | 1 | `exploration/Aayush/progress-report.md` | 641 | verified |
+| Aa-e2split | 1 | `exploration/Aayush/expt-2/PROGRESS_REPORT.md` | 124,016 | verified |
+| Aa-e2split | 1 | `exploration/Aayush/expt-2/PROGRESS_REPORT.md` | 25,984 | verified |
+| Aa-final | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | submission_v2_honest.csv | verified |
+| Aa-final | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 433.65480 | verified |
+| Aa-final | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | final submission | verified |
+| Aa-fp | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 14,828 | verified |
+| Aa-gpb | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | street 16 vs 15, subzone 21 vs 20 | verified |
+| Aa-gpb | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | +5.26 / +7.98 | verified |
+| Aa-honest-cost | 7 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 456.57 (+6.27, CI +5.28..+7.35) | verified |
+| Aa-honest-cost | 7 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 454.85 (+4.55, CI +3.65..+5.43) | verified |
+| Aa-honest-cost | 7 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 764.71 (+282.2) | verified |
+| Aa-honest-cost | 7 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | +5.05%/quarter | verified |
+| Aa-honest-cost | 7 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | +0.78%/quarter | verified |
+| Aa-honest-cost | 7 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | over-predicts by 885 by 2025-Q1 | verified |
+| Aa-honest-cost | 7 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | from +47.6 to +1.8 | verified |
+| Aa-honest-cost | 7 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 450.30 | verified |
+| Aa-honest-cost | 7 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 482.53 | verified |
+| Aa-honest-cost | 7 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 487.48 | verified |
+| Aa-honest-lb | 4 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 433.65480 | verified |
+| Aa-honest-lb | 4 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | +0.048 | verified |
+| Aa-hp | 1 | `exploration/Aayush/expt-2/src/models_v2.py` | n_estimators=1200 | verified |
+| Aa-hp | 1 | `exploration/Aayush/expt-2/src/models_v2.py` | learning_rate=0.04 | verified |
+| Aa-hp | 1 | `exploration/Aayush/expt-2/src/models_v2.py` | num_leaves=75 | verified |
+| Aa-hp | 1 | `exploration/Aayush/expt-2/src/models_v2.py` | early_stopping(40 | verified |
+| Aa-lb | 7 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 433.60708 | verified |
+| Aa-lb | 7 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 434.02878 | verified |
+| Aa-lb | 7 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 433.63052 | verified |
+| Aa-lb | 7 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 443.000 | verified |
+| Aa-lb | 7 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 434.053 | verified |
+| Aa-lb | 7 | `exploration/Aayush/expt-2/PROGRESS_REPORT.md` | Clean (No TE) | verified |
+| Aa-lb | 7 | `exploration/Aayush/expt-2/PROGRESS_REPORT.md` | 449.26 | verified |
+| Aa-lb | 7 | `exploration/Aayush/expt-2/PROGRESS_REPORT.md` | 447.80 | verified |
+| Aa-learn | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 10% 465.77, 25% 457.34, 50% 451.67 | verified |
+| Aa-learn | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 100% 443.64 | verified |
+| Aa-learn | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | +0.92 at 9, +1.84 at 12, +4.17 at 15 | verified |
+| Aa-learn | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 14.8k block-by-type levels, about 8 rows each | verified |
+| Aa-main | 1 | `main.py` | frozen at the last labelled quarter (2025-Q1) | verified |
+| Aa-main | 1 | `main.py` | 433.65480 | verified |
+| Aa-main | 1 | `main.py` | python main.py | verified |
+| Aa-noise | 4 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | pooled SD of 464 | verified |
+| Aa-noise | 4 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 26.8% of rows | verified |
+| Aa-optuna | 2 | `exploration/Aayush/progress-report.md` | 453.71 | verified |
+| Aa-optuna | 2 | `exploration/Aayush/progress-report.md` | 452.56 | verified |
+| Aa-optuna | 2 | `exploration/Aayush/progress-report.md` | 100-trial Optuna | verified |
+| Aa-resale | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | (-0.56, CI -1.01..-0.16) | verified |
+| Aa-resale | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | (-0.15, n.s.) | verified |
+| Aa-resale | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | (-0.25, n.s.) | verified |
+| Aa-resale | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | (+0.82, worse) | verified |
+| Aa-robust | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | +2.40 / +4.71 | verified |
+| Aa-robust | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | +0.74 / +2.13 | verified |
+| Aa-robust | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | -0.40 / +0.28 | verified |
+| Aa-robust | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | +3.15 / +4.89 | verified |
+| Aa-tab | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 450.43 | verified |
+| Aa-tab | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 452.48 | verified |
+| Aa-tab | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 450.30 | verified |
+| Aa-tab | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 454.85 | verified |
+| Aa-tab | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 443.64 | verified |
+| Aa-tail | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 1,096 of 16,961 (6.46%) | verified |
+| Aa-tail | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 1,090.19 | verified |
+| Aa-tail | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 369.94 | verified |
+| Aa-tail | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | (37.5%) | verified |
+| Aa-trim | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 452.84 / 485.13 (+2.5 / +2.6) | verified |
+| Aa-trim | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 455.07 / 487.80 (+4.8 / +5.3) | verified |
+| Aa-trim | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 459.13 / 493.09 (+8.8 / +10.6) | verified |
+| Aa-trim | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 452.05 / 484.27 (+1.8 / +1.7) | verified |
+| Aa-v2anchor | 1 | `exploration/Aayush/expt-2/src/feature_engineering_v2.py` | Dynamic Extrapolation for 2026-Q3 | verified |
+| Aa-v2anchor | 1 | `exploration/Aayush/expt-2/src/feature_engineering_v2.py` | q2_2026 = full_mr[full_mr["quarter"] == "2026-Q2"] | verified |
+| Aa-v2hp | 1 | `exploration/Aayush/expt-2/src/models_v2.py` | subsample=0.8 | verified |
+| Aa-v2hp | 1 | `exploration/Aayush/expt-2/src/models_v2.py` | colsample_bytree=0.75 | verified |
+| Aa-v2hp | 1 | `exploration/Aayush/expt-2/src/models_v2.py` | max_depth=7 | verified |
+| Aa-v2hp | 1 | `exploration/Aayush/expt-2/src/models_v2.py` | iterations=1200 | verified |
+| Aa-v2hp | 1 | `exploration/Aayush/expt-2/src/models_v2.py` | learning_rate=0.05 | verified |
+| Aa-v2hp | 1 | `exploration/Aayush/expt-2/src/models_v2.py` | depth=7 | verified |
+| Aa-w | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 0.545 / 0.075 / 0.380 | verified |
 | Be-anchor | 2 | `report/beina/data_process.md` | 51.8% | verified |
 | Be-anchor | 2 | `report/beina/data_process.md` | 96.6% | verified |
 | Be-anchor | 2 | `report/beina/data_process.md` | 3.3% | verified |
@@ -102,6 +114,10 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Be-coe | 1 | `report/beina/exploratory_data_analysis.md` | **0.015** | verified |
 | Be-drift | 1 | `report/beina/data_process.md` | +0.55% per quarter | verified |
 | Be-drift | 1 | `report/beina/data_process.md` | exp(g × quarters_after_cutoff) | verified |
+| Be-final | 1 | `report/beina/model_experiment.md` | is the one adopted | verified |
+| Be-final | 1 | `report/beina/model_experiment.md` | has not yet been scored on Kaggle | verified |
+| Be-final | 1 | `report/beina/model_experiment.md` | 433.89670 | verified |
+| Be-final | 1 | `report/beina/model_experiment.md` | predict_test.R | verified |
 | Be-honest-lb | 1 | `report/beina/model_experiment.md` | costs about 5 RMSE on OOT and 0.5 on Kaggle | verified |
 | Be-hp | 1 | `report/beina/model_experiment.md` | 12-trial random search | verified |
 | Be-hp | 1 | `report/beina/model_experiment.md` | 10-trial random search | verified |
@@ -196,6 +212,9 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Me-cat | 2 | `report/metul/eda.md` | 11 to 6 | verified |
 | Me-cov | 1 | `report/metul/eda.md` | 36 of 50,000 test rows (0.072%) | verified |
 | Me-cov | 1 | `report/metul/eda.md` | Eleven block labels | verified |
+| Me-dim | 2 | `report/metul/data_processing.md` | first numeric principal component's target correlation changed from 0.654 in fitting to 0.306 in validation | verified |
+| Me-dim | 2 | `report/metul/data_processing.md` | second changed from 0.262 to 0.560 | verified |
+| Me-dim | 2 | `report/metul/data_processing.md` | No downstream model RMSE | verified |
 | Me-fallback | 1 | `report/metul/data_processing.md` | median for the fitted town–street group | verified |
 | Me-fallback | 1 | `report/metul/data_processing.md` | median for the fitted town | verified |
 | Me-fallback | 1 | `report/metul/data_processing.md` | fitted global median | verified |
@@ -223,13 +242,10 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Me-fs-manual | 3 | `report/metul/data_processing.md` | 467.122 | verified |
 | Me-hpo | 1 | `report/metul/model_experiments.md` | 25 HPO trials for each of LightGBM and CatBoost | verified |
 | Me-hpo | 1 | `report/metul/model_experiments.md` | tuning_data | verified |
-| Me-lb | 1 | `expt-5/PROGRESS_REPORT.md` | 436.28615 | verified |
+| Me-lb | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 436.28615 | verified |
 | Me-mi | 1 | `report/metul/eda.md` | (0.361) | verified |
 | Me-mi | 1 | `report/metul/eda.md` | (0.229) | verified |
 | Me-mi | 1 | `report/metul/eda.md` | (0.218) | verified |
-| Me-dim | 2 | `report/metul/data_processing.md` | first numeric principal component's target correlation changed from 0.654 in fitting to 0.306 in validation | verified |
-| Me-dim | 2 | `report/metul/data_processing.md` | second changed from 0.262 to 0.560 | verified |
-| Me-dim | 2 | `report/metul/data_processing.md` | No downstream model RMSE | verified |
 | Me-onehot | 1 | `report/metul/data_processing.md` | 481.89 | verified |
 | Me-onehot | 1 | `report/metul/data_processing.md` | 482.09 | verified |
 | Me-onehot | 1 | `report/metul/data_processing.md` | six of seven configurations | verified |
@@ -305,7 +321,7 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Pu-lb | 1 | `report/punyaa/README.md` | 434.81 | verified |
 | Pu-lb | 1 | `report/punyaa/README.md` | 434.70 | verified |
 | Pu-lb-limit | 1 | `report/punyaa/problem_and_protocol.md` | no private-leaderboard result is available | verified |
-| Pu-lb-limit | 1 | `expt-2/PROGRESS_REPORT.md` | evaluates on only **50% of the test set** | verified |
+| Pu-lb-limit | 1 | `exploration/Aayush/expt-2/PROGRESS_REPORT.md` | evaluates on only **50% of the test set** | verified |
 | Pu-leak | 1 | `report/punyaa/problem_and_protocol.md` | strictly before `t` | verified |
 | Pu-leak | 1 | `report/punyaa/problem_and_protocol.md` | excluded together | verified |
 | Pu-me | 2 | `report/punyaa/model_experiments.md` | 463.155 | verified |

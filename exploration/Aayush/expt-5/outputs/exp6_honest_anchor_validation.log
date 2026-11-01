@@ -1,0 +1,29 @@
+
+===== H1: validate from 2024-07; anchor cutoff quarter 2024-Q2; drift g = +0.78%/quarter =====
+  published lgb  452.48   cb  450.43   blend  450.30   mean error (actual - predicted)   +9.6
+  nodrift   lgb  458.82   cb  456.70   blend  456.57   mean error (actual - predicted)  +47.6
+  drift4    lgb  457.24   cb  454.99   blend  454.85   mean error (actual - predicted)   +1.8
+  nodrift   minus published: +6.27  95% CI [+5.28, +7.35]
+  drift4    minus published: +4.55  95% CI [+3.65, +5.43]
+  drift4    minus nodrift:   -1.72  95% CI [-2.36, -1.08]
+  mean error by validation quarter (published / nodrift / drift4):
+    2024-Q3  n= 8786    +16.1 /  +45.7 /  +22.2
+    2024-Q4  n= 8274     +9.1 /  +48.3 /   +3.5
+    2025-Q1  n= 8924     +3.5 /  +48.7 /  -19.8
+
+===== H2: validate from 2023-12; anchor cutoff quarter 2023-Q3; drift g = +5.05%/quarter =====
+  published lgb  485.89   cb  482.57   blend  482.53   mean error (actual - predicted)  -20.1
+  nodrift   lgb  490.06   cb  487.90   blend  487.48   mean error (actual - predicted)  +13.2
+  drift4    lgb  773.43   cb  763.76   blend  764.71   mean error (actual - predicted) -531.0
+  nodrift   minus published: +4.95  95% CI [+4.05, +5.97]
+  drift4    minus published: +282.18  95% CI [+278.89, +286.03]
+  drift4    minus nodrift:   +277.23  95% CI [+274.05, +281.31]
+  mean error by validation quarter (published / nodrift / drift4):
+    2023-Q4  n= 3008    -34.5 /  -45.0 /  -84.8
+    2024-Q1  n= 9005    -23.8 /  -18.6 / -267.0
+    2024-Q2  n= 9174    -31.3 /   -9.5 / -427.3
+    2024-Q3  n= 8786     -9.6 /  +39.3 / -555.4
+    2024-Q4  n= 8274    -21.2 /  +33.3 / -688.1
+    2025-Q1  n= 8924     -9.5 /  +44.0 / -884.7
+
+done

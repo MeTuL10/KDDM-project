@@ -1,0 +1,58 @@
+baseline early-stopped best_iteration on H1: 106  (RMSE with early stopping on val, optimistic: 452.48)
+
+===== H1 (train<=2024-06, 9 months) =====
+  base      RMSE  452.48   (8s)
+  anchor    RMSE  452.51   (5s)
+  trailing  RMSE  452.23   (19s)
+  both      RMSE  452.32   (17s)
+  reg       RMSE  452.25   (3s)
+  both+reg  RMSE  452.09   (18s)
+  anchor    minus base: +0.03  95% CI [-0.51, +0.58]
+  trailing  minus base: -0.26  95% CI [-0.68, +0.24]
+  both      minus base: -0.16  95% CI [-0.83, +0.47]
+  reg       minus base: -0.24  95% CI [-0.68, +0.24]
+  both+reg  minus base: -0.40  95% CI [-1.08, +0.36]
+  RMSE by months ahead (base / both / both+reg):
+    base   both  both+reg
+1  480.5  480.2     479.4
+2  452.8  452.0     451.6
+3  468.9  468.1     468.8
+4  427.7  426.4     425.9
+5  455.7  456.4     456.0
+6  436.3  436.3     436.1
+7  464.7  464.0     464.6
+8  442.0  442.9     442.0
+9  438.1  439.0     438.8
+
+===== H2 (train<=2023-11, 16 months) =====
+  base      RMSE  485.96   (5s)
+  anchor    RMSE  485.69   (4s)
+  trailing  RMSE  485.12   (17s)
+  both      RMSE  484.68   (21s)
+  reg       RMSE  485.01   (3s)
+  both+reg  RMSE  484.15   (16s)
+  anchor    minus base: -0.27  95% CI [-0.74, +0.29]
+  trailing  minus base: -0.84  95% CI [-1.28, -0.34]
+  both      minus base: -1.28  95% CI [-1.82, -0.75]
+  reg       minus base: -0.95  95% CI [-1.39, -0.51]
+  both+reg  minus base: -1.81  95% CI [-2.51, -1.21]
+  RMSE by months ahead (base / both / both+reg):
+     base   both  both+reg
+1   540.3  538.7     538.2
+2   529.5  529.1     530.4
+3   530.8  528.3     527.3
+4   524.6  521.4     521.4
+5   510.4  509.5     507.7
+6   500.3  497.9     497.8
+7   503.0  501.5     500.1
+8   482.2  483.0     481.4
+9   457.2  454.7     453.1
+10  474.5  469.7     470.7
+11  431.2  431.4     429.0
+12  456.2  455.9     456.7
+13  442.6  443.0     442.7
+14  467.6  466.1     466.6
+15  449.1  448.7     447.2
+16  441.9  442.1     441.9
+
+summary: {'H1 (train<=2024-06, 9 months)': {'base': 452.4835158791944, 'anchor': 452.51175390267014, 'trailing': 452.22731537781004, 'both': 452.31975952999045, 'reg': 452.24690274993065, 'both+reg': 452.08714957615194}, 'H2 (train<=2023-11, 16 months)': {'base': 485.9599894621287, 'anchor': 485.68674535852267, 'trailing': 485.1198497172087, 'both': 484.67746474756296, 'reg': 485.01298757723373, 'both+reg': 484.1477876017894}}

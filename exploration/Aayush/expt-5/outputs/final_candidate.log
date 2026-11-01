@@ -1,0 +1,6 @@
+H1 final recipe RMSE 450.90   (clean V2 baseline: 452.48)
+H2 final recipe RMSE 482.68   (clean V2 baseline: 485.96)
+
+test predictions: n=50000 nulls=0 mean=3163.6 std=483.5 min=1538 max=5621
+vs V2 submission: corr 0.9961, mean abs diff 21.5, mean diff -2.7
+written /Users/aayushmajumdar/Desktop/CS5228-knowledge-discovery-and-data-mining-rel/nus-cs5228/project/KDDM-project/expt-5/outputs/submission_v2_improved.csv

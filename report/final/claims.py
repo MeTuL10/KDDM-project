@@ -4,9 +4,9 @@ check_claims.py verifies (1) every tag used in main.tex is registered, (2) every
 (3) every listed string occurs verbatim (whitespace-normalised) in its file. Paths are relative to the repo root.
 Tag prefixes: Aa = Aayush (A), Be = Beina (B), Me = Metul (M), Pu = Punyaa (P), Wk = workload.
 """
-E5 = 'expt-5/PROGRESS_REPORT.md'
-RT = 'progress-report.md'
-E2 = 'expt-2/PROGRESS_REPORT.md'
+E5 = 'exploration/Aayush/expt-5/PROGRESS_REPORT.md'
+RT = 'exploration/Aayush/progress-report.md'
+E2 = 'exploration/Aayush/expt-2/PROGRESS_REPORT.md'
 BE = 'report/beina/'
 ME = 'report/metul/'
 PU = 'report/punyaa/'
@@ -14,10 +14,12 @@ PU = 'report/punyaa/'
 CLAIMS = {
     # ---------------- Aayush ----------------
     'Aa-M': [(E2, ['M=30', 'M=10', 'M=5', 'M=15', 'M=20'])],
+    'Aa-ball': [('exploration/Aayush/expt-2/src/feature_engineering_v2.py', ['BallTree(mrt_coords_rad, metric="haversine")', 'interchange_tree', 'malls_tree', 'primary_tree', 'sec_tree', 'top_tree', 'r=0.5 / EARTH_RADIUS_KM', 'r=2.0 / EARTH_RADIUS_KM', 'spatial["interchange_proximity_score"]'])],
+    'Aa-main': [('main.py', ['frozen at the last labelled quarter (2025-Q1)', '433.65480', 'python main.py'])],
     'Aa-addr': [(RT, ['456.70 → 452.56'])],
     'Aa-anchor': [(RT, ['600.72', '492.77', '451.87', 'CI -1.98 to +0.52'])],
-    'Aa-boot': [('modules/evaluation.py', ['paired_bootstrap_rmse_diff', 'resampling whole groups with replacement']),
-                ('expt-5/src/exp4_tail_trimming.py', ['n_boot=300'])],
+    'Aa-boot': [('archived_modules/evaluation.py', ['paired_bootstrap_rmse_diff', 'resampling whole groups with replacement']),
+                ('exploration/Aayush/expt-5/src/exp4_tail_trimming.py', ['n_boot=300'])],
     'Aa-cbw': [(E5, ['-0.51 (CI -0.86..-0.18)', '-1.09 (CI -1.38..-0.78)', '433.63052'])],
     'Aa-drift': [(E5, ['+0.78% at 2024-Q2, +0.55% at 2025-Q1'])],
     'Aa-dup': [(RT, ['641'])],
@@ -29,7 +31,7 @@ CLAIMS = {
                              '+5.05%/quarter', '+0.78%/quarter', 'over-predicts by 885 by 2025-Q1', 'from +47.6 to +1.8',
                              '450.30', '482.53', '487.48'])],
     'Aa-honest-lb': [(E5, ['433.65480', '+0.048'])],
-    'Aa-hp': [('expt-2/src/models_v2.py', ['n_estimators=1200', 'learning_rate=0.04', 'num_leaves=75', 'early_stopping(40'])],
+    'Aa-hp': [('exploration/Aayush/expt-2/src/models_v2.py', ['n_estimators=1200', 'learning_rate=0.04', 'num_leaves=75', 'early_stopping(40'])],
     'Aa-lb': [(E5, ['433.60708', '434.02878', '433.63052', '443.000', '434.053']),
               (E2, ['Clean (No TE)', '449.26', '447.80'])],
     'Aa-learn': [(E5, ['10% 465.77, 25% 457.34, 50% 451.67', '100% 443.64', '+0.92 at 9, +1.84 at 12, +4.17 at 15',
@@ -42,8 +44,8 @@ CLAIMS = {
     'Aa-tail': [(E5, ['1,096 of 16,961 (6.46%)', '1,090.19', '369.94', '(37.5%)'])],
     'Aa-trim': [(E5, ['452.84 / 485.13 (+2.5 / +2.6)', '455.07 / 487.80 (+4.8 / +5.3)', '459.13 / 493.09 (+8.8 / +10.6)',
                       '452.05 / 484.27 (+1.8 / +1.7)'])],
-    'Aa-v2anchor': [('expt-2/src/feature_engineering_v2.py', ['Dynamic Extrapolation for 2026-Q3', 'q2_2026 = full_mr[full_mr["quarter"] == "2026-Q2"]'])],
-    'Aa-v2hp': [('expt-2/src/models_v2.py', ['subsample=0.8', 'colsample_bytree=0.75', 'max_depth=7', 'iterations=1200',
+    'Aa-v2anchor': [('exploration/Aayush/expt-2/src/feature_engineering_v2.py', ['Dynamic Extrapolation for 2026-Q3', 'q2_2026 = full_mr[full_mr["quarter"] == "2026-Q2"]'])],
+    'Aa-v2hp': [('exploration/Aayush/expt-2/src/models_v2.py', ['subsample=0.8', 'colsample_bytree=0.75', 'max_depth=7', 'iterations=1200',
                                               'learning_rate=0.05', 'depth=7'])],
     'Aa-w': [(E5, ['0.545 / 0.075 / 0.380'])],
     # ---------------- Beina ----------------
@@ -58,6 +60,7 @@ CLAIMS = {
     'Be-impr': [(BE + 'model_experiment.md', ['+1.14', '−0.02', 'under 1.2 RMSE'])],
     'Be-inputs': [(BE + 'data_process.md', ['150,000 / 50,000', '9,464 blocks', '243 stations', '113 malls', '337 schools'])],
     'Be-join': [(BE + 'data_process.md', ['30,781 train rows (20.5%)', '0 unmatched'])],
+    'Be-final': [(BE + 'model_experiment.md', ['is the one adopted', 'has not yet been scored on Kaggle', '433.89670', 'predict_test.R'])],
     'Be-lb': [(BE + 'model_experiment.md', ['433.36655', '433.89670'])],
     'Be-leak': [(BE + 'data_process.md', ['information unavailable at forecast time']),
                 (BE + 'model_experiment.md', ['uses information unavailable at forecast time'])],

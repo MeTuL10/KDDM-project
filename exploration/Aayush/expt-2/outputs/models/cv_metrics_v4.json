@@ -1,0 +1,16 @@
+{
+    "sprint": 5,
+    "version": "v4_zero_leakage_regularized",
+    "nested_oof_rmse": {
+        "lightgbm": 472.98573072484805,
+        "xgboost": 473.1173327227253,
+        "catboost": 471.3692778217911,
+        "ensemble_blend": 471.6172105761678
+    },
+    "optimal_weights": {
+        "lightgbm": 0.3091233154505735,
+        "xgboost": 0.1908766845494264,
+        "catboost": 0.5
+    },
+    "submission_md5": "34ea0374991eeb177afa5ca97e8aa6b0"
+}

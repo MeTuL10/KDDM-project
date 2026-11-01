@@ -1,0 +1,56 @@
+=== Part A: smoothed anchor (all on top of anchor+trailing, V2 params, early stopping on val) ===
+  H1 both            RMSE  452.29  best_iter 111
+  H1 smooth feature  RMSE  452.93  best_iter 117
+  H1 smooth target   RMSE  453.93  best_iter 97
+  H2 both            RMSE  484.45  best_iter 74
+  H2 smooth feature  RMSE  484.95  best_iter 62
+  H2 smooth target   RMSE  486.01  best_iter 78
+
+=== Part B: LightGBM regularisation sweep (anchor+trailing features, early stopping on val) ===
+  H1 v2         RMSE  452.29  best_iter 111
+  H1 reg        RMSE  451.82  best_iter 162
+  H1 l31_mc100  RMSE  452.04  best_iter 177
+  H1 l15_mc100  RMSE  451.63  best_iter 338
+  H1 l31_lam20  RMSE  451.93  best_iter 176
+  H1 l31_lr02   RMSE  452.34  best_iter 243
+  H1 l31_cs5    RMSE  451.72  best_iter 223
+  H1 l63_mc200  RMSE  452.86  best_iter 129
+  H2 v2         RMSE  484.45  best_iter 74
+  H2 reg        RMSE  484.04  best_iter 169
+  H2 l31_mc100  RMSE  484.71  best_iter 107
+  H2 l15_mc100  RMSE  484.31  best_iter 199
+  H2 l31_lam20  RMSE  484.50  best_iter 171
+  H2 l31_lr02   RMSE  484.63  best_iter 276
+  H2 l31_cs5    RMSE  484.49  best_iter 201
+  H2 l63_mc200  RMSE  484.98  best_iter 116
+
+sweep summary (lower is better):
+               H1      H2    mean
+reg        451.82  484.04  467.93
+l15_mc100  451.63  484.31  467.97
+l31_cs5    451.72  484.49  468.10
+l31_lam20  451.93  484.50  468.22
+v2         452.29  484.45  468.37
+l31_mc100  452.04  484.71  468.38
+l31_lr02   452.34  484.63  468.48
+l63_mc200  452.86  484.98  468.92
+
+best config by mean of the two holdouts: reg
+
+=== Part C: seed bagging and XGBoost + CatBoost blend on the best config ===
+  H1 lgb single                             RMSE  451.98
+  H1 lgb 5-seed bag                         RMSE  451.78
+  H1 xgb                                    RMSE  452.67
+  H1 catboost                               RMSE  451.24
+  H1 blend lgb-bag/xgb/cb (0.4/0.2/0.4)     RMSE  451.05
+  H1 blend lgb-bag/cb (0.5/0.5)             RMSE  450.90
+  H1 lgb 5-seed bag minus single lgb: -0.20  CI [-0.43, +0.07]
+  H1 blend lgb-bag/xgb/cb (0.4/0.2/0.4) minus single lgb: -0.93  CI [-1.30, -0.53]
+  H2 lgb single                             RMSE  484.93
+  H2 lgb 5-seed bag                         RMSE  484.40
+  H2 xgb                                    RMSE  484.77
+  H2 catboost                               RMSE  482.62
+  H2 blend lgb-bag/xgb/cb (0.4/0.2/0.4)     RMSE  482.84
+  H2 blend lgb-bag/cb (0.5/0.5)             RMSE  482.69
+  H2 lgb 5-seed bag minus single lgb: -0.52  CI [-0.77, -0.28]
+  H2 blend lgb-bag/xgb/cb (0.4/0.2/0.4) minus single lgb: -2.08  CI [-2.45, -1.73]

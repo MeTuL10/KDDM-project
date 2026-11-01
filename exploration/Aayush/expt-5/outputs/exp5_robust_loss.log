@@ -1,0 +1,54 @@
+
+===== H1: validate from 2024-07 =====
+  training residual: mean -13.1, median 0.0, skew -0.25
+  lgb squared      trees  106  RMSE raw  452.48   mean-corrected  452.48  (shift +0.0)
+  lgb huber 300    trees  529  RMSE raw  454.89   mean-corrected  453.13  (shift -19.2)
+  lgb huber 600    trees  254  RMSE raw  453.22   mean-corrected  452.44  (shift -14.6)
+  lgb huber 1000   trees  208  RMSE raw  452.09   mean-corrected  451.98  (shift -5.6)
+  lgb fair 200     trees  246  RMSE raw  454.87   mean-corrected  453.67  (shift -13.8)
+  lgb fair 500     trees  150  RMSE raw  453.61   mean-corrected  452.80  (shift -11.3)
+  lgb l1           trees  424  RMSE raw  455.63   mean-corrected  453.73  (shift -16.9)
+  cb squared       trees  559  RMSE raw  450.02   mean-corrected  450.02  (shift +0.0)
+  cb huber 600     trees  519  RMSE raw  451.34   mean-corrected  450.38  (shift -15.5)
+  lgb huber 300              minus lgb squared: +2.40  95% CI [+1.53, +3.34]
+  lgb huber 300 +meanfix     minus lgb squared: +0.64  95% CI [-0.21, +1.49]
+  lgb huber 600              minus lgb squared: +0.74  95% CI [+0.12, +1.52]
+  lgb huber 600 +meanfix     minus lgb squared: -0.05  95% CI [-0.59, +0.62]
+  lgb huber 1000             minus lgb squared: -0.40  95% CI [-1.01, +0.08]
+  lgb huber 1000 +meanfix    minus lgb squared: -0.50  95% CI [-1.09, -0.04]
+  lgb fair 200               minus lgb squared: +2.39  95% CI [+1.43, +3.27]
+  lgb fair 200 +meanfix      minus lgb squared: +1.19  95% CI [+0.34, +1.95]
+  lgb fair 500               minus lgb squared: +1.13  95% CI [+0.42, +1.84]
+  lgb fair 500 +meanfix      minus lgb squared: +0.31  95% CI [-0.33, +0.96]
+  lgb l1                     minus lgb squared: +3.15  95% CI [+2.13, +4.22]
+  lgb l1 +meanfix            minus lgb squared: +1.25  95% CI [+0.34, +2.16]
+  cb huber 600               minus cb squared: +1.32  95% CI [+0.61, +2.05]
+  cb huber 600 +meanfix      minus cb squared: +0.36  95% CI [-0.26, +0.96]
+
+===== H2: validate from 2023-12 =====
+  training residual: mean 2.4, median 0.0, skew -0.10
+  lgb squared      trees   88  RMSE raw  485.89   mean-corrected  485.89  (shift +0.0)
+  lgb huber 300    trees  255  RMSE raw  490.60   mean-corrected  489.43  (shift -8.2)
+  lgb huber 600    trees  160  RMSE raw  488.02   mean-corrected  487.06  (shift -9.3)
+  lgb huber 1000   trees  118  RMSE raw  486.17   mean-corrected  485.93  (shift -4.1)
+  lgb fair 200     trees   67  RMSE raw  488.98   mean-corrected  488.49  (shift -4.0)
+  lgb fair 500     trees   80  RMSE raw  488.25   mean-corrected  487.82  (shift -4.2)
+  lgb l1           trees  382  RMSE raw  490.77   mean-corrected  490.18  (shift -4.0)
+  cb squared       trees  385  RMSE raw  482.52   mean-corrected  482.52  (shift +0.1)
+  cb huber 600     trees  391  RMSE raw  484.32   mean-corrected  483.52  (shift -9.5)
+  lgb huber 300              minus lgb squared: +4.71  95% CI [+3.98, +5.39]
+  lgb huber 300 +meanfix     minus lgb squared: +3.54  95% CI [+2.86, +4.19]
+  lgb huber 600              minus lgb squared: +2.13  95% CI [+1.63, +2.70]
+  lgb huber 600 +meanfix     minus lgb squared: +1.18  95% CI [+0.68, +1.72]
+  lgb huber 1000             minus lgb squared: +0.28  95% CI [-0.11, +0.69]
+  lgb huber 1000 +meanfix    minus lgb squared: +0.04  95% CI [-0.35, +0.45]
+  lgb fair 200               minus lgb squared: +3.09  95% CI [+2.33, +3.81]
+  lgb fair 200 +meanfix      minus lgb squared: +2.60  95% CI [+1.85, +3.29]
+  lgb fair 500               minus lgb squared: +2.36  95% CI [+1.76, +2.96]
+  lgb fair 500 +meanfix      minus lgb squared: +1.93  95% CI [+1.36, +2.51]
+  lgb l1                     minus lgb squared: +4.89  95% CI [+4.08, +5.73]
+  lgb l1 +meanfix            minus lgb squared: +4.29  95% CI [+3.50, +5.12]
+  cb huber 600               minus cb squared: +1.80  95% CI [+1.31, +2.26]
+  cb huber 600 +meanfix      minus cb squared: +1.00  95% CI [+0.51, +1.42]
+
+done
