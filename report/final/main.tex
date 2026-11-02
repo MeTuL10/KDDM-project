@@ -174,7 +174,10 @@ Tabular data with mixed numeric and high-cardinality categorical inputs and 150,
 \textbf{Categorical handling.} Categoricals are passed natively to the tree learners; this beat one-hot encoding in six of seven configurations (town, region and block: 481.89 against 482.09),\src{Me-onehot} and replacing every categorical by its target mean was 6.1 to 10.7 RMSE worse.\src{Me-te-all} In the AutoGluon pipeline's selected configuration, automatic text feature generation is disabled with the \texttt{ignore\_text} preset. Thus fields such as street and nearest-MRT name remain categorical, without automatically generated text-special or n-gram columns.\src{Me-text} Encodings of block-like keys are the exception, because they carry information no other feature has (Table~\ref{tab:imp}). Missing numeric block attributes fall back to the town--street median, then the town median, then the global median.\src{Me-fallback}
 
 \subsection{Automated Feature-Selection Experiments}
-After establishing a compact manual subset of structurally meaningful property, time, location and accessibility variables, the AutoGluon pipeline evaluated automated selection on a broader 36-variable pool. Two wrapper methods were tested: permutation-importance recursive feature elimination (RFE), which repeatedly refitted the LightGBM--CatBoost ensemble before removing weak variables, and SHAP ranking followed by top-$k$ refits. Chronological rank correlation, mutual information and matched ablations provided supporting diagnostics rather than full-period correlation alone. PCA and truncated SVD were used only as diagnostics because their leading components were not temporally stable. Test labels were never used for selection.\src{Me-fs-manual,Me-fs-auto,Me-dim}
+Additional experiments were performed to automate the features selection process on a broader 36 feature set. 
+Two methods were tested: recursive feature elimination (RFE), 
+which repeatedly refitted the LightGBM--CatBoost ensemble before removing weak variables, and SHAP ranking followed by top-$k$ refits. 
+ PCA and truncated SVD were also tested on the features to find lower dimensional components that could improve performance.\src{Me-fs-manual,Me-fs-auto,Me-dim}
 
 \subsection{Choice of baseline for the residual}
 A residual target only helps if the baseline carries the right level. Table~\ref{tab:base} compares baselines across pipelines. A national-level baseline, even an oracle one that knows the actual national average, is worse than the official town $\times$ flat-type median,\src{Be-two-stage} and the history pipeline's residual over a global 24-month lag collapses (CatBoost 662.5 against 464.2 for direct prediction) because the lag lacks town and flat-type detail.\src{Pu-lagres} An explicit trend-plus-residual network is likewise weaker than direct deep prediction (518.6 against 495.9).\src{Me-trendres} Predicting a ratio instead of a difference gave no gain (change $-0.02$).\src{Be-impr}
@@ -198,7 +201,7 @@ Global 24-month lag, LightGBM / CatBoost (P1): residual & 646.6 / 662.5\\
 \end{table}
 
 \subsection{Hyperparameters}
-The V2 pipeline fixes its settings (LightGBM 1,200 trees, 75 leaves, rate 0.04, early stopping on each fold's validation split).\src{Aa-hp} The R pipeline ran 12, 10 and 6-trial random searches for LightGBM, XGBoost and CatBoost;\src{Be-hp} the history pipeline fixed three LightGBM capacities and three CatBoost seeds and early-stops on the validation window;\src{Pu-hp} the AutoGluon pipeline used 25 trials per model family, supplying the validation period as tuning data.\src{Me-hpo} On the root pipeline a grid, two random searches and a 100-trial Optuna~\cite{optuna} search all fell inside the cross-validation noise: Optuna's best configuration scored 453.71 against 452.56 for the shipped one.\src{Aa-optuna}
+The V2 pipeline fixes its settings (LightGBM 1,200 trees, 75 leaves, rate 0.04, early stopping on each fold's validation split).\src{Aa-hp} The R pipeline ran 12, 10 and 6-trial random searches for LightGBM, XGBoost and CatBoost;\src{Be-hp} the history pipeline fixed three LightGBM capacities and three CatBoost seeds and early-stops on the validation window.\src{Pu-hp} On the root pipeline a grid, two random searches and a 100-trial Optuna~\cite{optuna} search all fell inside the cross-validation noise: Optuna's best configuration scored 453.71 against 452.56 for the shipped one.\src{Aa-optuna}
 
 \subsection{Blending and final system}
 Weights are fitted on out-of-fold or validation predictions: SLSQP in the V2 pipeline (0.545, 0.075, 0.380 for LightGBM, XGBoost, CatBoost),\src{Aa-w} softmax-constrained in the R pipeline,\src{Be-blend} non-negative bounded to $[0,0.85]$ in the history pipeline.\src{Pu-blend}
@@ -238,8 +241,8 @@ P1 & History & CatBoost, best single seed & 463.549\\
 P1 & History & blend v2 / + \sgd/sqm model (v3) & 463.155 / 462.906\\
 P1 & AutoGluon & 18 features, no HPO & 467.122\\
 P1 & AutoGluon & + one weighted residual layer & 468.057\\
-P1 & AutoGluon & deep experts: best / equal blend & 476.979 / 471.168\\
-P1 & AutoGluon & TabTransformer & 495.853\\
+P1 & DL & deep experts: best / equal blend & 476.979 / 471.168\\
+P1 & DL & TabTransformer & 495.853\\
 P2 & R & ridge / LightGBM$^\dagger$ & 451.95 / 452.29\\
 P2 & R & XGBoost / CatBoost$^\dagger$ & 450.97 / 450.27\\
 P2 & R & blend$^\dagger$ / blend$^\ddagger$ (3 seeds) & 449.65 / 454.72\\
@@ -252,9 +255,14 @@ P3 & V2 & LightGBM$^\dagger$ & 443.64\\
 \end{table}
 
 \subsection{Automated Feature-Selection Results}
-The controlled manual screen selected a compact 13-variable subset at RMSE 467.230, ahead of the 31-variable full table at 467.507 and the 25-variable candidate expansion at 468.304. The selected production representation subsequently extended the compact set with a prior-only town $\times$ flat-type mean, a global 24-month rent lag and three nearest-place names; its default LightGBM--CatBoost ensemble scored 467.122. Because training budgets and automatic text handling differed between these stages, the latter comparison is a development progression rather than a pure one-variable ablation.\src{Me-fs-manual}
+Under the P1 protocol, the manual selection of features based on correlation produced a compact 13-feature subset at RMSE 467.230,
+ ahead of the 31-variable full table at 467.507 and the 25-variable candidate expansion at 468.304. 
+ The set was extended with a prior-only town $\times$ flat-type mean, 
+ a global 24-month rent lag and three nearest-place names; its default LightGBM--CatBoost ensemble scored 467.122.\src{Me-fs-manual}
 
-Automated reduction did not establish a stronger independent result. RFE retained all 36 candidates at 468.921; reducing to 10 produced 469.080, while intermediate subsets were less stable. Under the same shortened protocol, the SHAP top-18 subset scored 467.841 against 468.272 for the manual 18-variable set. This 0.431 improvement was selected on the same outer validation period, so it was not treated as an untouched estimate and did not replace the production representation. PCA showed the same temporal-instability warning: the first numeric component's target correlation fell from 0.654 in fitting to 0.306 in validation, and no PCA/SVD replacement-model RMSE was recorded.\src{Me-fs-auto,Me-dim}
+Automated reduction did not establish a stronger result. RFE retained all 36 candidates at 468.921; 
+reducing to 10 produced 469.080. The SHAP top-18 subset scored 467.841. 
+PCA was not effective as it wasn't temporally stable as the first numeric component's target correlation fell from 0.654 in fitting to 0.306 in validation.\src{Me-fs-auto,Me-dim}
 
 \begin{table}[t]
 \caption{Automated Feature-selection results on P1.\src{Me-fs-manual,Me-fs-auto}}\label{tab:feature-selection}
@@ -265,31 +273,34 @@ Method & Selected / matched comparator & RMSE\\
 \midrule
 Manual subsets & Compact 13 / full 31 & 467.230 / 467.507\\
 RFE & All 36 / reduced 10 & 468.921 / 469.080\\
-SHAP top-$k$ & Top 18 / manual 18 & 467.841 / 468.272\\
+SHAP top-$k$ & Top 18 & 467.841\\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection{Alternative Modelling Approaches}
-Table~\ref{tab:alternatives} compares the principal alternatives evaluated in the AutoGluon pipeline on the common P1 listing holdout.
-Hard segmentation did not help: routing AutoGluon by town and flat type scored 475.846 and 476.068, against global controls of 468.272 and 471.448.
-The same pattern held for random forests: the global model scored 484.923, flat-type routing scored 486.073, and chronological tuning improved the global forest to 479.319 but left it well behind boosted trees.
-Splitting the data therefore lost more shared signal than it gained from local specialisation.\src{Me-seg,Me-alt}
+Table~\ref{tab:alternatives} compares the alternate modeling approaches tested on the common P1 listing holdout.
+Hard segmentation did not help: routing the GBM ensemble by town and flat type scored 475.846 and 476.068.
+The same pattern held for random forests: the global model scored 484.923, flat-type routing scored 486.073, and chronological tuning improved the global forest to 479.319 but was behind GBMs.
+Splitting the data therefore lost more shared signal than gaining from localised features.\src{Me-seg,Me-alt}
 
 Deep tabular models learned useful structure but remained weaker than tree ensembles. The best individual deep expert, 
 an FT-Transformer, scored 476.979; TabTransformer scored 495.853, while averaging three deep experts improved to 471.168. 
-A block-to-town neural gate scored 475.130, so input-dependent routing was again inferior to a fixed blend. The standalone FT-Transformer run scored 497.497, 
-and an explicit neural trend-plus-residual decomposition scored 518.590.\src{Me-res,Me-trendres,Me-alt}
+A block-to-town neural gate scored 475.130, so routing was again inferior in this case when compared to an equal weigthed blend. 
+The standalone FT-Transformer run scored 497.497.\src{Me-res,Me-trendres,Me-alt}
 
-Asymmetric and residual-specialist models also showed the value of shrinkage. Quantile LightGBM at $q{=}0.60$ reduced MAE from 356.438 to 343.087 
-and shifted predictions toward over-forecasting, but worsened RMSE from 478.370 to 492.281. Weighted flat-type residual experts 
-made a small improvement over their matched Layer-1 control (468.272 to 468.068); the significant-residual gate scored 468.360 and the unweighted segmented correction 
-deteriorated to 472.509. Thus residual models helped only when their corrections were strongly attenuated.\src{Me-alt}
+Alternate modelling approaches were tested on the GBMs. Quantile LightGBM at $q{=}0.60$ reduced MAE from 356.438 to 343.087 
+and shifted predictions toward over-forecasting, to follow the increasing trend over time, but worsened RMSE to 492.281. 
+We also trained separate residual correction models for flat-type groups and added only a small fraction of each 
+predicted correction to the AutoGluon prediction. This weighted flat-type approach resulted in an RMSE of 468.068.
+Another approach tested a significant-residual gate which first attempted to identify listings 
+likely to be underpredicted by more than SGD 1,000, then applied a specialist residual predictor only to routed rows; it scored 468.360 
+showing no significant improvement as the gate could not reliably identify these underpredicted listings.\src{Me-alt}
 
-Time-series experiments used different targets or holdouts and are not included in Table~\ref{tab:alternatives}. A property-group time-series ensemble scored 477.592 
-on observed item-months. A town $\times$ flat-type market forecast reached 273.240 at segment level, but its listing hybrid scored 486.052. Likewise, TFT reached 258.453 on segment-month means, 
-yet TFT plus a listing residual scored 499.791 against 471.209 for direct listing prediction. Under rolling-origin evaluation, an explicit trend-plus-residual model scored 571.673 against 567.562 for the direct baseline. 
-Aggregate temporal patterns were learnable, but their errors compounded when forecasts were translated back to individual listings.\src{Me-tft,Me-alt}
+Time-series experiments used different targets or holdouts and are not included in Table~\ref{tab:alternatives}. A property-group Autogluon time-series ensemble scored 477.592 
+on observed item-months. A town $\times$ flat-type market forecast reached 273.240 at segment level, but its individual adjusted listing scored 486.052. Likewise, TFT reached 258.453 on segment-month means, 
+yet TFT plus a listing residual scored 499.791
+Aggregate temporal patterns were learnable, but their errors compounded when forecasts were adjusted back to predict individual listings.\src{Me-tft,Me-alt}
 
 \begin{table}[t]
 \caption{Alternative listing-level models evaluated using validation RMSE under the P1 protocol.\src{Me-res,Me-seg,Me-alt}}\label{tab:alternatives}
