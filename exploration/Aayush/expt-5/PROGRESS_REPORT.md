@@ -13,7 +13,7 @@ were computed once over all rows.
 `src/expt5_lib.py` rebuilds V2's recipe with the encodings recomputed inside each split, and
 scores on two holdouts: H1 (train <= 2024-06, validate 2024-07..2025-03, expt-2's OOT split) and
 H2 (train <= 2023-11, validate 2023-12..2025-03, 16 months). Differences use paired bootstrap
-intervals (`archived_modules/evaluation.py`). Scripts: `v2_clean_experiments.py`, `v2_improvements.py`,
+intervals (`exploration/Aayush/archived_modules/evaluation.py`). Scripts: `v2_clean_experiments.py`, `v2_improvements.py`,
 `final_candidate.py`; logs in `outputs/`.
 
 ## Results (RMSE, lower is better)

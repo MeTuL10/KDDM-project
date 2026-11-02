@@ -18,7 +18,7 @@ CLAIMS = {
     'Aa-main': [('main.py', ['frozen at the last labelled quarter (2025-Q1)', '433.65480', 'python main.py'])],
     'Aa-addr': [(RT, ['456.70 → 452.56'])],
     'Aa-anchor': [(RT, ['600.72', '492.77', '451.87', 'CI -1.98 to +0.52'])],
-    'Aa-boot': [('archived_modules/evaluation.py', ['paired_bootstrap_rmse_diff', 'resampling whole groups with replacement']),
+    'Aa-boot': [('exploration/Aayush/archived_modules/evaluation.py', ['paired_bootstrap_rmse_diff', 'resampling whole groups with replacement']),
                 ('exploration/Aayush/expt-5/src/exp4_tail_trimming.py', ['n_boot=300'])],
     'Aa-cbw': [(E5, ['-0.51 (CI -0.86..-0.18)', '-1.09 (CI -1.38..-0.78)', '433.63052'])],
     'Aa-drift': [(E5, ['+0.78% at 2024-Q2, +0.55% at 2025-Q1'])],

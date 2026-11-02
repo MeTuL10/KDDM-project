@@ -260,7 +260,7 @@ def fit_catboost_baseline(train_df: pd.DataFrame, val_df: pd.DataFrame, categori
                            **params):
     """Same (train_df, val_df, categories, **params) -> (model, metrics, X_val) shape
     as fit_lgbm_baseline/fit_xgb_baseline, so this plugs directly into
-    archived_modules/ensemble.py::oof_predictions unmodified. categories is accepted but
+    exploration/Aayush/archived_modules/ensemble.py::oof_predictions unmodified. categories is accepted but
     unused (interface compatibility only) — CatBoost doesn't need LightGBM/XGBoost's
     shared category->code map."""
     X_train = _prep_catboost_frame(train_df, numeric_features)

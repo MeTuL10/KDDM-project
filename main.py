@@ -7,7 +7,7 @@ rows' median-rent benchmark is frozen at the last labelled quarter (2025-Q1) and
 the published medians that already contain test-period rents (modules/anchor.py).
 
 All logic lives in modules/; main.ipynb walks through the same stages with commentary.
-The previous pipeline (single LightGBM, validation RMSE 451.87) is kept as baseline_main.py / baseline_main.ipynb.
+The previous pipeline (single LightGBM, validation RMSE 451.87) is kept as exploration/Aayush/baseline_main.py / exploration/Aayush/baseline_main.ipynb.
 
 Usage:   python main.py [--out submission.csv] [--compare reference.csv]
 Runtime: about 15-25 minutes on 8 cores (three models x 5 folds, plus one out-of-time fit for the blend weights).

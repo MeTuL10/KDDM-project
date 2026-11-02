@@ -23,8 +23,8 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Aa-ball | 1 | `exploration/Aayush/expt-2/src/feature_engineering_v2.py` | r=0.5 / EARTH_RADIUS_KM | verified |
 | Aa-ball | 1 | `exploration/Aayush/expt-2/src/feature_engineering_v2.py` | r=2.0 / EARTH_RADIUS_KM | verified |
 | Aa-ball | 1 | `exploration/Aayush/expt-2/src/feature_engineering_v2.py` | spatial["interchange_proximity_score"] | verified |
-| Aa-boot | 1 | `archived_modules/evaluation.py` | paired_bootstrap_rmse_diff | verified |
-| Aa-boot | 1 | `archived_modules/evaluation.py` | resampling whole groups with replacement | verified |
+| Aa-boot | 1 | `exploration/Aayush/archived_modules/evaluation.py` | paired_bootstrap_rmse_diff | verified |
+| Aa-boot | 1 | `exploration/Aayush/archived_modules/evaluation.py` | resampling whole groups with replacement | verified |
 | Aa-boot | 1 | `exploration/Aayush/expt-5/src/exp4_tail_trimming.py` | n_boot=300 | verified |
 | Aa-cbw | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | -0.51 (CI -0.86..-0.18) | verified |
 | Aa-cbw | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | -1.09 (CI -1.38..-0.78) | verified |

@@ -24,7 +24,7 @@ import os, sys, time
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # exploration/Aayush
 REPO = os.path.dirname(os.path.dirname(ROOT))  # repository root (data/, archived_modules/)
 sys.path.insert(0, os.path.join(ROOT, 'expt-2', 'src'))
-sys.path.insert(0, os.path.join(REPO, 'archived_modules'))
+sys.path.insert(0, os.path.join(ROOT, 'archived_modules'))
 
 import numpy as np
 import pandas as pd

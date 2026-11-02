@@ -266,7 +266,7 @@ def add_address_feature(df: pd.DataFrame, momentum_table: pd.DataFrame, subzone_
                          global_fallback: float, m: float = 5.0) -> pd.DataFrame:
     """Merge build_address_momentum's trailing values onto df by address+month, then
     shrink toward the SUBZONE mean via an m-estimate (same smoothing idea as
-    archived_modules/encoding.py's target encoding) — most addresses see only a handful of
+    exploration/Aayush/archived_modules/encoding.py's target encoding) — most addresses see only a handful of
     transactions across the whole dataset (median ~13 over ~4 years), so the raw
     trailing mean alone would be noisy for anything but the most-transacted blocks.
 

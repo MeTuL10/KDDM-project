@@ -1,4 +1,4 @@
-> **Note:** this report covers the earlier single-LightGBM pipeline, now in `archived_modules/`, `baseline_main.py` and `baseline_main.ipynb`. The final model is `main.py` + `modules/` (see `README.md`).
+> **Note:** this report covers the earlier single-LightGBM pipeline, now in `exploration/Aayush/archived_modules/`, `exploration/Aayush/baseline_main.py` and `exploration/Aayush/baseline_main.ipynb`. The final model is `main.py` + `modules/` (see `README.md`).
 
 # Progress Report — HDB Monthly Rent Prediction
 
@@ -7,14 +7,14 @@ Goal: predict `MONTHLY_RENT` for the 50,000 rows in `data/test.csv`, using `data
 
 Full detail behind every decision below lives in [exploration/initial-eda-inference.md](../initial-eda-inference.md)
 (EDA findings + the "Resolving the open items" section) and as inline comments in
-`main.ipynb` / `archived_modules/*.py`. This file is the current-state summary.
+`main.ipynb` / `exploration/Aayush/archived_modules/*.py`. This file is the current-state summary.
 
 **Two ways to run this**: `main.ipynb` is the full exploratory record — every model
 comparison and the encoding/ensembling/momentum/data-quality investigations below,
 each with reasoning — but re-running it in full fits dozens of models and takes 1-2
 minutes. **`python main.py`** is a lean ~10s script (preprocessing → validation split
 → train only the current best model → verify → refit on all of train.csv → write
-`submission.csv`) for routine re-verification — e.g. after a `archived_modules/*.py` change —
+`submission.csv`) for routine re-verification — e.g. after a `exploration/Aayush/archived_modules/*.py` change —
 without re-running the whole notebook. It's a snapshot of the current best
 model/hyperparameters, not a re-search; see its docstring for when to re-derive from
 `main.ipynb` instead.
@@ -51,7 +51,7 @@ actual competition score closely — the live score (451.42, as of this round) c
 overfitting to `val_fold`. Top team on the leaderboard: 432.82 — an 18.6-point
 (~4.1%) gap, addressed below.
 
-Measured on a **time-based validation split** (`archived_modules/split.py::time_based_split`),
+Measured on a **time-based validation split** (`exploration/Aayush/archived_modules/split.py::time_based_split`),
 not random k-fold — see "Why time-based validation" below. `submission.csv` (format
 `Id,Predicted`, confirmed against the assignment's stated format) was generated via
 `main.py` (see "Two ways to run this" above), from the current best LightGBM
@@ -69,8 +69,8 @@ RMSE), not assumed either way.
 
 ## Features used, and why
 
-All feature engineering lives in `archived_modules/preprocessing.py::build_features`; the final
-selection for modeling lives in `archived_modules/modeling.py` (`GBM_NUMERIC_FEATURES` /
+All feature engineering lives in `exploration/Aayush/archived_modules/preprocessing.py::build_features`; the final
+selection for modeling lives in `exploration/Aayush/archived_modules/modeling.py` (`GBM_NUMERIC_FEATURES` /
 `GBM_CATEGORICAL_FEATURES`, plus `addr_level_feat` — see below — layered on via the
 `numeric_features` parameter rather than folded into that constant, so earlier
 notebook cells keep working unmodified; `main.py`'s `NUMERIC_FEATURES` is the actual
@@ -88,7 +88,7 @@ support — no one-hot/label/target encoding anywhere in the pipeline.
 | `YEAR_COMPLETED` | joined from `sg-hdb-block.csv` | ablation-tested; helps beyond `SUBZONE` alone |
 | `stock_index` | equal-weighted, return-normalized index built from `sg-stock-prices.csv` (41 full-history symbols only) | corrected version of an earlier broken calculation; extends through test's date range, giving the model real (not extrapolated) economic context for test's months |
 | `coe_premium` | monthly mean from `sg-coe-prices.csv` | same rationale as `stock_index`; also extends through test's date range |
-| `addr_level_feat` | derived (`archived_modules/preprocessing.py::build_address_momentum`/`add_address_feature`) | address-level (finer than `SUBZONE`) trailing rent-per-sqm, m-estimate shrunk toward `SUBZONE` mean — real, independent RMSE gain (see "Address-level rent-level feature" below); unlike the failed `SUBZONE`-level momentum, doesn't cannibalize `SUBZONE`'s own importance |
+| `addr_level_feat` | derived (`exploration/Aayush/archived_modules/preprocessing.py::build_address_momentum`/`add_address_feature`) | address-level (finer than `SUBZONE`) trailing rent-per-sqm, m-estimate shrunk toward `SUBZONE` mean — real, independent RMSE gain (see "Address-level rent-level feature" below); unlike the failed `SUBZONE`-level momentum, doesn't cannibalize `SUBZONE`'s own importance |
 
 ### Categorical (3, native dtype — no encoding)
 | feature | levels | why it's in |
@@ -144,7 +144,7 @@ handling, and giving Ridge access to categoricals for the first time) beats the
 fix above, which brought the actual shipping model to $457 RMSE). The gap between
 every encoded variant and native categorical handling is well over $1 RMSE, so the
 conclusion — no encoding beats native handling — is unaffected by which LightGBM
-config is the exact reference point. Implementation in `archived_modules/encoding.py`.
+config is the exact reference point. Implementation in `exploration/Aayush/archived_modules/encoding.py`.
 
 **Encodings used:**
 - `FLAT_TYPE` → **ordinal** (`flat_type_ord`; room count has a real order — already computed in `preprocessing.py`).
@@ -187,7 +187,7 @@ experiment — it's a documented negative result, run for due diligence, not a c
 
 Tested whether blending the 3 already-fitted tree models (LightGBM tuned, sklearn
 GBM, XGBoost), or adding genuinely different model types for diversity, beats
-single-model LightGBM. Implementation in `archived_modules/ensemble.py`. Blend weights are
+single-model LightGBM. Implementation in `exploration/Aayush/archived_modules/ensemble.py`. Blend weights are
 fit on **out-of-fold predictions from `train_fold`** (same expanding-window CV as
 hyperparameter tuning) — never on `val_fold` directly, avoiding the same leakage
 mistake fitting hyperparameters on `val_fold` would be.
@@ -221,7 +221,7 @@ did not).
 smaller than the tuning-decision fix's gain and doesn't justify tripling the models
 the pipeline must train/maintain for a possibly-noise-level improvement. The
 diversity-seeking attempt (5-model) actively backfired. `final_model` stays
-single-model tuned LightGBM. Infrastructure (`archived_modules/ensemble.py`) is kept for reuse
+single-model tuned LightGBM. Infrastructure (`exploration/Aayush/archived_modules/ensemble.py`) is kept for reuse
 if a future feature-set change reduces model correlation enough to revisit this.
 
 ## Residual diagnostics, log-target training, rare-category smoothing — done
@@ -293,7 +293,7 @@ information it's currently missing about why these specific units are cheap.
 - **(a) Grouping sparse subzones** into `"other_subzone"` for native categorical
   handling: RMSE moves by <1 point either direction across thresholds (0/100/200
   training-row cutoffs), non-monotonically — noise, not a real effect.
-- **(b) Increasing target-encoding smoothing** (`m` in `archived_modules/encoding.py`) from 10
+- **(b) Increasing target-encoding smoothing** (`m` in `exploration/Aayush/archived_modules/encoding.py`) from 10
   to 200: RMSE stays flat (~465.7–466.4), nowhere near closing the ~9-point gap to
   native categorical handling.
 
@@ -310,7 +310,7 @@ need help generalizing across it.
 
 ## Applying the top two suggested next steps — results
 
-Implementation in `archived_modules/preprocessing.py` (`build_subzone_momentum`,
+Implementation in `exploration/Aayush/archived_modules/preprocessing.py` (`build_subzone_momentum`,
 `add_momentum_feature`) and `main.ipynb`'s "Applying the top two suggested next
 steps" section.
 
@@ -376,11 +376,11 @@ this segment is probably diminishing-returns territory. `final_model` and
 ## Data quality analysis — one fix shipped
 
 Full writeup in [data-quality-report.md](data-quality-report.md) (code in
-`archived_modules/data_quality.py`, seven check categories A-G). One concrete fix applied:
+`exploration/Aayush/archived_modules/data_quality.py`, seven check categories A-G). One concrete fix applied:
 `MAX_FLOOR`/`YEAR_COMPLETED` had a `-1` sentinel value hiding in `sg-hdb-block.csv`
 for 159 rows, undetected by any `isna()` check, feeding literal `-1` into two active
 numeric model features. Imputed via `SUBZONE` median
-(`archived_modules/preprocessing.py::impute_sentinel_values`) — **RMSE 457.47 → 457.37**.
+(`exploration/Aayush/archived_modules/preprocessing.py::impute_sentinel_values`) — **RMSE 457.47 → 457.37**.
 
 The report's other actionable lead — excluding price-per-sqm outlier rows from
 training, generalized from the earlier 99-row low-rent-tail anomaly to a principled
@@ -413,7 +413,7 @@ reg_lambda=0.1`) against the true held-out `val_fold`, the metric that actually
 matters: **RMSE 457.37 → 456.70 — real, adopted.**
 
 **`SUBZONE` × `FLAT_TYPE` interaction feature** (out-of-fold target-encoded, same
-leakage discipline as `archived_modules/encoding.py`; 598 combinations in `train_fold`, ~221
+leakage discipline as `exploration/Aayush/archived_modules/encoding.py`; 598 combinations in `train_fold`, ~221
 rows each): standalone, **RMSE 457.37 → 456.68** — essentially the same-sized gain as
 the hyperparameter tuning, independently. But **combined, the two do not stack**
 (456.88 — worse than either alone) — the tuned hyperparameters were selected via CV on
@@ -431,7 +431,7 @@ change (`Id 0`: \$2,670.93 → \$2,615.16).
 
 Tested before the joint hyperparameter re-tune below, using the round-2 tuned
 hyperparameters (`main.py`'s current `BEST_PARAMS`) as the base. Implementation in
-`archived_modules/preprocessing.py` (`add_density_within_radius`, `add_nearest_poi_attribute`,
+`exploration/Aayush/archived_modules/preprocessing.py` (`add_density_within_radius`, `add_nearest_poi_attribute`,
 `add_mrt_line_count`).
 
 - **Amenity density** (count of MRT stations/malls within a radius, tested at
@@ -455,7 +455,7 @@ section.
 Ran a fresh 15-trial randomized hyperparameter search (same expanding-window CV, same
 8-param space as round 2) on the feature set *including* the `SUBZONE`×`FLAT_TYPE`
 interaction, rebuilt fresh per fold with the same out-of-fold discipline
-(`archived_modules/encoding.py`). **Result: the CV winner converged to nearly the same
+(`exploration/Aayush/archived_modules/encoding.py`). **Result: the CV winner converged to nearly the same
 hyperparameters as round 2** (`n_estimators=600, learning_rate=0.03, num_leaves=15,
 min_child_samples=100, subsample=0.8, colsample_bytree=0.6, reg_lambda=0.1` — only
 `reg_alpha` differs, 0 vs 0.1), and confirmed on the true held-out `val_fold` at
@@ -531,7 +531,7 @@ Two ideas were tested against that finding:
   adopted.**
 - **Address-level (TOWN+BLOCK+STREET — finer than `SUBZONE`) trailing rent-per-sqm
   feature**, shrunk toward the `SUBZONE` mean via an m-estimate (same smoothing idea
-  as `archived_modules/encoding.py`'s target encoding). Unlike `SUBZONE`-level momentum
+  as `exploration/Aayush/archived_modules/encoding.py`'s target encoding). Unlike `SUBZONE`-level momentum
   (tested above — NOT adopted, redundant with `SUBZONE`'s own categorical splits), a
   per-building signal captures something a subzone-wide category boundary can't (one
   block running consistently cheaper/pricier than its subzone's average).
@@ -549,13 +549,13 @@ same-address/type/size/month evidence above, the tail itself still looks structu
 close to its ceiling — this is a good general-purpose feature found *while*
 investigating the tail, not a targeted fix for it.
 
-**Implementation**: `archived_modules/preprocessing.py::build_address_momentum` (leakage-safe
+**Implementation**: `exploration/Aayush/archived_modules/preprocessing.py::build_address_momentum` (leakage-safe
 trailing mean, same discipline as `build_subzone_momentum` — aggregates to
 address+month first, then an expanding shift(1) mean, so a month never includes
 itself even within its own source data) and `add_address_feature` (merges the trailing
 value onto a frame, m-estimate shrinkage toward the `SUBZONE` mean, forward-fills a
 address's last known state only for months genuinely absent from the source, e.g. all
-of `test.csv`'s horizon). `archived_modules/modeling.py`'s `_prep_gbm_frame`/`fit_*`/
+of `test.csv`'s horizon). `exploration/Aayush/archived_modules/modeling.py`'s `_prep_gbm_frame`/`fit_*`/
 `predict_test` gained an optional `numeric_features` parameter (default: the
 unchanged `GBM_NUMERIC_FEATURES`) rather than mutating that constant directly, so
 every earlier notebook cell keeps working if `main.ipynb` is re-run top-to-bottom
@@ -577,7 +577,7 @@ the gain already clears the bar with the untouched hyperparameters.
 
 Per this file's earlier "Known limitations" note that a formal Bayesian optimizer
 "hasn't been tried as a distinct method" (only randomized/grid search had) — tested
-properly rather than left as a hunch. `archived_modules/modeling.py::optuna_search_lgbm`
+properly rather than left as a hunch. `exploration/Aayush/archived_modules/modeling.py::optuna_search_lgbm`
 (TPE sampler) run for 100 trials over the same 8-param space and the same
 expanding-window CV discipline as the earlier 30-trial/15-trial randomized searches
 (`n_estimators` up to 2000, `learning_rate` down to 0.01, `num_leaves`,
@@ -609,7 +609,7 @@ minute runtime isn't worth repeating for a result already confirmed by script).
 Roadmap item 1 from the RMSE bottleneck report. The root pipeline never used
 `sg-hdb-median-rent.csv` (official quarterly median rent by town and flat type, populated
 through 2026-Q2), while `expt-2` built its market anchor from it. Implemented as
-`archived_modules/preprocessing.py::build_median_anchor_table` / `fit_anchor_town_ratios` /
+`exploration/Aayush/archived_modules/preprocessing.py::build_median_anchor_table` / `fit_anchor_town_ratios` /
 `add_median_rent_anchor`, with a fallback chain (exact cell, then interpolation within the
 cell for up to 2 quarters, then the cross-town median for that flat type times the town's
 own historical ratio, then the cross-town median, then a global mean) and an

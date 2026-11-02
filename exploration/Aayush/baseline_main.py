@@ -7,31 +7,34 @@ model -> verify against the held-out fold -> refit on all of train.csv -> predic
 test.csv -> write submission.csv.
 
 Run this for routine verification (e.g. confirming submission.csv still reproduces
-after a archived_archived_modules/*.py change) instead of re-executing baseline_main.ipynb. baseline_main.ipynb stays the
+after a archived_archived_modules/*.py change) instead of re-executing exploration/Aayush/baseline_main.ipynb. exploration/Aayush/baseline_main.ipynb stays the
 full exploratory record — every model comparison, the encoding/ensembling/momentum/
 data-quality investigations, all with reasoning — but it fits dozens of models across
 50+ cells and takes 1-2 minutes to re-run. This script fits exactly two: the current
 best model on the validation split (to verify), and again on the full data (to ship).
 
 The model/hyperparameters below are a snapshot, not re-derived here — they were
-selected in baseline_main.ipynb's model-comparison and hyperparameter-tuning sections (see
-exploration/Aayush/progress-report.md "Current result"). If the feature set in archived_modules/modeling.py
+selected in exploration/Aayush/baseline_main.ipynb's model-comparison and hyperparameter-tuning sections (see
+exploration/Aayush/progress-report.md "Current result"). If the feature set in exploration/Aayush/archived_modules/modeling.py
 changes enough that a different model or hyperparameters might now win, re-run that
-comparison in baseline_main.ipynb and update BEST_MODEL/BEST_PARAMS below to match — this
+comparison in exploration/Aayush/baseline_main.ipynb and update BEST_MODEL/BEST_PARAMS below to match — this
 script intentionally does not re-search for "best", only reproduces a known one.
 
-Usage: python baseline_main.py
+Usage: python exploration/Aayush/baseline_main.py
 """
 import sys
 
-sys.path.insert(0, 'archived_modules')
+import os
+HERE = os.path.dirname(os.path.abspath(__file__))  # exploration/Aayush
+REPO = os.path.dirname(os.path.dirname(HERE))  # repository root (data/)
+sys.path.insert(0, os.path.join(HERE, 'archived_modules'))
 
 import pandas as pd
 import preprocessing as prep
 import split as spl
 import modeling as mdl
 
-# Established in baseline_main.ipynb (expanding-window CV, confirmed against the true
+# Established in exploration/Aayush/baseline_main.ipynb (expanding-window CV, confirmed against the true
 # held-out val_fold by RMSE — the metric that actually matters here, not MAE).
 # Superseded by a wider randomized hyperparameter search (30 trials over
 # n_estimators/learning_rate/num_leaves/min_child_samples/subsample/colsample_bytree/
@@ -49,7 +52,7 @@ BEST_FIT_BASELINE = mdl.fit_lgbm_baseline
 BEST_FIT_FULL = mdl.fit_lgbm_full
 
 # Address-level (TOWN+BLOCK+STREET — finer than SUBZONE) trailing rent-per-sqm
-# feature, shrunk toward the SUBZONE mean (archived_modules/preprocessing.py::
+# feature, shrunk toward the SUBZONE mean (exploration/Aayush/archived_modules/preprocessing.py::
 # build_address_momentum/add_address_feature). Tested and ADOPTED — see
 # exploration/Aayush/progress-report.md "Address-level rent-level feature": RMSE 456.70 -> 452.56 on
 # val_fold, held up across 3/4 expanding-window CV folds. Note this hyperparameter
@@ -58,7 +61,7 @@ BEST_FIT_FULL = mdl.fit_lgbm_full
 # tuned hyperparameters don't always stack additively, so a joint re-tune is a
 # worthwhile follow-up, not yet done (the gain here already clears the bar on its
 # own with the untouched hyperparameters).
-# Median-rent anchor (archived_modules/preprocessing.py::build_median_anchor_table/
+# Median-rent anchor (exploration/Aayush/archived_modules/preprocessing.py::build_median_anchor_table/
 # add_median_rent_anchor): the official quarterly town x flat-type median rent from
 # sg-hdb-median-rent.csv, with a fallback chain for the ~3% of rows whose cell is
 # empty (town names must be stripped when matching: the file has 'QUEENSTOWN ' with a
@@ -98,18 +101,18 @@ def residual(df):
     return df.assign(MONTHLY_RENT=df['MONTHLY_RENT'] - df['anchor'])
 
 
-def main(data_dir: str = 'data', submission_path: str = 'submission_baseline.csv'):
-    # 1. Preprocessing (archived_modules/preprocessing.py) — cleaning, joins, macro/geo features.
+def main(data_dir: str = os.path.join(REPO, 'data'), submission_path: str = os.path.join(HERE, 'submission_baseline.csv')):
+    # 1. Preprocessing (exploration/Aayush/archived_modules/preprocessing.py) — cleaning, joins, macro/geo features.
     train_feat, test_feat = prep.load_and_build(data_dir=data_dir)
     print(f'train_feat: {train_feat.shape}  test_feat: {test_feat.shape}')
 
-    # 2. Time-based validation split (archived_modules/split.py) — NOT random, see split.py's
+    # 2. Time-based validation split (exploration/Aayush/archived_modules/split.py) — NOT random, see split.py's
     # docstring. Used here only to verify performance; the shipped model below is
     # refit on all of train_feat afterward.
     train_fold, val_fold, cutoff = spl.time_based_split(train_feat)
     categories = mdl.get_categories(train_feat)
 
-    # 2b. Address-level trailing rent feature (archived_modules/preprocessing.py) — built from
+    # 2b. Address-level trailing rent feature (exploration/Aayush/archived_modules/preprocessing.py) — built from
     # train_fold ONLY here (never val_fold), so val_fold's own rows can never leak
     # into the feature applied to it. See NUMERIC_FEATURES comment above.
     momentum_table = prep.build_address_momentum(train_fold)
@@ -123,11 +126,11 @@ def main(data_dir: str = 'data', submission_path: str = 'submission_baseline.csv
     train_fold, val_fold = add_anchor(train_fold, val_fold, town_table=town_table, cross_table=cross_table)
 
     # 3. Train the current best model on train_fold, verify against the true held-out
-    # val_fold — the one honest check, same discipline as baseline_main.ipynb throughout.
+    # val_fold — the one honest check, same discipline as exploration/Aayush/baseline_main.ipynb throughout.
     _, val_metrics, _ = BEST_FIT_BASELINE(residual(train_fold), residual(val_fold), categories,
                                            numeric_features=NUMERIC_FEATURES, **BEST_PARAMS)
     print(f'Validation check ({BEST_MODEL}, train_fold -> val_fold): {val_metrics}')
-    print(f'Reference from baseline_main.ipynb (compare, do not assume): {EXPECTED_VAL_METRICS}')
+    print(f'Reference from exploration/Aayush/baseline_main.ipynb (compare, do not assume): {EXPECTED_VAL_METRICS}')
 
     # 4. Refit on ALL of train.csv, predict test.csv, write the submission file.
     # Rebuilt from train_feat (not train_fold) so the final model's feature uses

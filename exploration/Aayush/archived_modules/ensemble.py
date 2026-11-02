@@ -2,9 +2,9 @@
 Blend LightGBM / sklearn GBM / XGBoost predictions. See exploration/Aayush/progress-report.md
 "Ensembling" section for rationale and results.
 
-Leakage discipline, same principle as archived_modules/modeling.py's tuning-vs-defaults check:
+Leakage discipline, same principle as exploration/Aayush/archived_modules/modeling.py's tuning-vs-defaults check:
 blend weights are fit on OUT-OF-FOLD predictions generated from train_fold via the
-same expanding-window CV used for hyperparameter tuning (archived_modules/split.py) — never on
+same expanding-window CV used for hyperparameter tuning (exploration/Aayush/archived_modules/split.py) — never on
 val_fold directly, which would leak val_fold into the blend the same way fitting
 hyperparameters on it would. val_fold is reserved for the one honest final check.
 """
@@ -20,7 +20,7 @@ TARGET = 'MONTHLY_RENT'
 
 def oof_predictions(model_specs: dict, train_df: pd.DataFrame, splits: list, categories: dict,
                      target: str = TARGET) -> pd.DataFrame:
-    """model_specs: {name: (fit_fn, params)} where fit_fn matches archived_modules/modeling.py's
+    """model_specs: {name: (fit_fn, params)} where fit_fn matches exploration/Aayush/archived_modules/modeling.py's
     fit_*_baseline signature: fit_fn(fold_train, fold_val, categories, **params) ->
     (model, metrics, X_val). Returns a frame indexed like train_df, one out-of-fold
     prediction column per model — a row's own fold never contributes to its own

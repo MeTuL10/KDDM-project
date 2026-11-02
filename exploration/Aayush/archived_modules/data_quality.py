@@ -13,6 +13,8 @@ Categories (A-G), matching the report's structure:
   F. auxiliary dataset coordinate sanity
   G. temporal coverage
 """
+import os
+
 import pandas as pd
 
 SG_LAT_BOUNDS = (1.1, 1.5)
@@ -115,7 +117,7 @@ def check_temporal_coverage(df: pd.DataFrame, date_col: str = 'RENT_APPROVAL_DAT
     return df[date_col].value_counts().sort_index()
 
 
-def run_full_report(train_feat: pd.DataFrame, test_feat: pd.DataFrame, aux_dir: str = 'data/auxiliary') -> dict:
+def run_full_report(train_feat: pd.DataFrame, test_feat: pd.DataFrame, aux_dir: str = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'data', 'auxiliary')) -> dict:
     """Runs every check above and returns a dict of results, matching
     data-quality-report.md's structure. Doesn't print — caller decides how to
     present results (see main.ipynb's "Data quality analysis" section)."""

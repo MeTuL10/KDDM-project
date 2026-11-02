@@ -17,6 +17,6 @@ python main.py                         # writes submission.csv, about 15-25 min 
 |---|---|
 | `main.py`, `main.ipynb` | Final pipeline (script and narrated notebook) |
 | `modules/` | Cleaning, features, honest anchor, models, stage runner (what `main.py` uses) |
-| `archived_modules/`, `baseline_main.py`, `baseline_main.ipynb` | Earlier single-LightGBM pipeline (validation RMSE 451.87), see `exploration/Aayush/progress-report.md` |
+| `exploration/Aayush/archived_modules/`, `exploration/Aayush/baseline_main.py`, `exploration/Aayush/baseline_main.ipynb` | Earlier single-LightGBM pipeline (validation RMSE 451.87), see `exploration/Aayush/progress-report.md` |
 | `report/final/` | Paper, figures and the claim-verification tooling (`report/final/README.md`) |
 | `exploration/Aayush/expt-2/`, `exploration/Aayush/expt-4/`, `exploration/Aayush/expt-5/` | Experiment history and ablations behind the report |
