@@ -2,9 +2,11 @@
 Final model, end to end: raw CSVs in data/ -> cleaning -> V2 features -> honest test-quarter anchor ->
 LightGBM/XGBoost/CatBoost residual blend -> submission.csv.
 
-Reproduces the submitted file (public leaderboard 433.65480): the expt-2 V2 recipe with one change, the test
+Reproduces the submitted file (public leaderboard 432.32714): the expt-2 V2 recipe with two changes. (1) The test
 rows' median-rent benchmark is frozen at the last labelled quarter (2025-Q1) and drifted, instead of read from
-the published medians that already contain test-period rents (modules/anchor.py).
+the published medians that already contain test-period rents (modules/anchor.py). (2) The nine COE and bank-stock
+columns are not used: they share only the rent trend and made no measurable difference locally, and the version
+without them scored better on the public leaderboard (433.65480 with them, 432.32714 without).
 
 All logic lives in modules/; main.ipynb walks through the same stages with commentary.
 The previous pipeline (single LightGBM, validation RMSE 451.87) is kept as exploration/Aayush/baseline_main.py / exploration/Aayush/baseline_main.ipynb.
@@ -27,7 +29,7 @@ import pipeline as pipe
 
 
 def compare(sub: pd.DataFrame, reference_path: str):
-    """Agreement with a reference submission (e.g. the file that scored 433.65480)."""
+    """Agreement with a reference submission (e.g. the file that scored 432.32714)."""
     ref = pd.read_csv(reference_path)
     assert len(ref) == len(sub) and (ref['Id'].values == sub['Id'].values).all(), 'Id mismatch'
     d = sub['Predicted'].values - ref['Predicted'].values

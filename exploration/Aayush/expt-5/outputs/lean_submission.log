@@ -1,0 +1,66 @@
+   [Spatial FE v2] Building BallTree spatial features for unique blocks...
+   [Spatial FE v2] Completed 20 spatial features for 9456 blocks.
+   [Macro FE v2] Building quarterly HDB median rent benchmarks with trend extrapolation...
+   [Target Encoding v2] Computing 5-Fold OOF Hierarchical Bayesian Target Encodings...
+
+[Feature Integrity Audit v2]:
+Train Shape: (150000, 70) | Nulls: 0
+Test Shape:  (50000, 69) | Nulls: 0
+   [Macro FE v2] Building quarterly HDB median rent benchmarks with trend extrapolation...
+features: 54 (63 in the scored model)
+/Users/aayushmajumdar/Desktop/CS5228-knowledge-discovery-and-data-mining-rel/nus-cs5228/myenv/lib/python3.14/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.005997 seconds.
+You can set `force_row_wise=true` to remove the overhead.
+And if memory is not enough, you can set `force_col_wise=true`.
+[LightGBM] [Info] Total Bins 6727
+[LightGBM] [Info] Number of data points in the train set: 124016, number of used features: 54
+[LightGBM] [Info] Start training from score -13.077653
+blend weights: [0.5327 0.129  0.3383] | out-of-time RMSE {'lgb': 450.35, 'xgb': 451.02, 'cb': 451.55, 'blend': 449.38}
+/Users/aayushmajumdar/Desktop/CS5228-knowledge-discovery-and-data-mining-rel/nus-cs5228/myenv/lib/python3.14/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.005768 seconds.
+You can set `force_row_wise=true` to remove the overhead.
+And if memory is not enough, you can set `force_col_wise=true`.
+[LightGBM] [Info] Total Bins 6735
+[LightGBM] [Info] Number of data points in the train set: 120000, number of used features: 54
+[LightGBM] [Info] Start training from score -22.642198
+fold 1/5: lgb 470.67  xgb 471.62  cb 471.10
+/Users/aayushmajumdar/Desktop/CS5228-knowledge-discovery-and-data-mining-rel/nus-cs5228/myenv/lib/python3.14/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.005414 seconds.
+You can set `force_row_wise=true` to remove the overhead.
+And if memory is not enough, you can set `force_col_wise=true`.
+[LightGBM] [Info] Total Bins 6729
+[LightGBM] [Info] Number of data points in the train set: 120000, number of used features: 54
+[LightGBM] [Info] Start training from score -23.042585
+fold 2/5: lgb 471.50  xgb 472.28  cb 471.32
+/Users/aayushmajumdar/Desktop/CS5228-knowledge-discovery-and-data-mining-rel/nus-cs5228/myenv/lib/python3.14/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.005162 seconds.
+You can set `force_row_wise=true` to remove the overhead.
+And if memory is not enough, you can set `force_col_wise=true`.
+[LightGBM] [Info] Total Bins 6731
+[LightGBM] [Info] Number of data points in the train set: 120000, number of used features: 54
+[LightGBM] [Info] Start training from score -21.827715
+fold 3/5: lgb 471.34  xgb 471.92  cb 471.40
+/Users/aayushmajumdar/Desktop/CS5228-knowledge-discovery-and-data-mining-rel/nus-cs5228/myenv/lib/python3.14/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.007083 seconds.
+You can set `force_row_wise=true` to remove the overhead.
+And if memory is not enough, you can set `force_col_wise=true`.
+[LightGBM] [Info] Total Bins 6731
+[LightGBM] [Info] Number of data points in the train set: 120000, number of used features: 54
+[LightGBM] [Info] Start training from score -22.706440
+fold 4/5: lgb 471.25  xgb 471.61  cb 470.51
+/Users/aayushmajumdar/Desktop/CS5228-knowledge-discovery-and-data-mining-rel/nus-cs5228/myenv/lib/python3.14/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.005927 seconds.
+You can set `force_row_wise=true` to remove the overhead.
+And if memory is not enough, you can set `force_col_wise=true`.
+[LightGBM] [Info] Total Bins 6731
+[LightGBM] [Info] Number of data points in the train set: 120000, number of used features: 54
+[LightGBM] [Info] Start training from score -22.416804
+fold 5/5: lgb 470.69  xgb 471.72  cb 471.24
+5-fold OOF RMSE: {'lgb': 471.09, 'xgb': 471.83, 'cb': 471.11, 'blend': 470.22}
+vs scored file: corr 0.99874, mean diff +6.09, mean abs diff 17.81, max abs diff 323.5

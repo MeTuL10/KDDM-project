@@ -1,6 +1,6 @@
 # CS5228 HDB monthly-rent prediction
 
-Final model: residual blend of LightGBM, XGBoost and CatBoost around the official quarterly town × flat-type median rent, with block-level hierarchical target encodings and an honest (forecast-time) anchor for test quarters. Public leaderboard 433.65480.
+Final model: residual blend of LightGBM, XGBoost and CatBoost around the official quarterly town × flat-type median rent, with block-level hierarchical target encodings and an honest (forecast-time) anchor for test quarters and no COE or stock series. Public leaderboard 432.32714.
 
 ## Reproduce
 

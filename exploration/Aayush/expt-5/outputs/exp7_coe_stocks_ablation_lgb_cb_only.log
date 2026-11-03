@@ -1,0 +1,29 @@
+dropped in the ablation: ['coe_a', 'coe_b', 'coe_c', 'coe_e', 'coe_overall_mean', 'stock_dbs_close', 'stock_ocbc_close', 'stock_uob_close', 'sg_financial_index']
+
+===== H1: validate from 2024-07; anchor drift4 at 2024-Q2 =====
+  features: 63 with, 54 without
+  all features        seed 42: blend 454.85
+  all features        seed 43: blend 454.62
+  all features        seed 44: blend 454.52
+  all features        mean of seeds 454.66 (sd 0.17); seed-averaged blend 454.43
+  without COE/stocks  seed 42: blend 454.61
+  without COE/stocks  seed 43: blend 454.53
+  without COE/stocks  seed 44: blend 454.58
+  without COE/stocks  mean of seeds 454.57 (sd 0.04); seed-averaged blend 454.41
+  without minus all (mean of seeds): -0.09
+  without minus all (seed-averaged blend, paired bootstrap): -0.02  95% CI [-0.29, +0.22]
+
+===== H2: validate from 2023-12; anchor nodrift at 2023-Q3 =====
+  features: 63 with, 54 without
+  all features        seed 42: blend 487.48
+  all features        seed 43: blend 487.42
+  all features        seed 44: blend 486.83
+  all features        mean of seeds 487.24 (sd 0.36); seed-averaged blend 486.98
+  without COE/stocks  seed 42: blend 487.44
+  without COE/stocks  seed 43: blend 487.48
+  without COE/stocks  seed 44: blend 486.84
+  without COE/stocks  mean of seeds 487.26 (sd 0.36); seed-averaged blend 487.00
+  without minus all (mean of seeds): +0.01
+  without minus all (seed-averaged blend, paired bootstrap): +0.02  95% CI [-0.30, +0.33]
+
+done

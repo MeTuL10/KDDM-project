@@ -17,8 +17,6 @@ HDB_MEDIAN_RENT_PATH = os.path.join(AUX_DIR, "sg-hdb-median-rent.csv")
 MRT_STATIONS_PATH = os.path.join(AUX_DIR, "sg-mrt-stations.csv")
 SHOPPING_MALLS_PATH = os.path.join(AUX_DIR, "sg-shopping-malls.csv")
 SCHOOLS_PATH = os.path.join(AUX_DIR, "sg-schools.csv")
-COE_PRICES_PATH = os.path.join(AUX_DIR, "sg-coe-prices.csv")
-STOCK_PRICES_PATH = os.path.join(AUX_DIR, "sg-stock-prices.csv")
 
 RANDOM_SEED = 42
 N_FOLDS = 5

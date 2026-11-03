@@ -2,7 +2,7 @@
 Feature Engineering Module v2 (Sprint 1 & Sprint 2 Enhancements)
 Path: modules/features.py (ported from exploration/Aayush/expt-2/src/feature_engineering_v2.py)
 
-Key Advancements:
+Key Advancements (COE and bank-stock features of the original V2 recipe are removed here):
 1. Dynamic Macro Extrapolation: Extrapolates 2026-Q3 median rent benchmark using local quarterly growth.
 2. High-Resolution Spatial Amenities:
    - MRT multi-line interchanges (distance and count within 1km).
@@ -162,55 +162,6 @@ def build_median_rent_benchmark_v2() -> pd.DataFrame:
     clean_mr["median_rent_ratio"] = clean_mr["median_rent_benchmark"] / clean_mr["nat_median_rent_benchmark"]
     return clean_mr
 
-def build_coe_features_v2() -> pd.DataFrame:
-    """Extract monthly COE features."""
-    coe = pd.read_csv(config.COE_PRICES_PATH)
-    month_map = {
-        "jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
-        "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12
-    }
-    coe["approval_month"] = coe["MONTH"].astype(str).str.strip().str.lower().map(month_map)
-    coe["approval_year"] = coe["YEAR"].astype(int)
-    coe["quota_num"] = coe["QUOTA_PREMIUM"].astype(str).str.replace("$", "", regex=False).str.replace(",", "", regex=False).astype(float)
-    
-    coe_pvt = coe.groupby(["approval_year", "approval_month", "CATEGORY"])["quota_num"].mean().unstack()
-    coe_pvt.columns = [f"coe_{c.strip().lower().replace(' ', '_')}" for c in coe_pvt.columns]
-    
-    all_months = pd.MultiIndex.from_product([range(2021, 2027), range(1, 13)], names=["approval_year", "approval_month"])
-    coe_full = coe_pvt.reindex(all_months).ffill().bfill().reset_index()
-    coe_full["coe_overall_mean"] = coe_full[[c for c in coe_full.columns if c.startswith("coe_")]].mean(axis=1)
-    return coe_full
-
-def build_stock_features_v2() -> pd.DataFrame:
-    """Extract Singapore banking composite stock index."""
-    stocks = pd.read_csv(config.STOCK_PRICES_PATH)
-    stocks["date"] = pd.to_datetime(stocks["DATE"])
-    stocks["approval_year"] = stocks["date"].dt.year
-    stocks["approval_month"] = stocks["date"].dt.month
-
-    top_banks = ["DBS Group", "OCBC Bank", "UOB", "Singtel"]
-    bank_df = stocks[stocks["NAME"].isin(top_banks)].groupby(
-        ["approval_year", "approval_month", "NAME"]
-    )["CLOSE"].mean().unstack().reset_index()
-
-    bank_df = bank_df.rename(columns={
-        "DBS Group": "stock_dbs_close",
-        "OCBC Bank": "stock_ocbc_close",
-        "UOB": "stock_uob_close",
-        "Singtel": "stock_singtel_close"
-    })
-
-    bank_df["sg_financial_index"] = (
-        bank_df["stock_dbs_close"] +
-        bank_df["stock_ocbc_close"] * 2.0 +
-        bank_df["stock_uob_close"] +
-        bank_df["stock_singtel_close"] * 5.0
-    ) / 4.0
-
-    all_months = pd.MultiIndex.from_product([range(2021, 2027), range(1, 13)], names=["approval_year", "approval_month"])
-    stocks_full = bank_df.set_index(["approval_year", "approval_month"]).reindex(all_months).ffill().bfill().reset_index()
-    return stocks_full[["approval_year", "approval_month", "stock_dbs_close", "stock_ocbc_close", "stock_uob_close", "sg_financial_index"]]
-
 def compute_hierarchical_te(train_df: pd.DataFrame, target_col: str = "target_res", k_folds: int = 5):
     """
     Computes 5-Fold Out-of-Fold (OOF) Hierarchical Bayesian Target Encoding for train,
@@ -326,20 +277,14 @@ def build_feature_tables(train: pd.DataFrame, test: pd.DataFrame):
     train = train.merge(spatial_features, on="block_id", how="left")
     test = test.merge(spatial_features, on="block_id", how="left")
 
-    # 3. Macroeconomic Features
+    # 3. Official median-rent benchmark (the market anchor). COE premiums and bank-stock series are deliberately not
+    #    used: they share only the rent trend, made no measurable difference locally, and the model without them scored
+    #    better on the public leaderboard (432.32714 against 433.65480).
     median_rent = build_median_rent_benchmark_v2()
     train = train.merge(median_rent, left_on=["approval_quarter", "town_clean", "flat_type_clean"],
                         right_on=["quarter", "town_clean", "flat_type_clean"], how="left").drop(columns=["quarter"])
     test = test.merge(median_rent, left_on=["approval_quarter", "town_clean", "flat_type_clean"],
                        right_on=["quarter", "town_clean", "flat_type_clean"], how="left").drop(columns=["quarter"])
-
-    coe = build_coe_features_v2()
-    train = train.merge(coe, on=["approval_year", "approval_month"], how="left")
-    test = test.merge(coe, on=["approval_year", "approval_month"], how="left")
-
-    stocks = build_stock_features_v2()
-    train = train.merge(stocks, on=["approval_year", "approval_month"], how="left")
-    test = test.merge(stocks, on=["approval_year", "approval_month"], how="left")
 
     # 4. Hierarchical Bayesian Target Encodings
     train["target_res"] = train["MONTHLY_RENT"] - train["median_rent_benchmark"]

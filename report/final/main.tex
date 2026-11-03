@@ -23,7 +23,7 @@
 \pagestyle{plain}
 \pagenumbering{arabic}
 
-\title{Forecasting HDB Rents Sixteen Months Ahead:\\Market Anchors, Block-Level Shrinkage and the Noise Floor\\[2pt]\large Team 2 --- [TEAM NAME]}
+\title{Forecasting HDB Rents Sixteen Months Ahead:\\Market Anchors, Block-Level Shrinkage and the Noise Floor\\[2pt]\large Team 2 --- Residual Drift}
 
 \author{\IEEEauthorblockN{Aayush Majumdar}
 \IEEEauthorblockA{\textit{Student ID A0352046L}\\
@@ -33,8 +33,8 @@
 \IEEEauthorblockA{\textit{Student ID A0352394Y}\\
 \textit{National University of Singapore}}
 \and
-\IEEEauthorblockN{Punyaa [Surname]}
-\IEEEauthorblockA{\textit{Student ID [ID]}\\
+\IEEEauthorblockN{Punyaa}
+\IEEEauthorblockA{\textit{Student ID A0328213M}\\
 \textit{National University of Singapore}}
 \and
 \IEEEauthorblockN{Beina Zhang}
@@ -45,13 +45,13 @@
 \thispagestyle{plain}
 
 \begin{abstract}
-We forecast the monthly rent of 50,000 Singapore HDB flat rentals approved up to sixteen months after our 150,000 labelled examples (2021--2025). We built four pipelines on the same data: gradient-boosted trees on the residual over an official median rent with block-level shrinkage encodings, causal rent-history features, AutoGluon LightGBM--CatBoost stacks plus deep tabular models, and an R pipeline with the first design. Three findings emerge. First, predicting the residual over the official median rent, with block-level encodings, is the only change that moved the public leaderboard materially (443.0 to 433.6 RMSE). Second, deep models, gating, segmentation, hyperparameter search, robust losses, tail trimming and external resale data each moved RMSE by about one point or made it worse. Third, identical flats rent with a standard deviation of about 455--464 SGD, the same order as our error. The released median-rent file covers the test quarters and so leaks future aggregates; an honest forecast-time anchor costs about 5 RMSE locally but 0.05 on the leaderboard. Our final model scores 433.65480.\src{Aa-lb,Aa-honest-lb,Aa-honest-cost,Be-noise,Pu-noise,Aa-noise,Me-families}
+We forecast the monthly rent of 50,000 Singapore HDB flat rentals approved up to sixteen months after our 150,000 labelled examples (2021--2025). We built four pipelines on the same data: gradient-boosted trees on the residual over an official median rent with block-level shrinkage encodings, causal rent-history features, AutoGluon LightGBM--CatBoost stacks plus deep tabular models, and an R pipeline with the first design. Three findings emerge. First, predicting the residual over the official median rent, with block-level encodings, is the largest change on the public leaderboard (443.0 to 433.6 RMSE); dropping nine COE and stock columns, neutral locally, took it to 432.3. Second, deep models, gating, segmentation, hyperparameter search, robust losses, tail trimming and external resale data each moved RMSE by about one point or made it worse. Third, identical flats rent with a standard deviation of about 455--464 SGD, the same order as our error. The released median-rent file covers the test quarters and so leaks future aggregates; an honest forecast-time anchor costs about 5 RMSE locally but 0.05 on the leaderboard. Our final model scores 432.32714.\src{Aa-lb,Aa-honest-lb,Aa-honest-cost,Aa-coe-lb,Be-noise,Pu-noise,Aa-noise,Me-families}
 \end{abstract}
 
 \section{Introduction}
-Rents of public housing are a visible measure of living costs, and the Housing and Development Board (HDB) publishes every approved flat rental as open data~\cite{hdbrent}. A model that predicts a flat's rent helps tenants and owners judge asking rents and helps analysts follow the market. We predict the monthly rent of 50,000 rental approvals dated March 2025 to July 2026 from 150,000 labelled approvals dated January 2021 to March 2025, plus auxiliary tables on blocks, MRT stations, malls, schools, COE premiums, stock prices and official median rents.\src{Pu-task,Be-inputs}
+A tenant renewing a lease, a landlord setting an asking price and a family planning a move all need to know what is a justifiable rent for the flat. However, rents move: between January 2021 and March 2025 the average approved HDB rental rose 53\%, from \sgd 2,055 to \sgd 3,142 a month.\src{Be-trend} The Housing and Development Board (HDB) publishes every approved rental as open data~\cite{hdbrent}, so a neutral reference price that anyone can check an offer against is within reach. We built a model that predicts monthly rent and tested it on 50,000 rental approvals dated March 2025 to July 2026, using 150,000 labelled approvals dated January 2021 to March 2025 plus auxiliary tables on blocks, MRT stations, malls, schools, COE premiums, stock prices and official median rents.\src{Pu-task,Be-inputs}
 
-Three properties make the task hard. (i) The test months lie up to sixteen months after the last label,\src{Pu-future} while rents rose 53\% over the labelled period and then flattened.\src{Be-trend} (ii) Location carries most of the signal at a finer grain than any single numeric feature.\src{Be-weakcorr} (iii) Flats that look identical in the data rent for different amounts.\src{Pu-noise}
+Three properties make the task hard. (i) The test months lie up to sixteen months after the last label, in a market that has just stopped rising.\src{Pu-future} (ii) Location carries most of the signal at a finer grain than any single numeric feature.\src{Be-weakcorr} (iii) Flats that look identical in the data rent for different amounts.\src{Pu-noise}
 
 We ask four questions. \textbf{Q1:} what information lets a model carry the market level to unseen months? \textbf{Q2:} how much can better models add on top? \textbf{Q3:} how much of the error is irreducible? \textbf{Q4:} how far can local validation be trusted against an external leaderboard? We call the four pipelines V2 (boosted trees on the residual over the official median), R (the same design in R), history (causal rent-history features) and AutoGluon (stacks and deep tabular models).
 
@@ -85,7 +85,7 @@ Mean rent rose 53\%, from \sgd 2,055 (first three months) to \sgd 3,142 (last th
 \end{figure}
 
 \subsection{Calendar and macro proxies}
-Approval date, COE premium and stock prices correlate strongly with rent over the whole period only because they share the trend. COE correlates 0.898 with monthly mean rent in levels but 0.015 in month-on-month changes.\src{Be-coe} Inside the validation period their rank correlation with rent collapses (COE 0.528 to 0.006, approval date 0.562 to 0.018), whereas the town $\times$ flat-type historical mean keeps 0.664 to 0.668 (Fig.~\ref{fig:assoc}).\src{Me-assoc} Mutual information with rent likewise ranks that historical mean first (0.361), ahead of approval date (0.229) and COE premium (0.218).\src{Me-mi} COE and stocks have negative permutation importance ($-0.08$, $-0.06$) and are dropped.\src{Be-imp} A random split would hide this failure, so all validation is chronological.
+Approval date, COE premium and stock prices correlate strongly with rent over the whole period only because they share the trend. COE correlates 0.898 with monthly mean rent in levels but 0.015 in month-on-month changes.\src{Be-coe} Inside the validation period their rank correlation with rent collapses (COE 0.528 to 0.006, approval date 0.562 to 0.018), whereas the town $\times$ flat-type historical mean keeps 0.664 to 0.668 (Fig.~\ref{fig:assoc}).\src{Me-assoc} Mutual information with rent likewise ranks that historical mean first (0.361), ahead of approval date (0.229) and COE premium (0.218).\src{Me-mi} COE and stocks have negative permutation importance ($-0.08$, $-0.06$) in the R pipeline, which drops them,\src{Be-imp} and our final model drops them too (Section~\ref{sec:matter}). A random split would hide this failure, so all validation is chronological.
 
 \begin{figure}[t]
 \centering
@@ -133,20 +133,22 @@ Published medians cover the test quarters & Honest anchor: frozen at 2025-Q1 plu
 
 \begin{figure*}[t]
 \centering
+{\hyphenpenalty=10000 \exhyphenpenalty=10000 \tolerance=9999
 \resizebox{0.98\textwidth}{!}{%
-\begin{tikzpicture}[node distance=5mm,
- box/.style={draw,rounded corners=2pt,align=center,minimum height=11mm,font=\scriptsize,fill=blue!6,inner sep=3pt},
+\begin{tikzpicture}[node distance=4.5mm,
+ box/.style={draw,rounded corners=2pt,align=flush left,font=\scriptsize,inner sep=4pt,text width=2.75cm,minimum height=3.45cm,fill=blue!6,anchor=north west},
  arr/.style={-{Stealth[length=2mm]},thick}]
-\node[box] (raw) {Raw data\\150k train, 50k test\\+ auxiliary tables};
-\node[box,right=of raw] (clean) {Cleaning and joins\\normalise categories\\drop constants, fix sentinels};
-\node[box,right=of clean,fill=orange!14] (anchor) {Market anchor\\official quarterly median\\honest: frozen 2025-Q1\\+ 0.55\% per quarter};
-\node[box,right=of anchor] (feat) {Features\\spatial, structural\\block-level shrinkage (nested)\\causal rent history};
-\node[box,right=of feat] (model) {Models\\LightGBM, XGBoost, CatBoost\\ridge, AutoGluon, deep nets};
-\node[box,right=of model,fill=green!10] (out) {Prediction\\anchor + blended\\residual};
-\draw[arr] (raw)--(clean); \draw[arr] (clean)--(anchor); \draw[arr] (anchor)--(feat); \draw[arr] (feat)--(model); \draw[arr] (model)--(out);
-\node[draw,dashed,rounded corners=2pt,font=\scriptsize,align=center,below=4mm of feat,xshift=-2.2cm,inner sep=3pt] (ev) {Evaluation: chronological holdouts P1--P4, all target-derived features fitted on earlier months only; public leaderboard on half of the test set};
-\end{tikzpicture}}
-\caption{Design shared by the four pipelines. The anchor and its honest variant are the central design choice.}\label{fig:flow}
+\node[box] (raw) at (0,0) {\textbf{1\;Data}\\[3pt]\textbullet~150,000 train rentals, 2021-01 to 2025-03\\[2pt]\textbullet~50,000 test rentals, 2025-03 to 2026-07\\[2pt]\textbullet~blocks, MRT, malls, schools, official median rents};
+\node[box,right=of raw] (clean) {\textbf{2\;Cleaning}\\[3pt]\textbullet~normalise town, street and flat-type spellings\\[2pt]\textbullet~fix $-1$ sentinels in block data\\[2pt]\textbullet~join every rental to its block\\[2pt]\textbullet~keep duplicate rows};
+\node[box,right=of clean,fill=orange!14] (anchor) {\textbf{3\;Market anchor}\\[3pt]\textbullet~official quarterly median rent by town and flat type\\[2pt]\textbullet~\emph{honest:} test quarters after 2025-Q1 frozen at 2025-Q1, +0.55\% per quarter\\[2pt]\textbullet~target = rent $-$ anchor};
+\node[box,right=of anchor] (feat) {\textbf{4\;Features (54)}\\[3pt]\textbullet~20 spatial: BallTree distances and counts\\[2pt]\textbullet~5 block-level encodings, nested out of fold\\[2pt]\textbullet~3 anchor features\\[2pt]\textbullet~26 structural, lease, calendar and location (6 categorical)};
+\node[box,right=of feat] (model) {\textbf{5\;Models}\\[3pt]\textbullet~LightGBM, XGBoost and CatBoost\\[2pt]\textbullet~five folds, test predictions averaged\\[2pt]\textbullet~residual target, early stopping on each fold};
+\node[box,right=of model,fill=green!10] (out) {\textbf{6\;Blend and output}\\[3pt]\textbullet~weights 0.533, 0.129, 0.338 from an out-of-time fit\\[2pt]\textbullet~prediction = anchor + blended residual\\[2pt]\textbullet~public RMSE 432.32714};
+\foreach \a/\b in {raw/clean,clean/anchor,anchor/feat,feat/model,model/out} \draw[arr] (\a.east |- 0,-1.8) -- (\b.west |- 0,-1.8);
+\node[draw,dashed,rounded corners=2pt,font=\scriptsize,align=left,text width=20.1cm,inner sep=4pt,anchor=north west] at (0,-3.85)
+ {\textbf{Evaluation.} Chronological holdouts P1--P4 (Table~\ref{tab:proto}); every target-derived feature is fitted on earlier rows only; differences tested with a paired block-by-month bootstrap. The public leaderboard covers half of the test rows. A second selected final submission is the R pipeline's honest-anchor blend of ridge, LightGBM, XGBoost and CatBoost (public 433.23294).};
+\end{tikzpicture}}}
+\caption{Final pipeline: the V2 recipe with an honest market anchor and no COE or stock series.}\label{fig:flow}
 \end{figure*}
 
 \subsection{Cleaning and leakage control}
@@ -204,9 +206,9 @@ Global 24-month lag, LightGBM / CatBoost (P1): residual & 646.6 / 662.5\\
 The V2 pipeline fixes its settings (LightGBM 1,200 trees, 75 leaves, rate 0.04, early stopping on each fold's validation split).\src{Aa-hp} The R pipeline ran 12, 10 and 6-trial random searches for LightGBM, XGBoost and CatBoost;\src{Be-hp} the history pipeline fixed three LightGBM capacities and three CatBoost seeds and early-stops on the validation window.\src{Pu-hp} On the root pipeline a grid, two random searches and a 100-trial Optuna~\cite{optuna} search all fell inside the cross-validation noise: Optuna's best configuration scored 453.71 against 452.56 for the shipped one.\src{Aa-optuna}
 
 \subsection{Blending and final system}
-Weights are fitted on out-of-fold or validation predictions: SLSQP in the V2 pipeline (0.545, 0.075, 0.380 for LightGBM, XGBoost, CatBoost),\src{Aa-w} softmax-constrained in the R pipeline,\src{Be-blend} non-negative bounded to $[0,0.85]$ in the history pipeline.\src{Pu-blend}
+Weights are fitted on out-of-fold or validation predictions: SLSQP in the V2 pipeline (0.533, 0.129, 0.338 for LightGBM, XGBoost, CatBoost),\src{Aa-w} softmax-constrained in the R pipeline,\src{Be-blend} non-negative bounded to $[0,0.85]$ in the history pipeline.\src{Pu-blend}
 
-\textbf{Final models.} We selected two final submissions. The first is five-fold bagged LightGBM, XGBoost and CatBoost on the residual over the \emph{honest} anchor, with the weights above. It scored 433.65480 on the public leaderboard, 0.048 above the version that used published test-quarter medians.\src{Aa-final,Aa-honest-lb} The second is the R pipeline's honest-anchor blend, the version its report adopts; the same setup with COE and stocks scored 433.89670, and the final run without them had not been scored when that report was written.\src{Be-final}
+\textbf{Final models.} We selected two final submissions. The first is five-fold bagged LightGBM, XGBoost and CatBoost on the residual over the \emph{honest} anchor, without the COE and stock columns, with the weights above. It scored 432.32714 on the public leaderboard; the same model with those columns scored 433.65480, and 433.60708 with published test-quarter medians as well.\src{Aa-final,Aa-honest-lb,Aa-coe-lb} The second is the R pipeline's honest-anchor blend of ridge, LightGBM, XGBoost and CatBoost, also without COE and stocks, which scored 433.23294. It differs from the first in its feature set, seven in-fold encodings, tuned small models and ridge member.\src{Be-final}
 
 \section{Evaluation and Interpretation}
 \subsection{Protocols}
@@ -329,7 +331,7 @@ Deep tabular & TabTransformer & 495.853\\
 \end{table}
 
 \subsection{What mattered and what did not}\label{sec:matter}
-Table~\ref{tab:matter} separates the changes that moved the score from those that did not. The anchor is decisive over a long horizon: on P4 it cuts RMSE from 600.72 to 492.77, while on a 6-month window the gain is not significant.\src{Aa-anchor} Target encodings, mostly at block level, are the other component that matters: removing all seven costs 8.68 RMSE for the blend and 19.47 for ridge,\src{Be-te-abl} and the step from V1 to V2, which added hierarchical encodings (and interchange-distance features), is the only visible jump on the leaderboard (Fig.~\ref{fig:lb}).\src{Aa-lb} Almost everything else lies within about one RMSE or is worse. Tuning moves results by under 1.2 in the R pipeline's experiments, and recency weighting is reliably worse because it discards block information.\src{Be-impr} Table~\ref{tab:imp} shows where the signal sits: the encodings dominate, the benchmark features come next, and COE and stocks contribute nothing.
+Table~\ref{tab:matter} separates the changes that moved the score from those that did not. The anchor is decisive over a long horizon: on P4 it cuts RMSE from 600.72 to 492.77, while on a 6-month window the gain is not significant.\src{Aa-anchor} Target encodings, mostly at block level, are the other component that matters: removing all seven costs 8.68 RMSE for the blend and 19.47 for ridge,\src{Be-te-abl} and the step from V1 to V2, which added hierarchical encodings (and interchange-distance features), is the only visible jump on the leaderboard (Fig.~\ref{fig:lb}).\src{Aa-lb} Almost everything else lies within about one RMSE or is worse. Tuning moves results by under 1.2 in the R pipeline's experiments, and recency weighting is reliably worse because it discards block information.\src{Be-impr} Table~\ref{tab:imp} shows where the signal sits in the R pipeline: the encodings dominate, the benchmark features come next, and COE and stocks contribute nothing. In the final model, removing the nine COE and stock columns changes local RMSE by $-0.28$ (95\% CI $-0.56$ to $+0.01$) on P2 and $+0.11$ ($-0.17$ to $+0.38$) on P4, yet the public score improves by 1.33.\src{Aa-coe-abl,Aa-coe-lb}
 
 \begin{table}[t]
 \caption{Permutation importance by feature group: increase in out-of-time RMSE when shuffled (CatBoost, R pipeline).}\label{tab:imp}
@@ -369,13 +371,14 @@ Neural gate vs equal blend; town / flat-type routing & +3.5; +7.6 / +4.6\src{Me-
 Prediction-as-feature second layer; AdaBoost residual & +69.9; +29.1\src{Me-stack} & P1 (AutoGluon)\\
 Recency weighting (24-month half-life) & +1.14\src{Be-impr} & P2 (R)\\
 CatBoost-heavy blend weights & $-0.51$ / $-1.09$ locally, public score +0.023\src{Aa-cbw,Aa-lb} & P2, P4; leaderboard\\
-Honest instead of published anchor & +4.55 (P2), public score +0.048\src{Aa-honest-cost,Aa-honest-lb} & P2; leaderboard\\
+Honest instead of published anchor & +4.55 (P2), public score +0.048 (with COE and stocks)\src{Aa-honest-cost,Aa-honest-lb} & P2; leaderboard\\
+COE and stocks removed (9 columns) & $-0.28$ (CI $-0.56$ to $+0.01$), $+0.11$ (n.s.); public score $-1.33$\src{Aa-coe-abl,Aa-coe-lb} & P2, P4; leaderboard\\
 \bottomrule
 \end{tabular}
 \end{table*}
 
 \subsection{Local gains against the leaderboard}
-Fig.~\ref{fig:lb} shows every submission. The anchor-and-encoding pipelines, the causal-history pipeline and the AutoGluon LightGBM--CatBoost stack fall within 433.4 to 436.3, a plateau only 0.7\% wide. Three local gains of 0.5 to 3 RMSE (deeper trees, premium and bagging, CatBoost-heavy weights) did not appear on the leaderboard (434.05, 434.03, 433.63 against V2's 433.61),\src{Aa-lb,Aa-cbw,Aa-trim} consistent with the public score covering half the test rows and unit-level noise dominating.\src{Pu-lb-limit} Published studies find public leaderboards rank reliably despite adaptive reuse~\cite{roelofs} but that tiny differences carry little information~\cite{ladder}.
+Fig.~\ref{fig:lb} shows every submission. The anchor-and-encoding pipelines, the causal-history pipeline and the AutoGluon LightGBM--CatBoost stack fall within 433.2 to 436.3, a plateau only 0.7\% wide; only our first final model, without the COE and stock columns, lies below it (432.33). Three local gains of 0.5 to 3 RMSE (deeper trees, premium and bagging, CatBoost-heavy weights) did not appear on the leaderboard (434.05, 434.03, 433.63 against V2's 433.61),\src{Aa-lb,Aa-cbw,Aa-trim} consistent with the public score covering half the test rows and unit-level noise dominating.\src{Pu-lb-limit} The reverse also happened: removing the nine COE and stock columns was neutral locally but gained 1.33 publicly. Their out-of-range values in the test months (80\% of rows) do not explain it, because 100\% (P2) and 87\% (P4) of validation rows are out of range as well,\src{Aa-coe-range} so we cannot say whether the gain is real or noise. Published studies find public leaderboards rank reliably despite adaptive reuse~\cite{roelofs} but that tiny differences carry little information~\cite{ladder}.
 
 \begin{figure}[t]
 \centering
@@ -433,12 +436,12 @@ Noise SD & 471.3 & 588.5 & 479.3\\
 \caption{Where the error sits: (a) out-of-fold RMSE by flat type (AutoGluon pipeline); (b) the 6.5\% of validation rows with rent at or below \sgd 2,100 carry 37.5\% of the squared error (root pipeline).\src{Me-seg-err,Aa-tail}}\label{fig:resid}
 \end{figure}
 
-\textbf{Answers to the research questions.} \textbf{Q1:} the official town $\times$ flat-type median as a residual baseline, with block-level shrinkage encodings, carries the level: public RMSE 443.0 to 433.6 and, over a 16-month holdout, 600.72 to 492.77.\src{Aa-lb,Aa-anchor} \textbf{Q2:} almost nothing else adds more than about one RMSE (Table~\ref{tab:matter}), although more real data does help (Fig.~\ref{fig:learn}). \textbf{Q3:} identical flats differ with SD 455--464 against our local RMSE of about 450, so little headroom remains.\src{Pu-noise,Aa-noise} \textbf{Q4:} local gains of 0.5 to 3 did not reach the leaderboard, and the honest anchor costs 4.6 locally but 0.05 publicly, so local protocols both over- and under-state differences; paired intervals and the leaderboard should be read together.\src{Aa-lb,Aa-honest-cost,Aa-honest-lb}
+\textbf{Answers to the research questions.} \textbf{Q1:} the official town $\times$ flat-type median as a residual baseline, with block-level shrinkage encodings, carries the level: public RMSE 443.0 to 433.6 and, over a 16-month holdout, 600.72 to 492.77.\src{Aa-lb,Aa-anchor} \textbf{Q2:} almost nothing else moves local RMSE by more than about one point (Table~\ref{tab:matter}), although more real data does help (Fig.~\ref{fig:learn}) and dropping nine macro columns gained 1.33 on the leaderboard. \textbf{Q3:} identical flats differ with SD 455--464 against our local RMSE of about 450, so little headroom remains.\src{Pu-noise,Aa-noise} \textbf{Q4:} local gains of 0.5 to 3 did not reach the leaderboard, the honest anchor costs 4.6 locally but 0.05 publicly, and removing the COE and stock columns, neutral locally, gained 1.33 publicly, so local protocols both over- and under-state differences; paired intervals and the leaderboard should be read together.\src{Aa-lb,Aa-honest-cost,Aa-honest-lb,Aa-coe-lb}
 
 \section{Limitations and Future Work}
 \textbf{Evaluation.} Every local score reuses validation labels for selection;\src{Pu-sel} protocols differ across pipelines; and the test-period market level is unmeasured, since the history pipeline's leaderboard shift probe was never scored.\src{Pu-probe} \textbf{Anchor.} The published medians leak test-period aggregates; our honest variant costs little on the leaderboard but its drift rule is regime-dependent. \textbf{Information.} No dataset we could use legitimately separates units within a block: the official rental registry carries the same fields as ours and the target itself, which is why we did not use it, and block-level data cannot tell two flats in one block apart.\cite{hdbrent} Resale-derived signals and neighbour-block priors gave under one RMSE.\src{Aa-resale} \textbf{Future work:} unit-level data (floor, condition) if the course permits it, regime-aware drift selection, recency-aware encodings, and uncertainty estimates for the heavy low-rent tail.
 
-\textbf{Conclusion.} Carrying the market level through an official median anchor and shrinking block-level premiums toward their parents account for the only large gain we found; everything built on top sits inside a noise floor of about 455--464 SGD that our three groupings measure consistently. The honest forecast-time version of the same model scores 433.65480.
+\textbf{Conclusion.} Carrying the market level through an official median anchor and shrinking block-level premiums toward their parents account for the only large gain we found; everything built on top sits inside a noise floor of about 455--464 SGD that our three groupings measure consistently. The honest forecast-time version of the same model, without the COE and stock columns, scores 432.32714.\src{Aa-coe-lb}
 
 \begin{thebibliography}{99}
 \bibitem{hdbrent} Housing and Development Board, ``Renting out of flats,'' data.gov.sg, \url{https://data.gov.sg/dataset/renting-out-of-flats}, accessed Oct. 2026.
@@ -470,15 +473,14 @@ Noise SD & 471.3 & 588.5 & 479.3\\
 Member & Main responsibility\\
 \midrule
 Aayush & Root pipeline and data-quality audit; median-rent residual anchor and its honest forecast-time variant; V2 recipe (hierarchical shrinkage encodings, BallTree spatial features, three-model blend) and leaderboard series; final submission and the end-to-end reproducible \texttt{main.py}; ablations (tail trimming, robust losses, GPBoost, resale, learning curve)\\
-Metul & Shared preprocessing; association, mutual-information and PCA analysis; AutoGluon, deep tabular, gating, segmentation, time-series and residual-stack experiments\\
-Punyaa & Leakage-safe causal rent-history features; LightGBM/CatBoost ensemble and 76 unit tests; extrapolation, noise-floor and moving-market backtests\\
-Beina & R cleaning and EDA; in-fold hierarchical encodings; honest-anchor drift; ablations and feature importance; the second selected final submission (\texttt{predict\_test.R})\\
+Metul & Shared preprocessing; association, mutual-information and PCA analysis; AutoGluon, deep tabular, gating, segmentation, time-series and residual-stack experiments\src{Wk-M}\\
+Punyaa & Leakage-safe causal rent-history features; LightGBM/CatBoost ensemble and 76 unit tests; extrapolation, noise-floor and moving-market backtests\src{Wk-P}\\
+Beina & R cleaning and EDA; in-fold hierarchical encodings; honest-anchor drift; ablations and feature importance; the second selected final submission (\texttt{predict\_test.R})\src{Wk-B}\\
 \bottomrule
 \end{tabular}
 \end{table}
-\emph{This table summarises the content of each member's folder under \texttt{report/}; each member should confirm it.}\src{Wk-P,Wk-M,Wk-B}
 
 \section{Hyperparameters and reproduction}
-V2: LightGBM 1,200 trees, 75 leaves, learning rate 0.04, subsample 0.8, column sample 0.75; XGBoost depth 7; CatBoost 1,200 iterations, depth 7, learning rate 0.05; early stopping 40 rounds; five folds, seed 42.\src{Aa-v2hp} The final model is reproduced end to end, from the raw files to \url{submission.csv}, by \url{main.py} with the code in \url{modules/}.\src{Aa-main} Experiment scripts: \url{exploration/Aayush/expt-2/src/models_v2.py} (V2), \url{exploration/Aayush/expt-5/src/honest_v2_submission.py} (honest anchor), \url{exploration/Aayush/expt-5/src/exp6_honest_anchor_validation.py} (Table~\ref{tab:honest}). History pipeline: \url{python3 -m punyaa.train}; R pipeline: \url{model_training.R}, \url{predict_test.R}; AutoGluon pipeline: notebooks under \url{exploration/metul}.\src{Pu-repro,Be-scripts,Me-trace}
+V2: LightGBM 1,200 trees, 75 leaves, learning rate 0.04, subsample 0.8, column sample 0.75; XGBoost depth 7; CatBoost 1,200 iterations, depth 7, learning rate 0.05; early stopping 40 rounds; five folds, seed 42.\src{Aa-v2hp} The final model is reproduced end to end, from the raw files to \url{submission.csv}, by \url{main.py} with the code in \url{modules/}.\src{Aa-main} Experiment scripts: \url{exploration/Aayush/expt-2/src/models_v2.py} (V2), \url{exploration/Aayush/expt-5/src/honest_v2_submission.py} (honest anchor, with COE and stocks), \url{exploration/Aayush/expt-5/src/exp6_honest_anchor_validation.py} (Table~\ref{tab:honest}), \url{exploration/Aayush/expt-5/src/exp7_coe_stocks_ablation.py} and \url{exploration/Aayush/expt-5/src/exp8_macro_range_shift.py} (COE and stocks). History pipeline: \url{python3 -m punyaa.train}; R pipeline: \url{model_training.R}, \url{predict_test.R}; AutoGluon pipeline: notebooks under \url{exploration/metul}.\src{Pu-repro,Be-scripts,Me-trace}
 
 \end{document}

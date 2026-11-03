@@ -17,4 +17,4 @@ Rebuild (from this folder, TeX Live on PATH):
     pdflatex -jobname=main_tagged "\def\SHOWSRC{}\input{main}"  (run twice)  # tagged PDF
 
 Tag prefixes (internal, shown only in `main_tagged.pdf`): `Aa` V2/root pipelines, `Be` R pipeline, `Me` AutoGluon pipeline, `Pu` history pipeline, `Wk` workload.
-Placeholders to fill: team name, three surnames, three student IDs (search `[` in `main.tex`).
+All author names, student IDs and the team name are filled in; no placeholders remain in `main.tex`.

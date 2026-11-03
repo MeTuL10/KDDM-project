@@ -178,11 +178,14 @@ unit-level noise that block-level data cannot resolve.
 | expt-5 `v2_improved` (address premium, regularised, LightGBM bag + CatBoost) | 434.02878 | +0.42 | -1.6 / -3.3 on two clean holdouts |
 | expt-5 `v2_cbweights` (V2 with CatBoost-heavy weights only) | 433.63052 | +0.023 | -0.5 / -1.1, CIs excluding 0 |
 | expt-5 `v2_honest` (V2 with an honest forecast-time test anchor: frozen at 2025-Q1, +0.55%/quarter drift) | 433.65480 | +0.048 | honest-anchor cost +4.6 locally (Experiment 6) |
+| expt-5 `v2_honest_lean` (the honest-anchor model without the nine COE and stock columns; user-reported) | **432.32714** | -1.28 | local -0.28 (P2) / +0.11 (P4), both within noise (Experiment 7) |
+| Beina's R pipeline, final (honest anchor, no COE/stocks; ridge + LightGBM + XGBoost + CatBoost blend; user-reported) | 433.23294 | +(-0.37) | honest OOT 454.72 (`report/beina/model_experiment.md` section 11) |
 | Metul's AutoGluon with two weighted residual layers (user-reported) | 436.28615 | +2.68 | validation 468.057 for the one-layer stage (`report/metul/model_experiments.md`) |
 | expt-3 registry lookup | 173.19 | n/a | a label lookup, not a model; excluded |
 
-Reading: only the V1 to V2 step (block-level encodings, about 9 points) is visible on the public score.
-Local gains of 0.5 to 3 points have not transferred in three tries; the public score covers half the
+Reading: the V1 to V2 step (block-level encodings, about 9 points) is the largest visible change on the public score, and
+removing the nine COE and stock columns (432.32714 against 433.65480, locally neutral) is the only one below the 433.4 to 436.3
+plateau of the other methods. Local gains of 0.5 to 3 points have not transferred in three tries; the public score covers half the
 test rows and unit-level noise dominates, so differences this small cannot be seen there. V2 is the
 plateau for these methods. Where the competition allows several final submissions, V2 and
 `v2_cbweights` are a reasonable pair (same public score, mean absolute prediction difference 16).
@@ -260,9 +263,41 @@ later quarters: mean 3,310.6 vs 3,280.9 in 2026-Q2). V2's file and the root `sub
 verified). Public leaderboard score: not yet submitted.
 
 ## Final submission decision
-The team's final submission is `exploration/Aayush/expt-5/outputs/submission_v2_honest.csv` (public score 433.65480): expt-2 V2 with a
-forecast-time (honest) test-quarter anchor. It scored 0.048 worse than V2's 433.60708, which is inside the noise of the
-half-test public score, and it removes the use of test-period aggregates.
+The team's final submission is `exploration/Aayush/expt-5/outputs/submission_v2_honest_lean.csv` (public score 432.32714): expt-2 V2 with a
+forecast-time (honest) test-quarter anchor and without the nine COE and stock columns; `main.py` reproduces it. The earlier choice,
+`submission_v2_honest.csv` (public 433.65480, with those columns), scored 0.048 worse than V2's 433.60708, which is inside the noise of
+the half-test public score, and the honest anchor removes the use of test-period aggregates.
+
+## Experiment 7: do the COE and stock columns matter? (`src/exp7_coe_stocks_ablation.py`, `src/lean_submission.py`)
+V2's final model keeps nine macro columns (`coe_a`, `coe_b`, `coe_c`, `coe_e`, `coe_overall_mean`, `stock_dbs_close`,
+`stock_ocbc_close`, `stock_uob_close`, `sg_financial_index`) among its 63 features; the R pipeline dropped them after an ablation
+(+0.25, inside a seed spread of about 0.3). This measures the same thing inside V2's recipe, on exp6's holdouts: H1 (P2) with the
+honest drift anchor, H2 (P4) with the anchor frozen at 2023-Q3 (drift misbehaves at that cutoff). Three seeds, paired block-by-month
+bootstrap (300 draws), early stopping on the held-out window for both variants alike.
+
+| Holdout | Blend | All 63 features | Without the 9 columns | Difference | 95% CI |
+|---|---|---|---|---|---|
+| P2 | final weights 0.545/0.075/0.380 (LightGBM, XGBoost, CatBoost) | 455.32 | 455.04 | -0.28 | -0.56 to +0.01 |
+| P2 | LightGBM + CatBoost 0.2/0.8 | 454.66 | 454.57 | -0.02 | -0.29 to +0.22 |
+| P4 | final weights | 487.87 | 487.95 | +0.11 | -0.17 to +0.38 |
+| P4 | LightGBM + CatBoost 0.2/0.8 | 487.24 | 487.26 | +0.02 | -0.30 to +0.33 |
+
+(Table values are means of seeds; the difference and CI are for the seed-averaged blend. The 0.2/0.8 control reproduces exp6's
+454.85 (P2) and 487.48 (P4) for seed 42. Log and JSON: `outputs/exp7_coe_stocks_ablation.{log,json}`; the first, LightGBM + CatBoost-only
+run is kept as `outputs/exp7_coe_stocks_ablation_lgb_cb_only.{log,json}`.)
+
+Conclusion: no reliable effect either way; removing the columns is neutral on P4 and slightly better on P2 (just inside zero).
+
+**Lean candidate** (`src/lean_submission.py`): the final pipeline (`modules/`) with the nine columns dropped, 54 features; blend weights
+refit by the same out-of-time step; `outputs/submission_v2_honest_lean.csv`. Against the scored file `submission_v2_honest.csv`: correlation
+0.99874, mean difference +6.09, mean absolute difference 17.81, maximum 323.5; random 5-fold OOF RMSE 470.22 (scored model 470.99; a random split,
+not a forecast). Public leaderboard score: **432.32714** (user-reported), against 433.65480 for the 63-feature version. The lean model was then adopted as
+the final pipeline (`modules/` no longer builds the COE and stock features; `main.py` reproduces `submission_v2_honest_lean.csv`).
+
+**Why the leaderboard moved more than the local ablation (checked, not explained).** `src/exp8_macro_range_shift.py` (log `outputs/exp8_macro_range_shift.log`):
+in the test months 79.8% of rows have at least one of the nine columns outside its training range (e.g. DBS close up to 71.2 against a training
+maximum of 45.4), but inside the local validation windows 100.0% of P2 rows and 86.9% of P4 rows do too, and the ablation found no effect
+there. So the range shift does not explain the gap; the public score covers half the test rows, and the cause is unresolved.
 
 ## Error decomposition of the root pipeline (validation fold, shipped address-feature run; used in the final paper)
 Rows with rent <= 2,100: 1,096 of 16,961 (6.46%), RMSE 1,090.19; all other rows (93.54%): RMSE 369.94; overall RMSE 452.56.

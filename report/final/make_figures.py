@@ -23,23 +23,25 @@ rows = [  # (label, score, family)
     ('V1: tri-model, no block encodings ', 443.000, 'anchor'),
     ('V3: deeper trees ', 434.053, 'anchor'),
     ('V2 improved: premium + bag ', 434.02878, 'anchor'),
-    ('V2 honest anchor = FINAL ', 433.65480, 'anchor'),
+    ('V2 honest anchor ', 433.65480, 'anchor'),
+    ('V2 honest, no COE/stocks = FINAL ', 432.32714, 'anchor'),
     ('V2 CatBoost-heavy weights ', 433.63052, 'anchor'),
     ('V2 ', 433.60708, 'anchor'),
     ('R: honest anchor blend', 433.89670, 'anchor'),
+    ('R: honest, no COE/stocks = FINAL ', 433.23294, 'anchor'),
     ('R: published-median blend', 433.36655, 'anchor'),
     ('History blend v2', 434.81, 'history'),
     ('History blend v3', 434.70, 'history'),
     ('AutoGluon, 2 residual layers', 436.28615, 'auto'),
 ]
 rows.sort(key=lambda r: -r[1])
-fig, ax = plt.subplots(figsize=(3.45, 2.85))
+fig, ax = plt.subplots(figsize=(3.45, 3.0))
 for i, (lab, sc, fam) in enumerate(rows):
     ax.plot([sc], [i], 'o', color=C[fam], ms=4.5, mec='black', mew=0.4 if 'FINAL' in lab else 0, zorder=3)
     ax.text(sc + (0.55 if sc < 440 else -0.55), i, f'{sc:.2f}', va='center', ha='left' if sc < 440 else 'right', fontsize=6)
 ax.set_ylim(-1.3, len(rows) - 0.5); ax.set_yticks(range(len(rows))); ax.set_yticklabels([r[0] for r in rows], fontsize=6)
 ax.set_xlim(431.5, 463); ax.set_xlabel('Public leaderboard RMSE (SGD)')
-ax.axvspan(433.3, 436.4, color='#e8e8e8', zorder=0)
+ax.axvspan(433.1, 436.4, color='#e8e8e8', zorder=0)
 ax.text(434.85, -0.95, 'plateau', ha='center', fontsize=6, color='#555555')
 from matplotlib.lines import Line2D
 ax.legend(handles=[Line2D([], [], marker='o', ls='', color=C[k], ms=4, label=l) for k, l in

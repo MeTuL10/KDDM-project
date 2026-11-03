@@ -29,12 +29,22 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Aa-cbw | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | -0.51 (CI -0.86..-0.18) | verified |
 | Aa-cbw | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | -1.09 (CI -1.38..-0.78) | verified |
 | Aa-cbw | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 433.63052 | verified |
+| Aa-coe-abl | 2 | `exploration/Aayush/expt-5/outputs/exp7_coe_stocks_ablation.log` | -0.28  95% CI [-0.56, +0.01] | verified |
+| Aa-coe-abl | 2 | `exploration/Aayush/expt-5/outputs/exp7_coe_stocks_ablation.log` | +0.11  95% CI [-0.17, +0.38] | verified |
+| Aa-coe-lb | 6 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 432.32714 | verified |
+| Aa-coe-lb | 6 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 433.65480 | verified |
+| Aa-coe-lb | 6 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | removing the nine COE and stock columns | verified |
+| Aa-coe-range | 1 | `exploration/Aayush/expt-5/outputs/exp8_macro_range_shift.log` | 79.8% | verified |
+| Aa-coe-range | 1 | `exploration/Aayush/expt-5/outputs/exp8_macro_range_shift.log` | P2 (validate from 2024-07): 100.0% | verified |
+| Aa-coe-range | 1 | `exploration/Aayush/expt-5/outputs/exp8_macro_range_shift.log` | P4 (validate from 2023-12): 86.9% | verified |
 | Aa-drift | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | +0.78% at 2024-Q2, +0.55% at 2025-Q1 | verified |
 | Aa-dup | 1 | `exploration/Aayush/progress-report.md` | 641 | verified |
 | Aa-e2split | 1 | `exploration/Aayush/expt-2/PROGRESS_REPORT.md` | 124,016 | verified |
 | Aa-e2split | 1 | `exploration/Aayush/expt-2/PROGRESS_REPORT.md` | 25,984 | verified |
-| Aa-final | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | submission_v2_honest.csv | verified |
+| Aa-final | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | submission_v2_honest_lean.csv | verified |
+| Aa-final | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 432.32714 | verified |
 | Aa-final | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 433.65480 | verified |
+| Aa-final | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 433.60708 | verified |
 | Aa-final | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | final submission | verified |
 | Aa-fp | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 14,828 | verified |
 | Aa-gpb | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | street 16 vs 15, subzone 21 vs 20 | verified |
@@ -68,7 +78,7 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Aa-learn | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | +0.92 at 9, +1.84 at 12, +4.17 at 15 | verified |
 | Aa-learn | 2 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 14.8k block-by-type levels, about 8 rows each | verified |
 | Aa-main | 1 | `main.py` | frozen at the last labelled quarter (2025-Q1) | verified |
-| Aa-main | 1 | `main.py` | 433.65480 | verified |
+| Aa-main | 1 | `main.py` | 432.32714 | verified |
 | Aa-main | 1 | `main.py` | python main.py | verified |
 | Aa-noise | 4 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | pooled SD of 464 | verified |
 | Aa-noise | 4 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 26.8% of rows | verified |
@@ -104,7 +114,7 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Aa-v2hp | 1 | `exploration/Aayush/expt-2/src/models_v2.py` | iterations=1200 | verified |
 | Aa-v2hp | 1 | `exploration/Aayush/expt-2/src/models_v2.py` | learning_rate=0.05 | verified |
 | Aa-v2hp | 1 | `exploration/Aayush/expt-2/src/models_v2.py` | depth=7 | verified |
-| Aa-w | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 0.545 / 0.075 / 0.380 | verified |
+| Aa-w | 1 | `exploration/Aayush/expt-5/outputs/lean_submission.log` | 0.5327 0.129 0.3383 | verified |
 | Be-anchor | 2 | `report/beina/data_process.md` | 51.8% | verified |
 | Be-anchor | 2 | `report/beina/data_process.md` | 96.6% | verified |
 | Be-anchor | 2 | `report/beina/data_process.md` | 3.3% | verified |
@@ -114,10 +124,11 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Be-coe | 1 | `report/beina/exploratory_data_analysis.md` | **0.015** | verified |
 | Be-drift | 1 | `report/beina/data_process.md` | +0.55% per quarter | verified |
 | Be-drift | 1 | `report/beina/data_process.md` | exp(g × quarters_after_cutoff) | verified |
-| Be-final | 1 | `report/beina/model_experiment.md` | is the one adopted | verified |
-| Be-final | 1 | `report/beina/model_experiment.md` | has not yet been scored on Kaggle | verified |
-| Be-final | 1 | `report/beina/model_experiment.md` | 433.89670 | verified |
+| Be-final | 1 | `report/beina/model_experiment.md` | Weighted blend of Ridge, LightGBM, XGBoost and CatBoost | verified |
+| Be-final | 1 | `report/beina/model_experiment.md` | except COE and stocks | verified |
+| Be-final | 1 | `report/beina/model_experiment.md` | 7 in-fold target encodings | verified |
 | Be-final | 1 | `report/beina/model_experiment.md` | predict_test.R | verified |
+| Be-final | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 433.23294 | verified |
 | Be-honest-lb | 1 | `report/beina/model_experiment.md` | costs about 5 RMSE on OOT and 0.5 on Kaggle | verified |
 | Be-hp | 1 | `report/beina/model_experiment.md` | 12-trial random search | verified |
 | Be-hp | 1 | `report/beina/model_experiment.md` | 10-trial random search | verified |
@@ -240,8 +251,6 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Me-fs-manual | 3 | `report/metul/data_processing.md` | monthly_target_lag | verified |
 | Me-fs-manual | 3 | `report/metul/data_processing.md` | town_flat_type_target_mean | verified |
 | Me-fs-manual | 3 | `report/metul/data_processing.md` | 467.122 | verified |
-| Me-hpo | 1 | `report/metul/model_experiments.md` | 25 HPO trials for each of LightGBM and CatBoost | verified |
-| Me-hpo | 1 | `report/metul/model_experiments.md` | tuning_data | verified |
 | Me-lb | 1 | `exploration/Aayush/expt-5/PROGRESS_REPORT.md` | 436.28615 | verified |
 | Me-mi | 1 | `report/metul/eda.md` | (0.361) | verified |
 | Me-mi | 1 | `report/metul/eda.md` | (0.229) | verified |
