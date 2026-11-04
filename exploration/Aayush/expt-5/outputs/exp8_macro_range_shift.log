@@ -1,0 +1,16 @@
+column                train min  train max   test min   test max   test rows outside train range
+coe_a                   41500.5   105000.0    93616.0   127500.0                          66.5 %
+coe_b                   46001.0   148001.5   107945.5   136444.5                           0.0 %
+coe_c                   37001.0    88245.0    62889.5    94444.5                          18.2 %
+coe_e                   47403.5   155002.0   114445.0   138004.5                           0.0 %
+coe_overall_mean        43812.0   123337.1    97822.8   120555.0                           0.0 %
+stock_dbs_close            23.5       45.4       41.5       71.2                          79.8 %
+stock_ocbc_close           10.5       17.4       16.0       27.8                          54.5 %
+stock_uob_close            23.5       38.0       34.1       42.8                          17.3 %
+sg_financial_index         20.1       33.7       31.5       48.0                          79.8 %
+
+test rows with at least one macro column outside its training range: 79.8%
+
+the same check inside the local validation windows (rows with at least one macro column outside the earlier rows' range):
+  P2 (validate from 2024-07): 100.0% of 25,984 rows
+  P4 (validate from 2023-12): 86.9% of 47,171 rows

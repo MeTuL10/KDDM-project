@@ -1,0 +1,23 @@
+test rows with a changed benchmark: 49,620 of 50,000; mean benchmark published 3248.7 -> honest 3272.9
+  2025-Q1: n=  380  mean benchmark published  3227.6  honest  3227.6
+  2025-Q2: n= 9720  mean benchmark published  3238.6  honest  3241.3
+  2025-Q3: n= 9666  mean benchmark published  3250.4  honest  3254.6
+  2025-Q4: n= 8999  mean benchmark published  3222.1  honest  3265.4
+  2026-Q1: n= 9091  mean benchmark published  3234.5  honest  3277.6
+  2026-Q2: n= 9110  mean benchmark published  3280.9  honest  3310.6
+  2026-Q3: n= 3034  mean benchmark published  3303.3  honest  3332.0
+fold 1 done (174s)
+fold 2 done (128s)
+fold 3 done (116s)
+fold 4 done (66s)
+fold 5 done (57s)
+
+honest vs V2 predictions: corr 0.99057, mean diff +26.1, mean abs diff 50.5, max abs diff 1208
+  2025-Q1: mean diff    -0.0  (n=380)
+  2025-Q2: mean diff    +4.7  (n=9720)
+  2025-Q3: mean diff    +7.1  (n=9666)
+  2025-Q4: mean diff   +39.9  (n=8999)
+  2026-Q1: mean diff   +41.5  (n=9091)
+  2026-Q2: mean diff   +38.1  (n=9110)
+  2026-Q3: mean diff   +35.3  (n=3034)
+written /Users/aayushmajumdar/Desktop/CS5228-knowledge-discovery-and-data-mining-rel/nus-cs5228/project/KDDM-project/expt-5/outputs/submission_v2_honest.csv

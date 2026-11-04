@@ -1,0 +1,17 @@
+validation rows: 17,198; all earlier rows: 132,802
+
+Part 1: learning curve (random subsamples of all earlier rows)
+   10%   13,280 rows   RMSE  465.77   (spread 2.80 over 3 draws)
+   25%   33,200 rows   RMSE  457.34   (spread 1.40 over 3 draws)
+   50%   66,401 rows   RMSE  451.67   (spread 1.12 over 3 draws)
+   75%   99,601 rows   RMSE  446.99   (spread 0.83 over 3 draws)
+  100%  132,802 rows   RMSE  443.64   (spread 0.00 over 1 draws)
+
+Part 2: recency (training ends N months before the window) vs same-size random control
+  gap  0 mo  132,802 rows   ends-earlier RMSE  443.64   same-size control  443.64   cost of being older: +0.00
+  gap  3 mo  124,016 rows   ends-earlier RMSE  444.27   same-size control  444.44   cost of being older: -0.17
+  gap  6 mo  114,842 rows   ends-earlier RMSE  445.25   same-size control  445.33   cost of being older: -0.08
+  gap  9 mo  105,837 rows   ends-earlier RMSE  447.51   same-size control  446.59   cost of being older: +0.92
+  gap 12 mo   96,865 rows   ends-earlier RMSE  449.45   same-size control  447.61   cost of being older: +1.84
+  gap 15 mo   87,937 rows   ends-earlier RMSE  452.96   same-size control  448.79   cost of being older: +4.17
+done

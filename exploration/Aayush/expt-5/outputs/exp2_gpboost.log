@@ -1,0 +1,16 @@
+
+===== H1: validate from 2024-07 =====
+  baseline LightGBM+TE (lr 0.1): best round 38, RMSE 453.40; at 20/40/50 rounds: 454.48 / 453.53 / 453.62
+  GPBoost (852s): best round 27, RMSE 458.66; at 20/40/50 rounds: 458.69 / 458.68 / 458.68
+  learned variance components (SGD^2): {'Error_var': 231003.6, 'town_clean': 1213.7, 'block_id': 3436.4, 'block_ft_id': 22768.8, 'street_clean': 14133.9, 'subzone_clean': 10910.5}
+  refit at best rounds (238s): GPBoost RMSE 458.66 vs baseline 453.40
+  GPBoost minus baseline: +5.26  95% CI [+3.82, +6.85]
+
+===== H2: validate from 2023-12 =====
+  baseline LightGBM+TE (lr 0.1): best round 31, RMSE 486.22; at 20/40/50 rounds: 486.70 / 486.66 / 486.99
+  GPBoost (252s): best round 7, RMSE 494.20; at 20/40/50 rounds: 494.27 / 494.22 / 494.24
+  learned variance components (SGD^2): {'Error_var': 225152.2, 'town_clean': 129.3, 'block_id': 2490.4, 'block_ft_id': 20888.8, 'street_clean': 13231.8, 'subzone_clean': 10412.1}
+  refit at best rounds (75s): GPBoost RMSE 494.20 vs baseline 486.22
+  GPBoost minus baseline: +7.98  95% CI [+6.86, +9.15]
+
+done

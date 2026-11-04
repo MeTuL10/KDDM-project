@@ -1,0 +1,60 @@
+
+===== H1: validate from 2024-07 =====
+  marginal random-effects fit took 41s
+  variances cond: {'Error_var': 231003.6, 'town_clean': 1213.7, 'block_id': 3436.4, 'block_ft_id': 22768.8, 'street_clean': 14133.9, 'subzone_clean': 10910.5}
+  variances marg: {'Error_var': 231217.8, 'town_clean': 2561.5, 'block_id': 3182.1, 'block_ft_id': 22340.8, 'street_clean': 16220.9, 'subzone_clean': 9052.8}
+  shrinkage M [v2]: {'town': 30.0, 'block': 10.0, 'bft': 5.0, 'street': 15.0, 'subzone': 20.0}
+  shrinkage M [cond]: {'town': 190.3, 'block': 67.2, 'bft': 10.1, 'street': 16.3, 'subzone': 21.2}
+  shrinkage M [marg]: {'town': 90.3, 'block': 72.7, 'bft': 10.3, 'street': 14.3, 'subzone': 25.5}
+  lgb with TE M=cond: RMSE 454.06 (round 32)
+  lgb with TE M=marg: RMSE 453.37 (round 38)
+
+===== H2: validate from 2023-12 =====
+  marginal random-effects fit took 36s
+  variances cond: {'Error_var': 225152.2, 'town_clean': 129.3, 'block_id': 2490.4, 'block_ft_id': 20888.8, 'street_clean': 13231.8, 'subzone_clean': 10412.1}
+  variances marg: {'Error_var': 225468.9, 'town_clean': 1141.8, 'block_id': 1815.5, 'block_ft_id': 20847.0, 'street_clean': 14644.7, 'subzone_clean': 7251.4}
+  shrinkage M [v2]: {'town': 30.0, 'block': 10.0, 'bft': 5.0, 'street': 15.0, 'subzone': 20.0}
+  shrinkage M [cond]: {'town': 1000.0, 'block': 90.4, 'bft': 10.8, 'street': 17.0, 'subzone': 21.6}
+  shrinkage M [marg]: {'town': 197.5, 'block': 124.2, 'bft': 10.8, 'street': 15.4, 'subzone': 31.1}
+  lgb with TE M=cond: RMSE 486.31 (round 28)
+  lgb with TE M=marg: RMSE 485.53 (round 39)
+
+tuned-M set carried into CatBoost: marg  (mean RMSE {'cond': 470.18113046884025, 'marg': 469.44991838877456})
+
+===== H1: CatBoost variants =====
+  cb_te (V2 encodings)   RMSE 449.92 (iteration 495, 37s)
+  cb_raw                 RMSE 454.52 (iteration 486, 47s)
+  cb_raw_te              RMSE 452.55 (iteration 144, 51s)
+
+===== H2: CatBoost variants =====
+  cb_te (V2 encodings)   RMSE 482.62 (iteration 364, 34s)
+  cb_raw                 RMSE 485.67 (iteration 484, 42s)
+  cb_raw_te              RMSE 484.46 (iteration 198, 46s)
+
+===== summary: RMSE and paired-bootstrap differences =====
+
+H1:
+  lgb_te_v2 (exp2 baseline)              RMSE  453.40   vs lgb_te_v2       -           vs gpboost  -5.26 [-6.85,-3.82]
+  gpboost (exp2 base)                    RMSE  458.66   vs lgb_te_v2  +5.26 [+3.82,+6.85]   vs gpboost       -        
+  lgb_te_cond                            RMSE  454.06   vs lgb_te_v2  +0.66 [-0.09,+1.37]   vs gpboost  -4.60 [-5.91,-3.32]
+  lgb_te_marg                            RMSE  453.37   vs lgb_te_v2  -0.03 [-0.80,+0.77]   vs gpboost  -5.29 [-6.71,-3.94]
+  cb_te (V2 encodings)                   RMSE  449.92   vs lgb_te_v2  -3.48 [-4.40,-2.53]   vs gpboost  -8.74 [-10.18,-7.41]
+  cb_raw                                 RMSE  454.52   vs lgb_te_v2  +1.12 [+0.02,+2.22]   vs gpboost  -4.13 [-5.60,-2.53]
+  cb_raw_te                              RMSE  452.55   vs lgb_te_v2  -0.85 [-1.77,+0.16]   vs gpboost  -6.11 [-7.39,-4.77]
+  blend gpboost+cb_te (V2 encodings)     RMSE  451.35   vs lgb_te_v2  -2.05 [-3.06,-0.93]   vs gpboost  -7.31 [-8.02,-6.66]
+  blend gpboost+cb_raw                   RMSE  452.40   vs lgb_te_v2  -1.00 [-2.03,+0.05]   vs gpboost  -6.25 [-6.96,-5.48]
+  blend gpboost+cb_raw_te                RMSE  452.95   vs lgb_te_v2  -0.45 [-1.50,+0.69]   vs gpboost  -5.71 [-6.33,-5.07]
+
+H2:
+  lgb_te_v2 (exp2 baseline)              RMSE  486.22   vs lgb_te_v2       -           vs gpboost  -7.98 [-9.15,-6.86]
+  gpboost (exp2 base)                    RMSE  494.20   vs lgb_te_v2  +7.98 [+6.86,+9.15]   vs gpboost       -        
+  lgb_te_cond                            RMSE  486.31   vs lgb_te_v2  +0.09 [-0.41,+0.54]   vs gpboost  -7.89 [-9.10,-6.85]
+  lgb_te_marg                            RMSE  485.53   vs lgb_te_v2  -0.69 [-1.30,-0.09]   vs gpboost  -8.67 [-9.98,-7.48]
+  cb_te (V2 encodings)                   RMSE  482.62   vs lgb_te_v2  -3.60 [-4.30,-2.93]   vs gpboost -11.57 [-12.73,-10.54]
+  cb_raw                                 RMSE  485.67   vs lgb_te_v2  -0.55 [-1.39,+0.34]   vs gpboost  -8.52 [-9.85,-7.32]
+  cb_raw_te                              RMSE  484.46   vs lgb_te_v2  -1.76 [-2.53,-1.06]   vs gpboost  -9.74 [-10.84,-8.84]
+  blend gpboost+cb_te (V2 encodings)     RMSE  485.13   vs lgb_te_v2  -1.09 [-1.84,-0.31]   vs gpboost  -9.07 [-9.67,-8.55]
+  blend gpboost+cb_raw                   RMSE  485.57   vs lgb_te_v2  -0.65 [-1.44,+0.17]   vs gpboost  -8.62 [-9.32,-8.02]
+  blend gpboost+cb_raw_te                RMSE  486.67   vs lgb_te_v2  +0.45 [-0.44,+1.32]   vs gpboost  -7.53 [-8.05,-7.07]
+
+done

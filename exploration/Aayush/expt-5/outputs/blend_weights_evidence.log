@@ -1,0 +1,20 @@
+H1: single models RMSE  lgb 452.48  xgb 452.91  cb 450.43   (trees: lgb 106, xgb 131, cb 401)
+H1: V2 weights [0.545, 0.075, 0.38] -> RMSE 450.87
+H2: single models RMSE  lgb 485.89  xgb 484.69  cb 482.57   (trees: lgb 88, xgb 92, cb 323)
+H2: V2 weights [0.545, 0.075, 0.38] -> RMSE 483.42
+
+best 8 weight sets by mean RMSE over both holdouts (lgb, xgb, cb):
+                w     H1     H2   mean
+  (0.0, 0.2, 0.8) 450.36 482.33 466.34
+(0.05, 0.15, 0.8) 450.33 482.36 466.35
+(0.05, 0.2, 0.75) 450.35 482.35 466.35
+(0.0, 0.25, 0.75) 450.38 482.32 466.35
+(0.0, 0.15, 0.85) 450.35 482.36 466.35
+(0.1, 0.15, 0.75) 450.33 482.39 466.36
+  (0.1, 0.1, 0.8) 450.31 482.41 466.36
+(0.05, 0.1, 0.85) 450.33 482.40 466.36
+
+chosen weights: [0.0, 0.2, 0.8]   (V2 weights mean RMSE: 467.15, chosen: 466.34)
+H1: chosen minus V2 weights -0.51  95% CI [-0.86, -0.18]
+H2: chosen minus V2 weights -1.09  95% CI [-1.38, -0.78]
+done

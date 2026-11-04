@@ -1,0 +1,33 @@
+dropped in the ablation: ['coe_a', 'coe_b', 'coe_c', 'coe_e', 'coe_overall_mean', 'stock_dbs_close', 'stock_ocbc_close', 'stock_uob_close', 'sg_financial_index']
+
+===== H1: validate from 2024-07; anchor drift4 at 2024-Q2 =====
+  features: 63 with, 54 without
+  all features        seed 42: final-weights blend 455.47   lgb+cb 0.2/0.8 blend 454.85
+  all features        seed 43: final-weights blend 455.27   lgb+cb 0.2/0.8 blend 454.62
+  all features        seed 44: final-weights blend 455.23   lgb+cb 0.2/0.8 blend 454.52
+  all features        [final weights] mean of seeds 455.32 (sd 0.13); seed-averaged blend 455.16
+  all features        [lgb+cb 0.2/0.8] mean of seeds 454.66 (sd 0.17); seed-averaged blend 454.43
+  without COE/stocks  seed 42: final-weights blend 455.06   lgb+cb 0.2/0.8 blend 454.61
+  without COE/stocks  seed 43: final-weights blend 455.04   lgb+cb 0.2/0.8 blend 454.53
+  without COE/stocks  seed 44: final-weights blend 455.02   lgb+cb 0.2/0.8 blend 454.58
+  without COE/stocks  [final weights] mean of seeds 455.04 (sd 0.02); seed-averaged blend 454.88
+  without COE/stocks  [lgb+cb 0.2/0.8] mean of seeds 454.57 (sd 0.04); seed-averaged blend 454.41
+  [final weights] without minus all: mean of seeds -0.28; seed-averaged blend, paired bootstrap -0.28  95% CI [-0.56, +0.01]
+  [lgb+cb 0.2/0.8] without minus all: mean of seeds -0.09; seed-averaged blend, paired bootstrap -0.02  95% CI [-0.29, +0.22]
+
+===== H2: validate from 2023-12; anchor nodrift at 2023-Q3 =====
+  features: 63 with, 54 without
+  all features        seed 42: final-weights blend 487.87   lgb+cb 0.2/0.8 blend 487.48
+  all features        seed 43: final-weights blend 488.03   lgb+cb 0.2/0.8 blend 487.42
+  all features        seed 44: final-weights blend 487.72   lgb+cb 0.2/0.8 blend 486.83
+  all features        [final weights] mean of seeds 487.87 (sd 0.16); seed-averaged blend 487.64
+  all features        [lgb+cb 0.2/0.8] mean of seeds 487.24 (sd 0.36); seed-averaged blend 486.98
+  without COE/stocks  seed 42: final-weights blend 487.99   lgb+cb 0.2/0.8 blend 487.44
+  without COE/stocks  seed 43: final-weights blend 488.14   lgb+cb 0.2/0.8 blend 487.48
+  without COE/stocks  seed 44: final-weights blend 487.73   lgb+cb 0.2/0.8 blend 486.84
+  without COE/stocks  [final weights] mean of seeds 487.95 (sd 0.21); seed-averaged blend 487.75
+  without COE/stocks  [lgb+cb 0.2/0.8] mean of seeds 487.26 (sd 0.36); seed-averaged blend 487.00
+  [final weights] without minus all: mean of seeds +0.08; seed-averaged blend, paired bootstrap +0.11  95% CI [-0.17, +0.38]
+  [lgb+cb 0.2/0.8] without minus all: mean of seeds +0.01; seed-averaged blend, paired bootstrap +0.02  95% CI [-0.30, +0.33]
+
+done
