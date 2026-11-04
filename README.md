@@ -29,4 +29,5 @@ python main.py                         # writes submission.csv, about 15-25 min 
 | `exploration/Aayush/` | Earlier single-LightGBM and median-anchor experiments, including `aayush_exploration.ipynb`, `initial-eda-inference.md`, `median_anchor_experiment.py`, archived modules, and the baseline script/notebook (validation RMSE 451.87) |
 | `exploration/Aayush/expt-2/`, `exploration/Aayush/expt-4/`, `exploration/Aayush/expt-5/` | Experiment history and ablations behind the report |
 | `exploration/metul/` | Experiments 1–17: shared leakage-safe preprocessing, AutoGluon LightGBM--CatBoost ensembles, feature engineering/selection, deep tabular and time-series models, gating, segmentation, and residual-stack studies. Start with `findings_so_far.md`, `preprocessing.py`, and the experiment notebooks. |
+| `report/final/` | Paper, figures and the claim-verification tooling (`report/final/README.md`) |
 | `report/metul/`, `report/beina/`, `report/punyaa/` | Team-member evidence reports supporting the final paper's EDA, processing, and model claims |
