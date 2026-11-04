@@ -2,7 +2,7 @@
 Data cleaning and feature engineering for the HDB rental prediction task.
 
 Consolidates the fixes and features validated during EDA (see
-exploration/aayush_exploration.ipynb and exploration/initial-eda-inference.md)
+exploration/Aayush/aayush_exploration.ipynb and exploration/Aayush/initial-eda-inference.md)
 into one place, so train and test always go through *identical* transforms:
 
 - FLAT_TYPE has two spellings ("4 room" / "4-room") that must be merged.

@@ -5,7 +5,7 @@
 Goal: predict `MONTHLY_RENT` for the 50,000 rows in `data/test.csv`, using `data/train.csv`
 (150,000 rows) and the auxiliary Singapore datasets under `data/auxiliary/`.
 
-Full detail behind every decision below lives in [exploration/initial-eda-inference.md](../initial-eda-inference.md)
+Full detail behind every decision below lives in [initial-eda-inference.md](initial-eda-inference.md)
 (EDA findings + the "Resolving the open items" section) and as inline comments in
 `main.ipynb` / `exploration/Aayush/archived_modules/*.py`. This file is the current-state summary.
 
@@ -621,7 +621,7 @@ quarter. After cleaning, 96.6% of train rows and 96.9% of test rows match an exa
 (test: 1.1% interpolated, 2.0% via the ratio fallback).
 
 Three variants of the shipping LightGBM were scored on two holdouts
-(`exploration/median_anchor_experiment.py`; every encoder fit on that holdout's training
+(`exploration/Aayush/median_anchor_experiment.py`; every encoder fit on that holdout's training
 rows only): **A** current model, **B** anchor and `anchor_level` as extra features, **C**
 residual target (rent minus anchor, anchor added back to predictions). The second holdout
 is horizon-matched: train through 2023-11, validate 2023-12 to 2025-03 (16 months, the
