@@ -11,7 +11,7 @@ Holdouts: the usual 6-month time_based_split, and a 16-month horizon-matched spl
 from training. Every encoder (address feature, anchor town ratios) is fit on that
 holdout's training rows only.
 
-Usage: python exploration/median_anchor_experiment.py   (from the repo root)
+Usage: python exploration/Aayush/median_anchor_experiment.py   (from the repo root)
 """
 import sys
 

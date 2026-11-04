@@ -70,7 +70,7 @@ BEST_FIT_FULL = mdl.fit_lgbm_full
 # market level. Tested on a 16-month horizon-matched holdout (train through 2023-11):
 # RMSE 600.72 -> 492.77 (paired-bootstrap CI -111 to -104), and 452.56 -> 451.87 on the
 # usual 6-month fold (not significant there: CI -1.98 to +0.52). See
-# exploration/median_anchor_experiment.py and exploration/Aayush/progress-report.md "Median-rent anchor".
+# exploration/Aayush/median_anchor_experiment.py and exploration/Aayush/progress-report.md "Median-rent anchor".
 # Hyperparameters were tuned for the direct target and are unchanged here.
 NUMERIC_FEATURES = mdl.GBM_NUMERIC_FEATURES + ['addr_level_feat', 'anchor', 'anchor_level']
 

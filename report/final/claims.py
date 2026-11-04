@@ -150,6 +150,9 @@ CLAIMS = {
     'Pu-w2': [(PU + 'problem_and_protocol.md', ['443.3']), (PU + 'model_experiments.md', ['448.688'])],
     # ---------------- workload ----------------
     'Wk-P': [(PU + 'README.md', ['76 unit tests', 'market_regimes']), (PU + 'problem_and_protocol.md', ['noise_floor'])],
-    'Wk-M': [(ME + 'model_experiments.md', ['Experiment 2 through Experiment 16', 'AutoGluon'])],
+    'Wk-M': [
+        (ME + 'data_processing.md', ['Leakage-safe target history', 'Permutation-importance RFE', 'SHAP-guided subset comparison', 'PCA and SVD diagnostics']),
+        (ME + 'model_experiments.md', ['AutoGluon', 'deep tabular', 'gating and mixture-of-experts', 'segmentation and random forests', 'Time-series and aggregate-market experiments', 'residual correction']),
+    ],
     'Wk-B': [(BE + 'model_experiment.md', ['model_training.R', 'predict_test.R', 'paper_ann.R'])],
 }

@@ -359,8 +359,16 @@ Every `\src{tag}` in `main.tex` maps to the files and exact strings below. "veri
 | Wk-B | 1 | `report/beina/model_experiment.md` | model_training.R | verified |
 | Wk-B | 1 | `report/beina/model_experiment.md` | predict_test.R | verified |
 | Wk-B | 1 | `report/beina/model_experiment.md` | paper_ann.R | verified |
-| Wk-M | 1 | `report/metul/model_experiments.md` | Experiment 2 through Experiment 16 | verified |
+| Wk-M | 1 | `report/metul/data_processing.md` | Leakage-safe target history | verified |
+| Wk-M | 1 | `report/metul/data_processing.md` | Permutation-importance RFE | verified |
+| Wk-M | 1 | `report/metul/data_processing.md` | SHAP-guided subset comparison | verified |
+| Wk-M | 1 | `report/metul/data_processing.md` | PCA and SVD diagnostics | verified |
 | Wk-M | 1 | `report/metul/model_experiments.md` | AutoGluon | verified |
+| Wk-M | 1 | `report/metul/model_experiments.md` | deep tabular | verified |
+| Wk-M | 1 | `report/metul/model_experiments.md` | gating and mixture-of-experts | verified |
+| Wk-M | 1 | `report/metul/model_experiments.md` | segmentation and random forests | verified |
+| Wk-M | 1 | `report/metul/model_experiments.md` | Time-series and aggregate-market experiments | verified |
+| Wk-M | 1 | `report/metul/model_experiments.md` | residual correction | verified |
 | Wk-P | 1 | `report/punyaa/README.md` | 76 unit tests | verified |
 | Wk-P | 1 | `report/punyaa/README.md` | market_regimes | verified |
 | Wk-P | 1 | `report/punyaa/problem_and_protocol.md` | noise_floor | verified |
