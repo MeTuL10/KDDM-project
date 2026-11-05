@@ -25,21 +25,13 @@
 
 \title{Forecasting HDB Rents Sixteen Months Ahead:\\Market Anchors, Block-Level Shrinkage and the Noise Floor\\[2pt]\large Team 2 --- Residual Drift}
 
-\author{\IEEEauthorblockN{Aayush Majumdar}
-\IEEEauthorblockA{\textit{Student ID A0352046L}\\
-\textit{National University of Singapore}}
-\and
-\IEEEauthorblockN{Metul Prabhu}
-\IEEEauthorblockA{\textit{Student ID A0352394Y}\\
-\textit{National University of Singapore}}
-\and
-\IEEEauthorblockN{Punyaa}
-\IEEEauthorblockA{\textit{Student ID A0328213M}\\
-\textit{National University of Singapore}}
-\and
-\IEEEauthorblockN{Beina Zhang}
-\IEEEauthorblockA{\textit{Student ID A0352621M}\\
-\textit{National University of Singapore}}}
+\author{\IEEEauthorblockN{%
+\begin{tabular}{@{}c@{\hspace{2.2em}}c@{\hspace{2.2em}}c@{\hspace{2.2em}}c@{}}
+Aayush Majumdar & Metul Prabhu & Punyaa & Beina Zhang\\
+\textit{Student ID A0352046L} & \textit{Student ID A0352394Y} & \textit{Student ID A0328213M} & \textit{Student ID A0352621M}\\
+\textit{National University} & \textit{National University} & \textit{National University} & \textit{National University}\\
+\textit{of Singapore} & \textit{of Singapore} & \textit{of Singapore} & \textit{of Singapore}
+\end{tabular}}}
 
 \maketitle
 \thispagestyle{plain}
@@ -68,7 +60,7 @@ File & Content\\
 \midrule
 train / test & 150,000 rentals (2021-01 to 2025-03) / 50,000 (2025-03 to 2026-07)\src{Be-inputs}\\
 HDB blocks & 9,464 blocks: coordinates, maximum floor, year completed, subzone\src{Be-inputs}\\
-MRT, malls, schools & 243 stations, 113 malls, 337 schools\src{Be-inputs}\\
+MRT, malls, schools & 243 station rows (192 distinct), 113 malls, 337 schools\src{Be-inputs}\\
 COE, stocks & monthly premiums, daily prices (tested, not retained)\\
 Median rent & 13,305 quarterly values by town and flat type, 51.8\% missing\src{Be-anchor}\\
 \bottomrule
@@ -94,11 +86,19 @@ Approval date, COE premium and stock prices correlate strongly with rent over th
 \end{figure}
 
 \subsection{Location, categories and outliers}
-Once the benchmark is removed the numeric features correlate weakly with the residual ($|r|\le 0.12$), so the remainder is mostly block-level.\src{Be-weakcorr} Shuffling the seven target encodings (mostly block-level) raises out-of-time RMSE by 40.4, the largest effect of any feature group; the four location encodings alone account for 34.2.\src{Be-imp}
+Once the benchmark is removed the numeric features correlate weakly with the residual ($|r|\le 0.12$), so the remainder is mostly block-level.\src{Be-weakcorr} Shuffling the seven target encodings (mostly block-level) raises out-of-time RMSE by 40.4, the largest effect of any feature group; the four location encodings alone account for 34.2 (Fig.~\ref{fig:map}).\src{Be-imp}
 
 Lowercasing and normalising separators cuts \texttt{STREET} from 1,146 to 576 values and \texttt{FLAT\_TYPE} from 11 to 6.\src{Me-cat} Every test town, street, flat type and model occurs in training; 11 unseen block labels affect 36 of 50,000 test rows (0.072\%).\src{Me-cov} Without normalising address casing, 30,781 train rows (20.5\%) fail to join to the block table.\src{Be-join} Eleven blocks store $-1$ for maximum floor and year completed (159 train rows) and are imputed; one median entry (300 against about 3,000 elsewhere) is removed.\src{Be-sent,Be-bad}
 
-We keep every row. The IQR rule flags 130 floor areas and 752 rents,\src{Me-out} but only 0.11\% of rows are extreme relative to their benchmark. The highest rents are real adjoined flats and premium maisonettes, the lowest (\sgd 300--450) are 2-room flats that are probably subsidised or room rentals.\src{Be-out} Removing training tails also hurt RMSE at every level we tried (Section~\ref{sec:matter}).
+We keep every row. The IQR rule flags 130 floor areas and 752 rents (281 when judged within each flat type, as in Fig.~\ref{fig:box}),\src{Me-out} but only 0.11\% of rows are extreme relative to their benchmark. The highest rents are real adjoined flats and premium maisonettes, the lowest (\sgd 300--450) are 2-room flats that are probably subsidised or room rentals.\src{Be-out} Removing training tails also hurt RMSE at every level we tried (Section~\ref{sec:matter}).
+
+
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig_block_map.pdf}
+\caption{Rent of each HDB block compared with similar flats (same flat type, same month): orange is pricier, blue cheaper, light grey has too few rentals. The centre and south are pricier; the north and west are cheaper. Data: training rentals and HDB block coordinates.}\label{fig:map}
+\end{figure}
 
 \begin{figure}[t]
 \centering
@@ -169,6 +169,8 @@ where $\bar r_k$ is the mean residual of key $k$. The hierarchy is town ($M{=}30
 \subsection{Other features}
 Structural features (floor area, area per room, maximum floor, year completed, flat age) and distances to the nearest MRT station, mall, school and the CBD with counts within radii\src{Be-spatial} are common to all pipelines. In the V2 pipeline these are computed once per unique block with scikit-learn \texttt{BallTree} indexes under the Haversine metric: nearest distance and counts within 0.5, 1 and 2~km for MRT stations (all, operating, planned, multi-line interchange), malls and primary, secondary and top-tier schools, 20 features in all, including inverse-distance proximity scores.\src{Aa-ball} The R pipeline computes the same kinds of distances independently. The history pipeline adds a 24-month global rent lag and smoothed town $\times$ flat-type and block $\times$ flat-type means with counts; removing the property-level history raises RMSE by 4.388.\src{Pu-hist,Pu-hist-abl} The earlier single-LightGBM root pipeline adds an address-level trailing rent per square metre, which lowers its validation RMSE from 456.70 to 452.56.\src{Aa-addr} The AutoGluon pipeline adds nearest-place names.\src{Me-feat}
 
+Two ideas were dropped: planned stations (all 12 sit at existing stations) and monthly rental volume, which tracks the market level weakly ($-0.21$ in levels; $+0.18$ and $-0.22$ in monthly changes). The station file's ``open'' flag also covers lines still under construction (Cross Island, Jurong Region, Downtown extension, RTS Link); removing them lengthens the nearest-station distance of 17\% of blocks (mean 573 m). We kept them, since shuffling the MRT features costs only 1.4 RMSE.
+
 \section{Data Mining Methods}
 \subsection{Models}
 Tabular data with mixed numeric and high-cardinality categorical inputs and 150,000 rows suits boosted trees; trees remain strongest on medium-sized tabular data~\cite{grinsztajn}, and under time-based splits gradient-boosted trees and embedding MLPs rank best~\cite{tabred}. We use LightGBM~\cite{lightgbm}, XGBoost~\cite{xgboost} and CatBoost~\cite{catboost} (ordered target statistics), ridge regression, FT-Transformer~\cite{ftt}, TabTransformer~\cite{tabt}, MLPs, a Temporal Fusion Transformer~\cite{tft} for segment-level forecasts, neural gates and segmented models. The AutoGluon pipeline's AutoGluon-Tabular~\cite{autogluon} setup restricts its base models to LightGBM and CatBoost; AutoGluon's second-level weighted ensemble learns global blend weights, unlike the input-dependent neural gates tested separately, and is extended in later experiments with stacked residual layers. We also reproduced a delayed neural network for Singapore housing prices~\cite{wang2016}.\src{Me-families,Be-paper} Empirical-Bayes target encoding~\cite{micci} and its regularised, cross-fitted forms~\cite{pargent} are standard for high-cardinality keys; random-effects boosting~\cite{gpboost} is the likelihood-based counterpart, which we test in Section~\ref{sec:matter}.
@@ -180,6 +182,20 @@ Additional experiments were performed to automate the features selection process
 Two methods were tested: recursive feature elimination (RFE), 
 which repeatedly refitted the LightGBM--CatBoost ensemble before removing weak variables, and SHAP ranking followed by top-$k$ refits. 
  PCA and truncated SVD were also tested on the features to find lower dimensional components that could improve performance.\src{Me-fs-manual,Me-fs-auto,Me-dim}
+
+\begin{table}[t]
+\caption{Automated Feature-selection results on P1.\src{Me-fs-manual,Me-fs-auto}}\label{tab:feature-selection}
+\centering\footnotesize
+\begin{tabular}{@{}p{2.0cm}p{3.9cm}r@{}}
+\toprule
+Method & Selected / matched comparator & RMSE\\
+\midrule
+Manual subsets & Compact 13 / full 31 & 467.230 / 467.507\\
+RFE & All 36 / reduced 10 & 468.921 / 469.080\\
+SHAP top-$k$ & Top 18 & 467.841\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsection{Choice of baseline for the residual}
 A residual target only helps if the baseline carries the right level. Table~\ref{tab:base} compares baselines across pipelines. A national-level baseline, even an oracle one that knows the actual national average, is worse than the official town $\times$ flat-type median,\src{Be-two-stage} and the history pipeline's residual over a global 24-month lag collapses (CatBoost 662.5 against 464.2 for direct prediction) because the lag lacks town and flat-type detail.\src{Pu-lagres} An explicit trend-plus-residual network is likewise weaker than direct deep prediction (518.6 against 495.9).\src{Me-trendres} Predicting a ratio instead of a difference gave no gain (change $-0.02$).\src{Be-impr}
@@ -266,19 +282,7 @@ Automated reduction did not establish a stronger result. RFE retained all 36 can
 reducing to 10 produced 469.080. The SHAP top-18 subset scored 467.841. 
 PCA was not effective as it wasn't temporally stable as the first numeric component's target correlation fell from 0.654 in fitting to 0.306 in validation.\src{Me-fs-auto,Me-dim}
 
-\begin{table}[t]
-\caption{Automated Feature-selection results on P1.\src{Me-fs-manual,Me-fs-auto}}\label{tab:feature-selection}
-\centering\footnotesize
-\begin{tabular}{@{}p{2.0cm}p{3.9cm}r@{}}
-\toprule
-Method & Selected / matched comparator & RMSE\\
-\midrule
-Manual subsets & Compact 13 / full 31 & 467.230 / 467.507\\
-RFE & All 36 / reduced 10 & 468.921 / 469.080\\
-SHAP top-$k$ & Top 18 & 467.841\\
-\bottomrule
-\end{tabular}
-\end{table}
+
 
 \subsection{Alternative Modelling Approaches}
 Table~\ref{tab:alternatives} compares the alternate modeling approaches tested on the common P1 listing holdout.
@@ -481,6 +485,6 @@ Beina & R cleaning and EDA; in-fold hierarchical encodings; honest-anchor drift;
 \end{table}
 
 \section{Hyperparameters and reproduction}
-V2: LightGBM 1,200 trees, 75 leaves, learning rate 0.04, subsample 0.8, column sample 0.75; XGBoost depth 7; CatBoost 1,200 iterations, depth 7, learning rate 0.05; early stopping 40 rounds; five folds, seed 42.\src{Aa-v2hp} All code is in the project repository, \url{https://github.com/MeTuL10/KDDM-project}. The final model is reproduced end to end, from the raw files to \url{submission.csv}, by \url{main.py} with the code in \url{modules/}.\src{Aa-main} Experiment scripts: \url{exploration/Aayush/expt-2/src/models_v2.py} (V2), \url{exploration/Aayush/expt-5/src/honest_v2_submission.py} (honest anchor, with COE and stocks), \url{exploration/Aayush/expt-5/src/exp6_honest_anchor_validation.py} (Table~\ref{tab:honest}), \url{exploration/Aayush/expt-5/src/exp7_coe_stocks_ablation.py} and \url{exploration/Aayush/expt-5/src/exp8_macro_range_shift.py} (COE and stocks). History pipeline: \url{python3 -m punyaa.train}; R pipeline: \url{model_training.R}, \url{predict_test.R}; AutoGluon and alternate modelling pipelines: notebooks under \url{exploration/metul}.\src{Pu-repro,Be-scripts,Me-trace}
+{\raggedright V2: LightGBM 1,200 trees, 75 leaves, learning rate 0.04, subsample 0.8, column sample 0.75; XGBoost depth 7; CatBoost 1,200 iterations, depth 7, learning rate 0.05; early stopping 40 rounds; five folds, seed 42.\src{Aa-v2hp} All code is in the project repository, \url{https://github.com/MeTuL10/KDDM-project}. The final model is reproduced end to end, from the raw files to \url{submission.csv}, by \url{main.py} with the code in \url{modules/}.\src{Aa-main} Experiment scripts: \url{exploration/Aayush/expt-2/src/models_v2.py} (V2), \url{exploration/Aayush/expt-5/src/honest_v2_submission.py} (honest anchor, with COE and stocks), \url{exploration/Aayush/expt-5/src/exp6_honest_anchor_validation.py} (Table~\ref{tab:honest}), \url{exploration/Aayush/expt-5/src/exp7_coe_stocks_ablation.py} and \url{exploration/Aayush/expt-5/src/exp8_macro_range_shift.py} (COE and stocks). History pipeline: \texttt{python3 -m punyaa.train}, run from \texttt{exploration/punyaa}; R pipeline: \url{model_training.R}, \url{predict_test.R}; AutoGluon and alternate modelling pipelines: notebooks under \url{exploration/metul}.\src{Pu-repro,Be-scripts,Me-trace}\par}
 
 \end{document}
