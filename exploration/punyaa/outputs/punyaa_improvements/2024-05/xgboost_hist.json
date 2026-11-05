@@ -1,0 +1,39 @@
+{
+  "fingerprint": "10bc551a8e2d23f8d7d267267623c7a282f5171255e3be11c6d28ca28fc744e9",
+  "spec": {
+    "family": "xgboost",
+    "parameters": {
+      "objective": "reg:squarederror",
+      "eval_metric": "rmse",
+      "tree_method": "hist",
+      "enable_categorical": true,
+      "n_estimators": 2200,
+      "learning_rate": 0.035,
+      "max_depth": 7,
+      "min_child_weight": 30,
+      "reg_lambda": 10.0,
+      "reg_alpha": 1.0,
+      "subsample": 0.85,
+      "colsample_bytree": 0.8,
+      "max_bin": 256,
+      "max_cat_to_onehot": 4,
+      "max_cat_threshold": 64,
+      "random_state": 42,
+      "n_jobs": 6
+    }
+  },
+  "versions": {
+    "python": "3.14.2",
+    "lightgbm": "4.7.0",
+    "catboost": "1.2.10",
+    "xgboost": "3.4.1",
+    "sklearn": "1.8.0"
+  },
+  "best_iteration": 238,
+  "seconds": 2.936,
+  "metrics": {
+    "rmse": 477.34814769476543,
+    "mae": 347.1118492003487,
+    "bias_prediction_minus_actual": 11.13715210494795
+  }
+}

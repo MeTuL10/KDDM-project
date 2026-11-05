@@ -24,7 +24,7 @@ The initial implementation tested LightGBM and CatBoost both as direct rent pred
 
 The initial blend achieved MAE **335.000**. In this run, the old rent anchor was more useful as an input to a direct model than as the baseline for residual prediction. This finding motivated an updated direct ensemble rather than retaining the two weak residual components.
 
-Source: [`punyaa_validation_metrics.json`](../../outputs/punyaa_validation_metrics.json).
+Source: [`punyaa_validation_metrics.json`](../../exploration/punyaa/outputs/punyaa_validation_metrics.json).
 
 ## C. Updated model configuration
 
@@ -44,7 +44,7 @@ CatBoost uses RMSE loss, depth 8, learning rate 0.035, up to 1,600 iterations, L
 
 The blend minimizes validation squared error, normalized by target variance, with a small penalty of 0.002 toward equal weights. Weights sum to one and are bounded between zero and 0.85. A component can consequently be excluded without forcing its predictions into the submission.
 
-Source: [`punyaa/modeling.py`](../../punyaa/modeling.py).
+Source: [`punyaa/modeling.py`](../../exploration/punyaa/punyaa/modeling.py).
 
 ## D. Updated results on the common split
 
@@ -64,7 +64,7 @@ Weights are rounded, and the balanced model's numerical weight is effectively ze
 
 The blend assigns approximately 18.47% of its total weight to LightGBM and 81.53% to CatBoost. The weaker regularized LightGBM receives more weight than the detailed variant, showing that standalone RMSE and contribution to a blend can differ. This weighting is a validation-selected result, not proof of a causal improvement from any one hyperparameter or seed.
 
-Source: [`punyaa_v2_validation_metrics.json`](../../outputs/punyaa_v2_validation_metrics.json).
+Source: [`punyaa_v2_validation_metrics.json`](../../exploration/punyaa/outputs/punyaa_v2_validation_metrics.json).
 
 ## E. Rolling chronological LightGBM evaluation
 
@@ -81,13 +81,13 @@ The three LightGBM configurations were additionally evaluated over three six-mon
 
 The detailed variant had the lowest RMSE in every window. This supports its selection among the tested LightGBM candidates. The windows overlap, including part of the main validation period, and early stopping uses their labels. They provide a stability check across time rather than three independent final-test estimates. The summary is an unweighted mean of window RMSEs, not a pooled row-level RMSE.
 
-Sources: [`tune_lightgbm.py`](../../punyaa/tune_lightgbm.py) and [`punyaa_lightgbm_rolling_core_metrics.json`](../../outputs/punyaa_lightgbm_rolling_core_metrics.json).
+Sources: [`tune_lightgbm.py`](../../exploration/punyaa/punyaa/tune_lightgbm.py) and [`punyaa_lightgbm_rolling_core_metrics.json`](../../exploration/punyaa/outputs/punyaa_lightgbm_rolling_core_metrics.json).
 
 ## F. Kaggle submission and observed result
 
 After validation, the five components with weights above the implementation's numerical cutoff of `1e-8` were refitted on all **150,000 labelled rows**. Each used its selected iteration count increased by 5%, rounded down to an integer. Historical features were rebuilt from the full labelled reference while preserving the strict earlier-month rule for each test row.
 
-The final predictions were written to [`punyaa_v2_submission.csv`](../../outputs/punyaa_v2_submission.csv), with **50,000 rows**, zero-based sequential `Id` values, and the required `Id,Predicted` columns. Predictions are clipped to SGD 300–9,000 by the export code; the generated values were approximately SGD 1,670–5,376, so the export bounds did not bind. The file passed row-count, identifier, schema, and missing-value checks.
+The final predictions were written to [`punyaa_v2_submission.csv`](../../exploration/punyaa/outputs/punyaa_v2_submission.csv), with **50,000 rows**, zero-based sequential `Id` values, and the required `Id,Predicted` columns. Predictions are clipped to SGD 300–9,000 by the export code; the generated values were approximately SGD 1,670–5,376, so the export bounds did not bind. The file passed row-count, identifier, schema, and missing-value checks.
 
 Punyaa reported a **Kaggle public score of 434.81** after submitting this file. The leaderboard figure is not independently stored in the local metrics JSON, and no private-leaderboard result is available here.
 
@@ -95,7 +95,7 @@ The public score and the local RMSE of 463.155 evaluate different rows and time 
 
 ## G. Reproducibility and evidence
 
-Run the following from the repository root. The production training command reruns validation and then refits the selected ensemble for submission.
+Run the following from `exploration/punyaa/`. The production training command reruns validation and then refits the selected ensemble for submission.
 
 ```bash
 python3 -m unittest discover -s tests -p 'test_punyaa_*.py' -v
@@ -112,7 +112,7 @@ python3 -m punyaa.train \
 
 All **12 unit tests passed** during implementation. The tests check temporal feature isolation, category cleaning, fallback behaviour, history windows, blend constraints, and submission formatting. They complement the executed production and rolling evaluations; they do not establish statistical significance for the small validation gain.
 
-The principal artifacts are the [`feature builder`](../../punyaa/features.py), [`ensemble implementation`](../../punyaa/modeling.py), [`training command`](../../punyaa/train.py), [`initial metrics`](../../outputs/punyaa_validation_metrics.json), [`updated metrics`](../../outputs/punyaa_v2_validation_metrics.json), [`rolling metrics`](../../outputs/punyaa_lightgbm_rolling_core_metrics.json), and [`submission CSV`](../../outputs/punyaa_v2_submission.csv). Optional recent histories and official median-rent residual modelling are documented as experiments, not as contributors to the submitted result.
+The principal artifacts are the [`feature builder`](../../exploration/punyaa/punyaa/features.py), [`ensemble implementation`](../../exploration/punyaa/punyaa/modeling.py), [`training command`](../../exploration/punyaa/punyaa/train.py), [`initial metrics`](../../exploration/punyaa/outputs/punyaa_validation_metrics.json), [`updated metrics`](../../exploration/punyaa/outputs/punyaa_v2_validation_metrics.json), [`rolling metrics`](../../exploration/punyaa/outputs/punyaa_lightgbm_rolling_core_metrics.json), and [`submission CSV`](../../exploration/punyaa/outputs/punyaa_v2_submission.csv). Optional recent histories and official median-rent residual modelling are documented as experiments, not as contributors to the submitted result.
 
 ## H. Additional executed experiments
 

@@ -1,0 +1,32 @@
+{
+  "selection_period": "2024-05",
+  "selected_candidate": "lightgbm_rent_per_sqm",
+  "selected_weight": 0.1606570366490539,
+  "primary_rmse_reduction": 0.2487282991260713,
+  "month_block_bootstrap": {
+    "draws": 3000,
+    "seed": 5228,
+    "months": 11,
+    "percentile_95_interval_rmse_reduction": [
+      -0.0020082624895309043,
+      0.48568635775986313
+    ],
+    "note": "Exploratory paired resampling of validation months; ignores candidate-selection uncertainty and dependence between months. Not a significance claim."
+  },
+  "frozen_weight_check": {
+    "validation_start": "2024-10",
+    "rows": 17198,
+    "baseline": {
+      "rmse": 443.3036107125421,
+      "mae": 318.105111534296,
+      "bias_prediction_minus_actual": 0.6764466673578663
+    },
+    "candidate": {
+      "rmse": 443.26717365831627,
+      "mae": 318.3726999122099,
+      "bias_prediction_minus_actual": -2.0443365833623552
+    },
+    "rmse_reduction": 0.036437054225814336,
+    "note": "Blend weight frozen from primary run. Models are refitted at this later cutoff. Period overlaps the primary selection holdout and is not independent."
+  }
+}

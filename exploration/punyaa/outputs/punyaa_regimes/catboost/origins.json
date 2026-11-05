@@ -1,0 +1,76 @@
+{
+  "origins": [
+    {
+      "origin": "2022-01",
+      "window_end": "2022-12",
+      "fit_rows": 37619,
+      "validation_rows": 32564,
+      "market_change_pct": 30.02370630726279,
+      "fit_mean_rent": 2121.1427735984475,
+      "lag_missing_share_in_fit": 0.08317605465323374,
+      "true_index_drift": 0.25085670234288443,
+      "fit_tail_slope_per_month": 0.007108912654058417,
+      "noise": {
+        "rows": 32564,
+        "rows_with_twin": 8119,
+        "share_with_twin": 0.24932440732096794,
+        "groups": 3728,
+        "mean_group_size": 2.177843347639485,
+        "unbiased_noise_sd": 471.28601999156507,
+        "realized_lower_bound": 346.5891836162495,
+        "draws": 2000,
+        "seed": 5228,
+        "lower_95": 460.7785962092602,
+        "upper_95": 481.95444356895774
+      }
+    },
+    {
+      "origin": "2023-01",
+      "window_end": "2023-12",
+      "fit_rows": 70183,
+      "validation_rows": 35654,
+      "market_change_pct": 5.48882415594929,
+      "fit_mean_rent": 2308.0889959106908,
+      "lag_missing_share_in_fit": 0.044583446133679094,
+      "true_index_drift": 0.06448902971083648,
+      "fit_tail_slope_per_month": 0.024506676237916015,
+      "noise": {
+        "rows": 35654,
+        "rows_with_twin": 9524,
+        "share_with_twin": 0.2671229034610422,
+        "groups": 4317,
+        "mean_group_size": 2.206161686356266,
+        "unbiased_noise_sd": 588.4938098896182,
+        "realized_lower_bound": 435.1369812609597,
+        "draws": 2000,
+        "seed": 5228,
+        "lower_95": 577.2305042914978,
+        "upper_95": 599.8587007296574
+      }
+    },
+    {
+      "origin": "2024-01",
+      "window_end": "2024-12",
+      "fit_rows": 105837,
+      "validation_rows": 35239,
+      "market_change_pct": 2.0354135702491227,
+      "fit_mean_rent": 2553.272466150779,
+      "lag_missing_share_in_fit": 0.029564330054706767,
+      "true_index_drift": 0.020527597864314767,
+      "fit_tail_slope_per_month": -0.00022214419609479553,
+      "noise": {
+        "rows": 35239,
+        "rows_with_twin": 9845,
+        "share_with_twin": 0.279377961917194,
+        "groups": 4380,
+        "mean_group_size": 2.247716894977169,
+        "unbiased_noise_sd": 479.27963963729303,
+        "realized_lower_bound": 357.0887786874165,
+        "draws": 2000,
+        "seed": 5228,
+        "lower_95": 467.0817281735839,
+        "upper_95": 491.3032781699098
+      }
+    }
+  ]
+}

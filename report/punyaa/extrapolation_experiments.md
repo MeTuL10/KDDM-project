@@ -44,7 +44,7 @@ recorded **RMSE 468.2615** against the previously recorded 468.26152. That
 confirms the feature pipeline, split, and target vector are unchanged before any
 candidate is compared.
 
-The experiments live in [`punyaa/extrapolation.py`](../../punyaa/extrapolation.py)
+The experiments live in [`punyaa/extrapolation.py`](../../exploration/punyaa/punyaa/extrapolation.py)
 rather than in `improve.py`, because that module's checkpoint fingerprint hashes
 its own source: editing it would invalidate every cached v2 and v3 fit.
 
@@ -195,6 +195,6 @@ v2 component predictions in `outputs/punyaa_improvements/` and do not refit
 CatBoost.
 
 A latent defect was fixed in passing: `_nearest` in
-[`punyaa/features.py`](../../punyaa/features.py) multiplied a NumPy view
+[`punyaa/features.py`](../../exploration/punyaa/punyaa/features.py) multiplied a NumPy view
 returned by `to_numpy()` in place, which raises `ValueError: output array is
 read-only` on pandas 3.x. The fix requests a copy and changes no feature values.
