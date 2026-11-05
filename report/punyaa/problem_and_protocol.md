@@ -79,7 +79,7 @@ deterministic model, because every engineered feature is a function of those
 inputs and of the labelled history. The spread of rents inside such a group is
 error that no model of these inputs can remove. This gives a measurable reference
 for how far a model could still improve. The analysis is implemented in
-[`punyaa/noise_floor.py`](../../punyaa/noise_floor.py).
+[`punyaa/noise_floor.py`](../../exploration/punyaa/punyaa/noise_floor.py).
 
 Rows are grouped by all eight non-constant raw inputs: approval month, town,
 block, street, flat type, flat model, floor area, and lease commencement year.

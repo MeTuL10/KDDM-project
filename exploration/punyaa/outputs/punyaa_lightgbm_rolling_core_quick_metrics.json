@@ -1,0 +1,109 @@
+{
+  "quick": true,
+  "lag_months": 24,
+  "feature_profile": "core",
+  "windows": [
+    {
+      "validation_start": "2024-01",
+      "validation_end": "2024-06",
+      "fit_rows": 105837,
+      "validation_rows": 18179,
+      "component": "lightgbm_regularized",
+      "rmse": 522.017329510455,
+      "best_iteration": 94
+    },
+    {
+      "validation_start": "2024-01",
+      "validation_end": "2024-06",
+      "fit_rows": 105837,
+      "validation_rows": 18179,
+      "component": "lightgbm_balanced",
+      "rmse": 520.9941998821889,
+      "best_iteration": 49
+    },
+    {
+      "validation_start": "2024-01",
+      "validation_end": "2024-06",
+      "fit_rows": 105837,
+      "validation_rows": 18179,
+      "component": "lightgbm_detailed",
+      "rmse": 519.7361518736494,
+      "best_iteration": 54
+    },
+    {
+      "validation_start": "2024-05",
+      "validation_end": "2024-10",
+      "fit_rows": 117988,
+      "validation_rows": 17477,
+      "component": "lightgbm_regularized",
+      "rmse": 483.48987544338286,
+      "best_iteration": 158
+    },
+    {
+      "validation_start": "2024-05",
+      "validation_end": "2024-10",
+      "fit_rows": 117988,
+      "validation_rows": 17477,
+      "component": "lightgbm_balanced",
+      "rmse": 482.62524991153026,
+      "best_iteration": 100
+    },
+    {
+      "validation_start": "2024-05",
+      "validation_end": "2024-10",
+      "fit_rows": 117988,
+      "validation_rows": 17477,
+      "component": "lightgbm_detailed",
+      "rmse": 481.30256035645016,
+      "best_iteration": 97
+    },
+    {
+      "validation_start": "2024-10",
+      "validation_end": "2025-03",
+      "fit_rows": 132802,
+      "validation_rows": 17198,
+      "component": "lightgbm_regularized",
+      "rmse": 449.5795891384609,
+      "best_iteration": 209
+    },
+    {
+      "validation_start": "2024-10",
+      "validation_end": "2025-03",
+      "fit_rows": 132802,
+      "validation_rows": 17198,
+      "component": "lightgbm_balanced",
+      "rmse": 449.6790329090504,
+      "best_iteration": 127
+    },
+    {
+      "validation_start": "2024-10",
+      "validation_end": "2025-03",
+      "fit_rows": 132802,
+      "validation_rows": 17198,
+      "component": "lightgbm_detailed",
+      "rmse": 448.7848818494992,
+      "best_iteration": 166
+    }
+  ],
+  "summary": {
+    "lightgbm_detailed": {
+      "mean": 483.2745313598662,
+      "std": 35.5167169335611,
+      "min": 448.7848818494992,
+      "max": 519.7361518736494
+    },
+    "lightgbm_balanced": {
+      "mean": 484.43282756758987,
+      "std": 35.69192853907829,
+      "min": 449.6790329090504,
+      "max": 520.9941998821889
+    },
+    "lightgbm_regularized": {
+      "mean": 485.0289313640996,
+      "std": 36.24338667116289,
+      "min": 449.5795891384609,
+      "max": 522.017329510455
+    }
+  },
+  "selected_component": "lightgbm_detailed"
+}

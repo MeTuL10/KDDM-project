@@ -1,0 +1,27 @@
+{
+  "validation_start": "2024-05",
+  "validation_rows": 32012,
+  "quick": true,
+  "lag_months": 24,
+  "feature_profile": "core",
+  "rmse": 465.2945249180152,
+  "mae": 335.23446810050183,
+  "component_rmse": {
+    "lightgbm_regularized": 470.6215492134354,
+    "lightgbm_balanced": 469.9345181660167,
+    "lightgbm_detailed": 468.68205406898244,
+    "catboost_seed_42": 466.28545646902865
+  },
+  "weights": {
+    "lightgbm_regularized": 0.08213440824605782,
+    "lightgbm_balanced": 2.087089182034596e-18,
+    "lightgbm_detailed": 0.31556173895051537,
+    "catboost_seed_42": 0.6023038528034269
+  },
+  "best_iterations": {
+    "lightgbm_regularized": 212,
+    "lightgbm_balanced": 110,
+    "lightgbm_detailed": 106,
+    "catboost_seed_42": 240
+  }
+}

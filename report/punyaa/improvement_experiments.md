@@ -72,12 +72,12 @@ uses its labels for early stopping. The check supports only a small retrospectiv
 stability finding, not independent confirmation of generalization or a claim of
 statistical significance.
 
-Sources: [`later-period fits`](../../outputs/punyaa_improvements/2024-10/metrics.json)
-and the [`frozen-weight analysis`](../../outputs/punyaa_improvements/analysis.json).
+Sources: [`later-period fits`](../../exploration/punyaa/outputs/punyaa_improvements/2024-10/metrics.json)
+and the [`frozen-weight analysis`](../../exploration/punyaa/outputs/punyaa_improvements/analysis.json).
 
 ## F. Reported Kaggle result
 
-After submitting [`punyaa_v3_submission.csv`](../../outputs/punyaa_v3_submission.csv),
+After submitting [`punyaa_v3_submission.csv`](../../exploration/punyaa/outputs/punyaa_v3_submission.csv),
 Punyaa reported a Kaggle public score of **434.70**, compared with **434.81** for
 v2. The square-metre blend therefore achieved a reported public-score reduction
 of **0.11 RMSE**, alongside the local holdout reduction of 0.249 RMSE.
@@ -94,7 +94,7 @@ slightly worse for v3, as shown in Section D.
 
 ## G. Reproduction and artifacts
 
-Run these commands from the repository root:
+Run these commands from `exploration/punyaa/`:
 
 ```bash
 python3 -m unittest discover -s tests -p 'test_punyaa_*.py' -v
@@ -115,9 +115,9 @@ The runner records configurations, dependency versions, data/code fingerprints, 
 
 All 17 unit tests passed, including additional checks of calendar-based weight
 decay and constrained blending. The generated
-[`v3 candidate CSV`](../../outputs/punyaa_v3_submission.csv) passed row-count,
+[`v3 candidate CSV`](../../exploration/punyaa/outputs/punyaa_v3_submission.csv) passed row-count,
 schema, sequential-ID, finite-value, and prediction-bound checks; its hash and
 prediction range are recorded in the experiment metrics. The original v2 file's
 hash was unchanged.
 
-The main artifacts are the [`experiment runner`](../../punyaa/improve.py), [`diagnostic script`](../../punyaa/analyze_improvements.py), [`experiment metrics`](../../outputs/punyaa_improvements/2024-05/metrics.json), [`validation predictions`](../../outputs/punyaa_improvements/2024-05/validation_predictions.csv), [`segment diagnostics`](../../outputs/punyaa_improvements/2024-05/segment_diagnostics.csv), and [`uncertainty analysis`](../../outputs/punyaa_improvements/analysis.json). The original v2 submission and its reported Kaggle result remain a separate baseline. The user-reported v3 public score of 434.70 is documented in Section F rather than treated as a locally computed metric.
+The main artifacts are the [`experiment runner`](../../exploration/punyaa/punyaa/improve.py), [`diagnostic script`](../../exploration/punyaa/punyaa/analyze_improvements.py), [`experiment metrics`](../../exploration/punyaa/outputs/punyaa_improvements/2024-05/metrics.json), [`validation predictions`](../../exploration/punyaa/outputs/punyaa_improvements/2024-05/validation_predictions.csv), [`segment diagnostics`](../../exploration/punyaa/outputs/punyaa_improvements/2024-05/segment_diagnostics.csv), and [`uncertainty analysis`](../../exploration/punyaa/outputs/punyaa_improvements/analysis.json). The original v2 submission and its reported Kaggle result remain a separate baseline. The user-reported v3 public score of 434.70 is documented in Section F rather than treated as a locally computed metric.

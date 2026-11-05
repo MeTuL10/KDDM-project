@@ -134,6 +134,8 @@ Detail: [moving-market backtests](README.md#moving-market-backtests) in the READ
 
 ## D. Reproducing the results
 
+Run every command from `exploration/punyaa/`; it reads `../../data/` and writes to `outputs/`.
+
 | Result | Command | Output |
 | --- | --- | --- |
 | Unit tests (76) | `python3 -m unittest discover -s tests -p 'test_punyaa_*.py' -v` | console |

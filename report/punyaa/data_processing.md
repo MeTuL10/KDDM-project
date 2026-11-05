@@ -2,7 +2,7 @@
 
 ## A. Scope and evaluation protocol
 
-This section documents the feature pipeline implemented in [`punyaa/features.py`](../../punyaa/features.py). 
+This section documents the feature pipeline implemented in [`punyaa/features.py`](../../exploration/punyaa/punyaa/features.py). 
 
 The common chronological split contains 117,988 fitting rows before May 2024 and 32,012 validation rows from May 2024 onward. Validation history is calculated from the fitting partition only. Final test history uses the complete labelled training set, subject to the same strict calendar-month cutoff for each query row.
 
@@ -65,6 +65,6 @@ An optional loader also supports `data/auxiliary/sg-hdb-median-rent.csv`, normal
 
 ## F. Verification and evidence
 
-The implementation has 12 unit tests across [`test_punyaa_features.py`](../../tests/test_punyaa_features.py) and [`test_punyaa_modeling.py`](../../tests/test_punyaa_modeling.py). They cover category normalization, same-month exclusion, future-target independence, overlapping-month transformation, unseen-group fallback, calendar-window boundaries, optional benchmark preparation, blend constraints, model capacities, and submission schema. All 12 passed during implementation.
+The implementation has 12 unit tests across [`test_punyaa_features.py`](../../exploration/punyaa/tests/test_punyaa_features.py) and [`test_punyaa_modeling.py`](../../exploration/punyaa/tests/test_punyaa_modeling.py). They cover category normalization, same-month exclusion, future-target independence, overlapping-month transformation, unseen-group fallback, calendar-window boundaries, optional benchmark preparation, blend constraints, model capacities, and submission schema. All 12 passed during implementation.
 
-The main evidence is [`features.py`](../../punyaa/features.py), the [`training entry point`](../../punyaa/train.py), the [`core quick metrics`](../../outputs/punyaa_v2_core_quick_validation_metrics.json), and the [`expanded-history quick metrics`](../../outputs/punyaa_v2_quick_validation_metrics.json). Model performance and the final Kaggle result are discussed in [`model_experiments.md`](model_experiments.md).
+The main evidence is [`features.py`](../../exploration/punyaa/punyaa/features.py), the [`training entry point`](../../exploration/punyaa/punyaa/train.py), the [`core quick metrics`](../../exploration/punyaa/outputs/punyaa_v2_core_quick_validation_metrics.json), and the [`expanded-history quick metrics`](../../exploration/punyaa/outputs/punyaa_v2_quick_validation_metrics.json). Model performance and the final Kaggle result are discussed in [`model_experiments.md`](model_experiments.md).

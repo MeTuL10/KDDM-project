@@ -1,0 +1,29 @@
+{
+  "fingerprint": "10bc551a8e2d23f8d7d267267623c7a282f5171255e3be11c6d28ca28fc744e9",
+  "spec": {
+    "family": "gbm",
+    "parameters": {
+      "loss": "squared_error",
+      "n_estimators": 400,
+      "learning_rate": 0.05,
+      "max_depth": 3,
+      "min_samples_leaf": 30,
+      "subsample": 0.85,
+      "random_state": 42
+    }
+  },
+  "versions": {
+    "python": "3.14.2",
+    "lightgbm": "4.7.0",
+    "catboost": "1.2.10",
+    "xgboost": "3.4.1",
+    "sklearn": "1.8.0"
+  },
+  "best_iteration": 393,
+  "seconds": 61.91,
+  "metrics": {
+    "rmse": 470.33268482920585,
+    "mae": 337.86786134898415,
+    "bias_prediction_minus_actual": 49.63829569380514
+  }
+}

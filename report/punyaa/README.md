@@ -2,7 +2,7 @@
 
 This folder documents a leakage-safe pipeline for predicting HDB monthly rents,
 the sequence of experiments run on it, and what the evidence does and does not
-support. The implementation is in [`punyaa/`](../../punyaa/README.md) and is covered
+support. The implementation is in [`punyaa/`](../../exploration/punyaa/README.md) and is covered
 by 76 unit tests.
 
 ## Summary
@@ -104,7 +104,7 @@ repeat a level it has already seen. To test whether the pipeline copes when rent
 move, the evaluation was repeated at three earlier forecast origins. Each fits on
 every row before the origin and validates on the next twelve months, with the same
 features and the detailed LightGBM. The code is
-[`punyaa/market_regimes.py`](../../punyaa/market_regimes.py).
+[`punyaa/market_regimes.py`](../../exploration/punyaa/punyaa/market_regimes.py).
 
 | Origin | Fit rows | Mean-rent change, first to last month | Control RMSE | Control bias | Damped-index RMSE | Oracle-index RMSE | Twin-row noise SD |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |

@@ -1,0 +1,35 @@
+{
+  "fingerprint": "10bc551a8e2d23f8d7d267267623c7a282f5171255e3be11c6d28ca28fc744e9",
+  "spec": {
+    "family": "catboost",
+    "parameters": {
+      "loss_function": "RMSE",
+      "eval_metric": "RMSE",
+      "iterations": 1600,
+      "learning_rate": 0.035,
+      "depth": 8,
+      "l2_leaf_reg": 8.0,
+      "random_strength": 0.7,
+      "bagging_temperature": 0.5,
+      "allow_writing_files": false,
+      "thread_count": 6,
+      "verbose": false,
+      "random_seed": 42
+    },
+    "fixed_iterations": 1215
+  },
+  "versions": {
+    "python": "3.14.2",
+    "lightgbm": "4.7.0",
+    "catboost": "1.2.10",
+    "xgboost": "3.4.1",
+    "sklearn": "1.8.0"
+  },
+  "best_iteration": 1215,
+  "seconds": 41.017,
+  "metrics": {
+    "rmse": 464.1539116657464,
+    "mae": 335.8273622262305,
+    "bias_prediction_minus_actual": 15.250502113103268
+  }
+}
